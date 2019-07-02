@@ -13,3 +13,16 @@
  *= require_tree .
  *= require_self
  */
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+// ヘッダー
+body {
+  padding-top: 120px;
+}
+.navbar-default{
+  padding: 16px 0;
+}
+.my-img{
+  margin-bottom: 20px;
+}

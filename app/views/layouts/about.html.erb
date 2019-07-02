@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- titleあとで変更する -->
+    <title>3ヶ月目の課題</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <meta name="turbolinks-cache-control" content="no-cache">
+  </head>
+
+  <body>
+    <header>
+      <div class="col-lg-2">
+        <ul>
+          <% if admin_signed_in? %>
+            <li><%= link_to 'マイページ', top_path %></li>
+            <li><%= link_to 'monday', monday_path %></li>
+          <!-- あとで非同期で読み込むような設定に変更する。
+          非同期で読みその瞬間にサイドバーが消えてどこかをクリックするとまた元に戻るみたいな。 -->
+          <% elsif user_signed_in? %>
+          <li><%= link_to 'マイページ',user_path(current_user.id) %></li>
+          <li><%= link_to 'monday', monday_path %></li>
+          <% else %>
+            <li><%= link_to "ログイン", new_user_session_path %></li>
+            <li><%= link_to "新規登録", new_user_registration_path %></li>
+          <% end %>
+        </ul>
+      </div>
+    </header>
+  </body>
+</html>

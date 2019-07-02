@@ -1,15 +1,53 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Watakushigoto</title>
+    <!-- titleあとで変更する -->
+    <title>3ヶ月目の課題</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <meta name="turbolinks-cache-control" content="no-cache">
   </head>
 
   <body>
+    <header>
+      <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed"data-toggle="collapse"data-target="#navbarEexample8">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">
+              タイトルあとで入れる
+            </a>
+          </div>
+
+          <div class="collapse navbar-collapse" id="navbarEexample8">
+            <ul class="nav navbar-nav navbar-right">
+              <% if admin_signed_in? %>
+                <li><%= link_to 'マイページ', top_path %></li>
+                <li><%= link_to 'ログアウト', destroy_admin_session_path, method: :delete %></li>
+                <li><%= link_to 'ABOUT', about_path%></li>
+              <% elsif user_signed_in? %>
+              <li><%#= attachment_image_tag @user, :profile_image, :fill, 35, 35, format: 'jpeg', fallback: "no_image.jpg", size:'45x45', class: 'img-circle profile-thumb my-img' %></li>
+                <li><%= link_to 'マイページ',user_path(current_user.id) %></li>
+                <li><%= link_to 'ログアウト', destroy_admin_session_path, method: :delete %></li>
+                <li><%= link_to 'ABOUT', about_path%></li>
+              <% else %>
+                <li><%= link_to "ログイン", new_user_session_path %></li>
+                <li><%= link_to "新規登録", new_user_registration_path %></li>
+                <li><%= link_to 'ABOUT', about_path%></li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
     <%= yield %>
   </body>
 </html>

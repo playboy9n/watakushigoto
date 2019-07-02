@@ -1,0 +1,25 @@
+マイページだよ〜〜〜〜
+<!-- これはあれ名前をばばばばばばってだすばばばばばばっば -->
+<div class="container">
+  <div class="row">
+    <div class="col-lg-offset-4">
+    <%= attachment_image_tag @user, :profile_image, :fill, 200, 200, format: 'jpeg', fallback: "no_image.jpg", size:'200x200', class: 'img-circle profile-thumb my-img' %>
+      <p>ユーザーネーム:
+        <%= @user.user_name %></p>
+      <p>id:
+      <%= @user.nick_name %></p>
+      <p>BD:
+        <%= @user.bd %></p>
+      <p class='kana'><%= @user.k_family_name %><%= @user.k_my_name %></p>
+      <p>姓名:
+        <%= @user.family_name %><%= @user.my_name %></p>
+      <p>性別:
+        <%= @user.gender %></p>
+      <p>電話:
+        <%= @user.phone_number %></p>
+      <p>email
+        <%= @user.email %></p>
+        <%= link_to '編集', edit_user_path(@user.id) %>
+    </div>
+  </div>
+</div>

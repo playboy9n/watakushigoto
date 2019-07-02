@@ -1,0 +1,35 @@
+ユーザの編集ページだよ
+<div class="container">
+  <div class="row">
+    <%= attachment_image_tag @user, :profile_image, :fill, 200, 200, format: 'jpeg', fallback: "no_image.jpg", size:'200x200', class: 'img-circle profile-thumb my-img' %>
+      <%= form_for(@user) do |f| %>
+       <%= f.attachment_field :profile_image %>
+        <p>id:
+        <%=f.text_field :nick_name %></p>
+        <p>description</p>
+        <%= f.text_area :description %>
+        <p>性別
+          <label><%= f.radio_button :gender, "男" %> ♂ </label>
+          <label><%= f.radio_button :gender, "女" %>♀</label>
+          <label><%= f.radio_button :gender, "秘密" %>内緒</label></p>
+           <p>BD<%= f.text_field :bd %></p>
+        <p>--------------------------------------------------------</p>
+        <h3>非公開情報</h3>
+         <p class='kana'><%= f.text_field :k_family_name %><%= f.text_field :k_my_name %></p>
+        <p>姓名
+           <%= f.text_field :family_name %><%= f.text_field :my_name %></p>
+        <p>電話番号
+          <%= f.text_field :phone_number %></p>
+        <p>email
+          <%= f.text_field :email %></p>
+        <p>パスワード
+          <% if @minimum_password_length %>
+            <em>(<%= @minimum_password_length %> characters minimum)</em>
+          <% end %>
+            <%= f.password_field :password, autocomplete: "new-password" %>
+              パスワード確認
+            <%= f.password_field :password_confirmation, autocomplete: "new-password" %></p>
+            <%= f.submit '編集ok', class: "btn btn-info" %>
+      <% end %>
+  </div>
+</div>

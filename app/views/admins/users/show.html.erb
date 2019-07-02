@@ -1,0 +1,22 @@
+showだよ
+<div class="container">
+  <div class="row">
+    <div class="col-lg-offset-4">
+  <p>ユーザーネーム:
+    <%= @user.user_name %></p>
+  <p>id:
+  <%= @user.nick_name %></p>
+  <p class="kana"><%= @user.k_family_name %><%= @user.k_my_name %></p>
+  <p>姓名:
+    <%= @user.family_name %><%= @user.my_name %></p>
+  <p>性別:
+    <%= @user.gender %></p>
+  <p>電話:
+    <%= @user.phone_number %></p>
+  <p>email
+    <%= @user.email %></p>
+    </div>
+  </div>
+</div>
+
+<!-- idと名前の下に画像を入れるかもはや背景をそいつのアイコンにしてしまうかだなぁ -->
