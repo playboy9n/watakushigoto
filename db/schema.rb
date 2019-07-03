@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_30_112841) do
+ActiveRecord::Schema.define(version: 2019_07_03_045251) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -27,6 +27,54 @@ ActiveRecord::Schema.define(version: 2019_06_30_112841) do
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_admins_on_email", unique: true
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.integer "user_id"
+    t.string "comment_body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "diaries", force: :cascade do |t|
+    t.integer "user_id"
+    t.string "diary_title"
+    t.string "diary_body"
+    t.string "diary_image_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "exps", force: :cascade do |t|
+    t.integer "level"
+    t.integer "level_up"
+    t.integer "level_wall"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "likes", force: :cascade do |t|
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "points", force: :cascade do |t|
+    t.integer "point"
+    t.integer "point_up"
+    t.integer "point_wall"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "tasks", force: :cascade do |t|
+    t.integer "user_id"
+    t.string "state"
+    t.string "task_title"
+    t.string "task_body"
+    t.date "limit_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|

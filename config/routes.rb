@@ -15,7 +15,15 @@ Rails.application.routes.draw do
   root 'users#index'
   get '/top' => 'admins/top#top'
   get '/about' => 'about#top'
+  get '/saturday' =>  'about#saturday'
   get '/monday' => 'about#monday'
+  get '/tuesday' => 'about#tuesday'
+  get '/wednesday' => 'about#wednesday'
+  get '/thursday' =>  'about#thursday'
+  get '/friday' => 'about#friday'
+
+  post 'tasks/:id' => 'tasks#update'
+  delete 'tasks_:id' => 'tasks#destroy'
 
   namespace :admins do
     resources :users, only: [:index, :show, :edit, :update]

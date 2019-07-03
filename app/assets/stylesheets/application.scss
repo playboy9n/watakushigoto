@@ -16,10 +16,24 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a{
+  text-decoration:none;
+}
+li{
+  list-style-type :none;
+}
+
 // ヘッダー
-body {
+.head-body {
   padding-top: 120px;
 }
+
 .navbar-default{
   padding: 16px 0;
 }

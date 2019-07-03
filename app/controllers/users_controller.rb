@@ -1,11 +1,22 @@
 class UsersController < ApplicationController
 before_action :authenticate_user!
+  def calendar
+    respond_to do |format|
+      # format.html {render :layout => false}
+      # ↑これをするとApplicationのレイアウトが使われなくならないか？
+      # それは困るのだが。。。謎すぎるでござす。。
+      format.js  {render :layout => false}
+    end
+  end
+
   def index
     @user = User.all
   end
 
   def show
     @user = User.find(params[:id])
+    @task = Task.new
+    @tasks = Task.order('created_at ASC')
   end
 
    def edit

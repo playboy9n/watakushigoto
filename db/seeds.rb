@@ -29,3 +29,4 @@ admin.save!
     password: rand(1000000..9999999))
 
 end
+
