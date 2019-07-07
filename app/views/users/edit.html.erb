@@ -12,7 +12,7 @@
           <label><%= f.radio_button :gender, "男" %> ♂ </label>
           <label><%= f.radio_button :gender, "女" %>♀</label>
           <label><%= f.radio_button :gender, "秘密" %>内緒</label></p>
-           <p>BD<%= f.text_field :bd %></p>
+           <p>BD<%= f.date_field :bd %></p>
         <p>--------------------------------------------------------</p>
         <h3>非公開情報</h3>
          <p class='kana'><%= f.text_field :k_family_name %><%= f.text_field :k_my_name %></p>

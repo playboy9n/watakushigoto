@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :events
 # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   devise_for :admins, controllers: {
   sessions:      'admins/sessions',
@@ -12,7 +13,7 @@ Rails.application.routes.draw do
 }
 
   resources :users, except: [:index]
-  root 'users#index'
+  root 'users#show'
   get '/top' => 'admins/top#top'
   get '/about' => 'about#top'
   get '/saturday' =>  'about#saturday'
@@ -22,10 +23,19 @@ Rails.application.routes.draw do
   get '/thursday' =>  'about#thursday'
   get '/friday' => 'about#friday'
 
-  post 'tasks/:id' => 'tasks#update'
-  delete 'tasks_:id' => 'tasks#destroy'
+
+  get '/tasks' => 'tasks#show'
+  get '/task' =>'tasks#edit'
+  post '/tasks' => 'tasks#create'
+  patch '/tasks' => 'tasks#update'
+  delete '/tasks' => 'tasks#destroy'
+
+  resources :events
+ # get to: 'calendar#index'
+ #  get 'calendar/index'
+ #  get 'events', to: 'event#events'
 
   namespace :admins do
-    resources :users, only: [:index, :show, :edit, :update]
+    resources :users, only: [:index, :edit, :update]
   end
 end

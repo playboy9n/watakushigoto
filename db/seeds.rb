@@ -19,14 +19,15 @@ admin.save!
     user_name = Faker::Games::Pokemon.name
     email = Faker::Internet.email
 
-  User.create!(nick_name: nick_name,
+  User.create!(nick_name: 'nick_name',
     user_name: user_name,
     family_name: '佐野',
     my_name: '浩一',
-    k_family_name: 'サノ',
-    k_my_name: 'コウイチ',
+    k_family_name: 'ｻﾉ',
+    k_my_name: 'ｺｳｲﾁ',
     email: email,
-    password: rand(1000000..9999999))
+    password: rand(1000000..9999999),
+    bd: '20190501')
 
 end
 

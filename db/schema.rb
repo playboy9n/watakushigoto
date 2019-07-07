@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_03_045251) do
+ActiveRecord::Schema.define(version: 2019_07_04_171758) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -40,7 +40,16 @@ ActiveRecord::Schema.define(version: 2019_07_03_045251) do
     t.integer "user_id"
     t.string "diary_title"
     t.string "diary_body"
-    t.string "diary_image_id"
+    t.text "diary_image_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "events", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.datetime "start_date"
+    t.datetime "end_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -70,9 +79,9 @@ ActiveRecord::Schema.define(version: 2019_07_03_045251) do
   create_table "tasks", force: :cascade do |t|
     t.integer "user_id"
     t.string "state"
-    t.string "task_title"
     t.string "task_body"
     t.date "limit_date"
+    t.boolean "done", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -97,9 +106,9 @@ ActiveRecord::Schema.define(version: 2019_07_03_045251) do
     t.string "gender"
     t.date "bd"
     t.string "phone_number"
-    t.string "profile_image_id"
+    t.text "profile_image_id"
     t.string "description"
-    t.boolean "decline"
+    t.boolean "decline", default: false, null: false
     t.datetime "decline_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

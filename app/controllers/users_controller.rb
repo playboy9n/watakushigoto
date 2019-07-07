@@ -14,9 +14,9 @@ before_action :authenticate_user!
   end
 
   def show
-    @user = User.find(params[:id])
+    @user = User.find(current_user.id)
     @task = Task.new
-    @tasks = Task.order('created_at ASC')
+    @tasks = Task.order(created_at: :asc)
   end
 
    def edit
@@ -35,6 +35,6 @@ before_action :authenticate_user!
 
 private
   def users_params
-    params.require(:user).permit(:nick_name, :user_name, :email, :family_name, :my_name, :k_family_name, :k_my_name, :gender, :phone_number,:profile_image)
+    params.require(:user).permit(:nick_name, :user_name, :email, :family_name, :my_name, :k_family_name, :k_my_name, :gender, :phone_number,:profile_image,:bd)
   end
 end

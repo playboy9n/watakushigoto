@@ -27,7 +27,7 @@
               <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand" href="#">
-              タイトルあとで入れる
+              タイトルあとで入れるよ！な！
             </a>
           </div>
 
@@ -38,7 +38,7 @@
                 <li><%= link_to 'ログアウト', destroy_admin_session_path, method: :delete %></li>
                 <li><%= link_to 'ABOUT', about_path%></li>
               <% elsif user_signed_in? %>
-              <li><%#= attachment_image_tag @user, :profile_image, :fill, 35, 35, format: 'jpeg', fallback: "no_image.jpg", size:'45x45', class: 'img-circle profile-thumb my-img' %></li>
+              <li><%= attachment_image_tag @user, :profile_image, :fill, 35, 35, format: 'jpeg', fallback: "no_image.jpg", size:'45x45', class: 'img-circle profile-thumb my-img' %></li>
                 <li><%= link_to 'マイページ',user_path(current_user.id) %></li>
                 <li><%= link_to 'ログアウト', destroy_admin_session_path, method: :delete %></li>
                 <li><%= link_to 'ABOUT', about_path%></li>
@@ -53,6 +53,11 @@
       </nav>
 
     </header>
+    <% if flash[:notice] %>
+      <div class="notice">
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
     <%= yield %>
   </body>
 
