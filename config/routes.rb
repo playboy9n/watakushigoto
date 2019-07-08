@@ -23,19 +23,20 @@ Rails.application.routes.draw do
   get '/thursday' =>  'about#thursday'
   get '/friday' => 'about#friday'
 
-
-  get '/tasks' => 'tasks#show'
-  get '/task' =>'tasks#edit'
-  post '/tasks' => 'tasks#create'
-  patch '/tasks' => 'tasks#update'
-  delete '/tasks' => 'tasks#destroy'
+resources :tasks
+  # get '/tasks' => 'tasks#show'
+  # get '/task' =>'tasks#edit'
+  # post '/tasks' => 'tasks#create'
+  # patch '/tasks' => 'tasks#update'
+  # delete '/tasks' => 'tasks#destroy'
 
   resources :events
  # get to: 'calendar#index'
  #  get 'calendar/index'
  #  get 'events', to: 'event#events'
-
   namespace :admins do
-    resources :users, only: [:index, :edit, :update]
+    resources :users, only: [:index, :edit, :show, :update]
+    patch '/:id/decline' => 'users#decline', as:'user_decline'
   end
+    get '/decline' => 'admins#decline_index'
 end

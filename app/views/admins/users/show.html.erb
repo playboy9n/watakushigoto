@@ -15,6 +15,12 @@ showだよ
     <%= @user.phone_number %></p>
   <p>email
     <%= @user.email %></p>
+    <%= link_to '編集', edit_admins_user_path(@user) %>
+  <% if @user.decline == false %>
+    <%= link_to '削除', admins_user_decline_path(@user), method: :patch, "data-confirm" => "本当に#{@user.user_name}さんを退会させる？" %>
+  <% else %>
+   <%= link_to '再開', admins_user_decline_path(@user), method: :patch, "data-confirm" => "本当に#{@user.user_name}さんを再開させるの？"  %>
+  <% end %>
     </div>
   </div>
 </div>

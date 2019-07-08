@@ -15,7 +15,11 @@
       <div class="col-lg-2 about-side">
         <ul>
           <% if admin_signed_in? || user_signed_in? %>
-            <li><%= link_to 'マイページ',user_path(current_user.id) %></li>
+              <% if user_signed_in? %>
+                <li><%= link_to 'マイページ',user_path(current_user.id) %></li>
+              <% elsif admin_signed_in? %>
+                <li><%= link_to 'マイページ', top_path %></li>
+              <% end %>
             <li><%= link_to 'saturday',saturday_path %></li>
             <li><%= link_to 'monday', monday_path %></li>
             <li><%= link_to 'tuesday', tuesday_path %></li>

@@ -13,7 +13,7 @@ class TasksController < ApplicationController
         format.json { render json: @task}
       end
     else
-      render :json, alert: 'Todoを入力してください'
+      render :json, alert: 'taskを入力してください'
     end
   end
 
@@ -22,28 +22,39 @@ class TasksController < ApplicationController
   end
 
   def update
-    @task = Task.find(current_user.id)
-    if user.update(task_params)
-      flash[:notice]='タスクを更新！'
-        # respond_to do |foromat|
-        #   format.html { redirect_to :show }
-        #   format.json { render json: @task }
-        # end
+    @task = Task.find_by(id: params[:id])
+    if @task.update(task_update_params)
+       respond_to do |format|
+        format.html { redirect_to user_path(current_user.id) }
+        format.json { render json: @task}
+      end
     else
-      render :show
+      render :json
     end
   end
 
   def destroy
-    @task = Task.find(params[:id])
-    @task.destroy
+    p params
+    @task = Task.find_by(id: params[:id])
+    if @task.destroy
     redirect_to user_path(current_user.id)
+      # respond_to do |format|
+      #   render "show"
+      #    format.html { redirect_to user_path(current_user.id) }
+      #    format.json { render :json}
+      # end
+    else
+    render :json
+    end
   end
 
   private
   def task_params
     params.require(:task).permit(:state,:task_body,:limit_date)
     # .merge(user_id: current_user.id)
-
   end
+  def task_update_params
+    params.require(:task).permit(:done)
+  end
+
 end

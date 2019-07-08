@@ -1,13 +1,13 @@
 class UsersController < ApplicationController
-before_action :authenticate_user!
-  def calendar
-    respond_to do |format|
-      # format.html {render :layout => false}
-      # ↑これをするとApplicationのレイアウトが使われなくならないか？
-      # それは困るのだが。。。謎すぎるでござす。。
-      format.js  {render :layout => false}
-    end
-  end
+before_action :authenticate_user!,except: [:update]
+  # def calendar
+  #   # respond_to do |format|
+  #   #   # format.html {render :layout => false}
+  #   #   # ↑これをするとApplicationのレイアウトが使われなくならないか？
+  #   #   # それは困るのだが。。。謎すぎるでござす。。
+  #   #   format.js  {render :layout => false}
+  #   end
+  # end
 
   def index
     @user = User.all
@@ -24,12 +24,20 @@ before_action :authenticate_user!
   end
   def update
     @user = User.find(params[:id])
-    if @user.update(users_params)
-      flash[:notice] = "#{@user.user_name}さんをupdate!"
-      sign_in(@user, bypass: true) if current_user.id == @user.id
-      redirect_to user_path(@user.id)
+    if admin_signed_in? || @user.id == current_user.id
+      if @user.update(users_params)
+        flash[:notice] = "#{@user.user_name}さんをupdate!"
+        if admin_signed_in?
+          redirect_to admins_user_path(@user.id)
+        else
+          sign_in(@user, bypass: true) if current_user.id == @user.id
+          redirect_to user_path(@user.id)
+        end
+      else
+        render :edit
+      end
     else
-      render :edit
+        redirect_to user_path(@user.id)
     end
   end
 

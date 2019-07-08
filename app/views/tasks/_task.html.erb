@@ -1,4 +1,13 @@
-<li class="task" id=<%= task.id %> ><%= task.task_body %></li>
-<%if :done === false %>
-  <%= task.done %>
+<% if task.done === true%>
+    <li class="task blue" id=<%= task.id %>>
+    <%= task.task_body %>
+    <span class="x-button">x</span>
+    </li>
+<% else %>
+  <li class="task" id=<%= task.id %>>
+    <%= task.task_body %>
+    <span class="x-button">x</span>
+  </li>
+
 <% end %>
+
