@@ -1,13 +1,7 @@
 class UsersController < ApplicationController
 before_action :authenticate_user!,except: [:update]
-  # def calendar
-  #   # respond_to do |format|
-  #   #   # format.html {render :layout => false}
-  #   #   # ↑これをするとApplicationのレイアウトが使われなくならないか？
-  #   #   # それは困るのだが。。。謎すぎるでござす。。
-  #   #   format.js  {render :layout => false}
-  #   end
-  # end
+  def calendar
+  end
 
   def index
     @user = User.all
@@ -16,7 +10,8 @@ before_action :authenticate_user!,except: [:update]
   def show
     @user = User.find(current_user.id)
     @task = Task.new
-    @tasks = Task.order(created_at: :asc)
+    # @tasks = Task.order(created_at: :asc)
+    @tasks = Task.where(user_id: current_user.id).order(created_at: :asc)
   end
 
    def edit
@@ -43,6 +38,6 @@ before_action :authenticate_user!,except: [:update]
 
 private
   def users_params
-    params.require(:user).permit(:nick_name, :user_name, :email, :family_name, :my_name, :k_family_name, :k_my_name, :gender, :phone_number,:profile_image,:bd)
+    params.require(:user).permit(:nick_name, :user_name, :email, :family_name, :my_name, :k_family_name, :k_my_name, :gender, :phone_number,:profile_image,:bd, :description)
   end
 end

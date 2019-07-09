@@ -1,3 +1,4 @@
+$(document).on('turbolinks:load', function(){
 $(function() {
 "use strict";
   function buildHTML(task) {
@@ -32,10 +33,9 @@ $(function() {
 
         $(".form__submit").attr("disabled", false); //これでボタンをもう一度押せるようにしてる
         var button = $(`<a href="" class="done-button" data-id=${data.id}>`).append('done');
-        // var x_btn  = $(`<a href="" class="x-button">`).append('x');
-        // var x_btn  = $(`<a href="" class="x-button"data-id=${data.id}>`).append('x');
+        // var button = $(`<a href="" class="done-button" data-id=${data.id}>`).addClass('x-button');
         // $('.task').append(button);
-        // ↑にlastをつけることで最後の要素にdoneを追加している。
+        // .lastをつけることで最後の要素にdoneを追加している。
         $('.task').last().append(button);
         textField.val('');
       })
@@ -48,7 +48,7 @@ $(function() {
 
   $(document).on('click', '.done-button', function(e) {
     e.preventDefault();  //aタグのリンクを中止
-    // $(this).remove();  //doneボタン削す
+    $(this).remove();  //doneボタン削す
     var id = $(this).data('id');  //セットしたtask.idを取り出す
     $(`#${id}`).addClass('blue');  //青色に変更
     // doneの処理
@@ -68,7 +68,6 @@ $(function() {
 
 
   $('.x-button').click(function(e){
-    console.log('aaa');
     e.preventDefault();
     var id = $(this).parent().attr('id'); //親要素のidをとった
     console.log(id);
@@ -77,7 +76,7 @@ $(function() {
           type: 'DELETE',
           url: '/tasks/'+ id, //この書き方でid渡せる
           data: {
-              id: id,
+              id: id, //消すだけだからidだけ渡せればいい
           }
         })
 
@@ -86,4 +85,5 @@ $(function() {
       });
 
     });
+  });
 });

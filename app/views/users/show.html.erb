@@ -7,6 +7,8 @@
     <%= attachment_image_tag @user, :profile_image, :fill, 200, 200, format: 'jpeg', fallback: "no_image.jpg", size:'200x200', class: 'img-circle profile-thumb my-img' %>
       <p>ユーザーネーム:
         <%= @user.user_name %></p>
+       <p>description:
+        <%= @user.description %></p>
       <p>id:
       <%= @user.nick_name %></p>
       <p>lv:
@@ -39,161 +41,22 @@
 </div>
 
 
-  <h1>予定</h1>
-
-     <div id="content" class="container-fluid">
-          <div class="panel">
-            <div class="panel-heading">
-                      スケジュール表
-            </div>
-
-
-
+<div id="calendarModal" class="m_fade">
+  <div class="modal-dialog modal-dialog-center">
+    <div class="modal-content">
+      <div class="modal-header">
+      <h1>予定</h1>
+       <p>スケジュール表</p>
+        <button type="button" class="close" data-dismiss="modal">
+          <span aria-hidden="true">x</span>
+          <span class="sr-only">close！</span>
+        </button>
+        <span id="m_title" class="modal-title"></span>
+      </div>
+      <div id="m_body" class="modal-body"></div>
+      <div id="m_foot" class="modal-footer"></div>
+    </div>
+  </div>
+</div>
 
 <div id="calendar"></div>
-
-        </div>
-    </div>
-
- <script>
-  'use strict';
-  $(document).on('turbolinks:load', function(){
-    var calendarEl = document.getElementById('calendar');
-
-    $('#calendar').fullCalendar({
-      events: '/events.json',
-      //年月で表示
-      titleFormat: 'YYYY年 M月',
-      //曜日を日本語表示
-      dayNamesShort: ['日', '月', '火', '水', '木', '金', '土'],
-      header: {
-          right: 'month,agendaWeek,agendaDay,listMonth, today prev,next ',
-          center: 'title',
-          left: 'addEventSource'
-          // このlistのとこに達成したタスクかけたらいいな？
-        },
-         //終了時刻がないイベントの表示間隔
-        defaultTimedEventDuration: '03:00:00',
-        buttonText: {
-            prev: '前',
-            next: '次',
-            prevYear: '前年',
-            nextYear: '翌年',
-            today: '今日',
-            month: '月',
-            week: '週',
-            day: '日'
-        },
-
-        //イベントの時間表示 24h
-        timeFormat: "HH:mm",
-        timezone: 'Asia/Tokyo',
-        //イベントの色を変える
-        eventColor: '#63ceef',
-         eventLimit: true, // イベント増えた時にリンクボタン表示
-        //イベントの文字色
-        eventTextColor: '#000000',
-        editable: true, // 編集可能設定
-        slotEventOverlap: true,
-
-        // aditable: true,
-        minTime: "00:00:00",
-        maxTime: "24:00:00",
-        eventLimit: true,
-        editable: true,
-        slotEventOverlap: true,
-         slotLabelFormat:"HH:mm",
-        selectable: true,// カレンダー空白部分のドラッグおk
-        selectHelper: true, // これをtrueにすると範囲設定できます
-        selectMinDistance: 1,
-
-
-dayClick: function(date, allDay, jsEvent, view) {
- 
-var title = prompt('予定を入力してください:');
- 
-$('#calendar').fullCalendar('addEventSource', [{
-id: date,      //datexが持つ日付
-title: title,
-start: date,　//日付
-// allDay: allDay
-}]);
- 
-},
-
-
-        // eventCalendar: function () {
-        // return $('#calendar').fullCalendar({});
-        // },
-        // clearCalendar: function() {
-        // $('#calendar').html('');
-        // },
-
-
-
-// events: function(start, end, timezone, callback) {
-//      // ページロード時に表示するカレンダーデータ取得イベント
-// },
-
-//つんだ
-
-eventClick: function(event) {
-//カレンダーに設定したイベントクリック時のイベントを追加する
-//console.dir(event); 中身チェック。
-var title = prompt('予定を更新してください:');
-
-// if(title &amp;&amp; title!=""){
-event.title = title;
-//予定修正
-$('#calendar').fullCalendar('updateEvent', event);
-// }else{
-//idを指定して予定を削除。
-$('#calendar').fullCalendar("removeEvents", event.id);
-},
-
-
-
-
-
-
-                 dayClick: function(date, jsEvent, view) {
-                    // カレンダー空白部分クリック時のイベント
-                    alert(date.format());
-                 },
-                 select: function(start, end) {
-                    // カレンダー空白部分をドラッグして範囲指定した時のイベント
-                    var pro = prompt('こっからデータ送れたら楽な気もするな？？');
-                    alert(pro);
-                 },
-                 eventDrop: function(event, delta, revertFunc, jsEvent, ui, view) {
-                    // イベントをドラッグして別日に移動させた時のイベントまずイベント追加できねぇからしらねぇ！なんや！
-
-                        alert("あああ");
-                 }
-
-            });
-
-
-
-
-
-            // 保存ボタンを押した時のイベント
-            $( "#btn_save" ).click(function() {
-                // 入力情報の取得
-                var v_event_name=$("#dialog-form input#event_name").val();
-                var v_event_day_from=$("#dialog-form input#event_day_from").val();
-
-                $("#calendar").fullCalendar('addEventSource', [{
-                    title: v_event_name,
-                    start: v_event_day_from,
-                }]);
-
-                $("#dialog-form").modal('hide');
-
-            });
-        });
-
-
-
-
- </script>

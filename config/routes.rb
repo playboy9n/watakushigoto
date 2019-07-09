@@ -12,6 +12,13 @@ Rails.application.routes.draw do
   registrations: 'users/registrations'
 }
 
+#APIを使う
+ # namespace :api, { format: 'json' } do
+ #  namespace :v1 do
+    resources :events
+  # end
+  # end
+
   resources :users, except: [:index]
   root 'users#show'
   get '/top' => 'admins/top#top'
@@ -24,19 +31,10 @@ Rails.application.routes.draw do
   get '/friday' => 'about#friday'
 
 resources :tasks
-  # get '/tasks' => 'tasks#show'
-  # get '/task' =>'tasks#edit'
-  # post '/tasks' => 'tasks#create'
-  # patch '/tasks' => 'tasks#update'
-  # delete '/tasks' => 'tasks#destroy'
 
-  resources :events
- # get to: 'calendar#index'
- #  get 'calendar/index'
- #  get 'events', to: 'event#events'
   namespace :admins do
     resources :users, only: [:index, :edit, :show, :update]
     patch '/:id/decline' => 'users#decline', as:'user_decline'
+    get '/decline' => 'users#decline_index'
   end
-    get '/decline' => 'admins#decline_index'
 end

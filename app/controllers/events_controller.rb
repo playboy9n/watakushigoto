@@ -16,12 +16,23 @@ def events
   # GET /events
   # GET /events.json
   def index
-    @events = Event.all
+   @events  = Event.all
+    respond_to do |format|
+      format.html
+      format.xml { render :xml => @events }
+      format.json { render :json  =>  @events }
+    end
   end
 
   # GET /events/1
   # GET /events/1.json
   def show
+    @events  = Event.all
+    respond_to do |format|
+      format.html
+      format.xml { render :xml => @events }
+      format.json { render :json  =>  @events }
+    end
   end
 
   # GET /events/new
@@ -81,6 +92,15 @@ def events
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
-      params.require(:event).permit(:title, :description, :start_date, :end_date)
+      params.require(:event).permit(
+        :user_id,
+        :title,
+        :event_body,
+        :start_time,
+        :end_time,
+        :start_date,
+        :end_date,
+        :color,
+        :allday)
     end
 end

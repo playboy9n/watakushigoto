@@ -46,10 +46,15 @@ ActiveRecord::Schema.define(version: 2019_07_04_171758) do
   end
 
   create_table "events", force: :cascade do |t|
+    t.integer "user_id"
     t.string "title"
-    t.text "description"
+    t.text "event_body"
+    t.datetime "start_time"
+    t.datetime "end_time"
     t.datetime "start_date"
     t.datetime "end_date"
+    t.string "color"
+    t.boolean "allday"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

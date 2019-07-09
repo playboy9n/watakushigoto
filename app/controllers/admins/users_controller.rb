@@ -53,6 +53,6 @@ class Admins::UsersController < ApplicationController
 
   private
   def users_params
-    params.require(:user).permit(:user_id, :nick_name, :user_name, :email, :family_name, :my_name, :k_family_name, :k_my_name, :gender, :phone_number,:profile_image,:bd)
+    params.require(:user).permit(:user_id, :nick_name, :user_name, :email, :family_name, :my_name, :k_family_name, :k_my_name, :gender, :phone_number,:profile_image,:bd,:description)
   end
 end

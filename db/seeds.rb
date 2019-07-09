@@ -9,7 +9,7 @@
 # 管理者登録情報
 # (gitに公開するのはとてもまずいのでこれはのちに変えるか消すかする
 # もしくはデプロイ環境でアドミンが作れるならばそこで作成する。知らんけど)
-admin = Admin.new(:email => 'sano@sano.com', :password=> 'hogehoge')
+admin = Admin.new(:email => 'sano@gmail.com', :password=> 'hugahuga')
 admin.save!
 
 #ユーザー
