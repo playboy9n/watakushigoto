@@ -80,13 +80,13 @@ $(document).on('turbolinks:load', function(){
           id: date,      //datexが持つ日付
           title: title,
           start: date,　//日付
-          allDay: true, //これ何かよくわかってないあとで調べる
+          // allDay: true, //これ何かよくわかってないあとで調べる
           }]);
            
         },
 
       select: function(start, end) {
-        // カレンダー空白部分をドラッグして範囲指定した時のイベント
+       // カレンダー空白部分をドラッグして範囲指定した時のイベント
         var pro = prompt('へーーーい！');
         alert(pro);
       },
@@ -97,7 +97,7 @@ $(document).on('turbolinks:load', function(){
 
       });
 
-          // 保存ボタンを押した時のイベント
+       // 保存ボタンを押した時のイベント
       $( "#btn_save" ).click(function() {
       // 入力情報の取得
       var v_event_name=$("#dialog-form input#event_name").val();
@@ -111,4 +111,29 @@ $(document).on('turbolinks:load', function(){
         $("#dialog-form").modal('hide');
 
         });
+
+        // 機能しておらんな！！悲しい！！！！！↓
+      $('.button_x').click(function(e){
+        e.preventDefault();
+        var id = $(this).perent().attr('id');
+        console.log(id);
+
+        $.ajax({
+          type: 'DLETE',
+          url: '/events/'+ id,
+          data: {
+            id: id,
+          }
+        })
+        .fail(function(data){
+          alert('error!')
+        });
+      });
+
+
+
+
+
+
+
 });

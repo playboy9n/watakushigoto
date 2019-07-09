@@ -1,15 +1,13 @@
 
-<%# if @user.id == current_user.id%>
-    <% if task.done === true%>
-        <li class="task blue" id=<%= task.id %>>
-        <%= task.task_body %>
-        <span class="x-button">x</span>
-        </li>
-    <% else %>
-      <li class="task" id=<%= task.id %>>
-        <%= task.task_body %>
-        <span class="x-button">x</span>
-      </li>
+<% if task.done === true%>
+  <li class="task blue" id=<%= task.id %>>
+    <%= task.task_body %>
+  <span class="x-button">x</span>
+  </li>
+<% else %>
+  <li class="task" id=<%= task.id %>>
+   <%= task.task_body %>
+  <span class="x-button">x</span>
+  </li>
 
-    <% end %>
-<%# end %>
+<% end %>

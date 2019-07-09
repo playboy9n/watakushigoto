@@ -8,7 +8,7 @@ $(function() {
   }
     //フォーム（js-from）が送信された時に処理
     $('.js-form').on('submit', function(e) {
-      e.preventDefault(); //フォームが送信されフォームを送信するための通信がされてしまう.preventDefault()を使用してデフォルトのイベントを止めます。
+      e.preventDefault();
       var textField = $('.js-form__text-field'); //js-form__text-fieldを代入
       var task = textField.val(); //js-form__text-fieldのフォームに入力された値を取得、代入
       //$.ajax関数→戻り値として XMLHttpRequestオブジェクトを返す。
@@ -47,7 +47,7 @@ $(function() {
 
 
   $(document).on('click', '.done-button', function(e) {
-    e.preventDefault();  //aタグのリンクを中止
+    e.preventDefault();
     $(this).remove();  //doneボタン削す
     var id = $(this).data('id');  //セットしたtask.idを取り出す
     $(`#${id}`).addClass('blue');  //青色に変更
