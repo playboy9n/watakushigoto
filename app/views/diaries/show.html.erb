@@ -1,0 +1,16 @@
+<%= attachment_image_tag @user, :diary_image, :fill, 200, 200, format: 'jpeg', fallback: "no_image.jpg", size:'200x200', class: 'img-circle profile-thumb my-img' %>
+
+
+<p>
+  <strong>Diary title:</strong>
+  <%= @diary.diary_title %>
+</p>
+
+<p>
+  <strong>Diary body:</strong>
+  <%= @diary.diary_body %>
+</p>
+
+
+<%= link_to 'Edit', edit_diary_path(@diary) %> |
+<%= link_to 'Back', diaries_path %>

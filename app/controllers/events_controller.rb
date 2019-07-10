@@ -28,6 +28,7 @@ def events
   # GET /events/1.json
   def show
     @events  = Event.all
+    # @event = Event.find_by(id: params[:id])
     respond_to do |format|
       format.html
       format.xml { render :xml => @events }
@@ -48,9 +49,11 @@ def events
   # POST /events.json
   def create
     @event = Event.new(event_params)
+    
 
     respond_to do |format|
       if @event.save
+        # format.html { redirect_to user_path(current_user.id) }
         format.html { redirect_to @event, notice: 'Event was successfully created.' }
         format.json { render :show, status: :created, location: @event }
       else
@@ -65,6 +68,7 @@ def events
   def update
     respond_to do |format|
       if @event.update(event_params)
+        # format.html { redirect_to user_path(current_user.id) }
         format.html { redirect_to @event, notice: 'Event was successfully updated.' }
         format.json { render :show, status: :ok, location: @event }
       else
@@ -95,11 +99,9 @@ def events
       params.require(:event).permit(
         :user_id,
         :title,
-        :event_body,
-        :start_time,
-        :end_time,
-        :start_date,
-        :end_date,
+        :description,
+        :start,
+        :end,
         :color,
         :allday)
     end

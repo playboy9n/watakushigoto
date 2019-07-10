@@ -1,0 +1,28 @@
+
+<h1>Diaries</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Diary title</th>
+      <th>Diary body</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @diaries.each do |diary| %>
+      <tr>
+        <td><%= diary.diary_title %></td>
+        <td><%= diary.diary_body %></td>
+        <td><%= link_to 'Show', diary %></td>
+        <td><%= link_to 'Edit', edit_diary_path(diary) %></td>
+        <td><%= link_to 'Destroy', diary, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Diary', new_diary_path %>

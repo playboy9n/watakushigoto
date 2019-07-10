@@ -1,5 +1,4 @@
 class TasksController < ApplicationController
-
   def  show
     @task = Task.new
     @tasks  = Task.order(created_at: :asc)

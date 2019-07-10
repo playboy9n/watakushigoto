@@ -41,7 +41,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       t.date :bd
       t.string :phone_number
       t.text   :profile_image_id
-      t.string :description
+      t.string :biography
       t.boolean :decline, default: false, null: false
       t.datetime :decline_at
 

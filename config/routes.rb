@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :diaries
   resources :events
 # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   devise_for :admins, controllers: {
@@ -11,13 +12,6 @@ Rails.application.routes.draw do
   passwords:     'users/passwords',
   registrations: 'users/registrations'
 }
-
-#APIを使う
- # namespace :api, { format: 'json' } do
- #  namespace :v1 do
-    resources :events
-  # end
-  # end
 
   resources :users, except: [:index]
   root 'users#show'

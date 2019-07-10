@@ -8,7 +8,7 @@
       <p>ユーザーネーム:
         <%= @user.user_name %></p>
        <p>description:
-        <%= @user.description %></p>
+        <%= @user.biography %></p>
       <p>id:
       <%= @user.nick_name %></p>
       <p>lv:
@@ -26,6 +26,7 @@
       <p>email
         <%= @user.email %></p>
         <%= link_to '編集', edit_user_path(@user.id) %>
+        <%= link_to '日記',diaries_path %>
     </div>
 
     <div class="contents">
@@ -47,8 +48,9 @@
       <div class="modal-header">
       <h1>予定</h1>
        <p>スケジュール表</p>
-        <button type="button" class="close" data-dismiss="modal">
-          <a class="button_x" aria-hidden="true">x</a>
+        <!-- <button type="button" class="close" data-dismiss="modal"> -->
+          <button type="button" class="close" data-whatever="modal">
+          <a class="button_x" aria-hidden="true" id=<%#= @event.id %>>x</a>
           <span class="sr-only">close！</span>
         </button>
         <span id="m_title" class="modal-title"></span>
