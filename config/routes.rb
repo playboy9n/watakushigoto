@@ -24,7 +24,8 @@ Rails.application.routes.draw do
   get '/thursday' =>  'about#thursday'
   get '/friday' => 'about#friday'
 
-resources :tasks
+  resources :tasks
+  resources :points, only: [:create, :update, :destroy]
 
   namespace :admins do
     resources :users, only: [:index, :edit, :show, :update]

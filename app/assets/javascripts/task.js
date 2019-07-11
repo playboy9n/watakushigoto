@@ -76,7 +76,7 @@ $(function() {
           type: 'DELETE',
           url: '/tasks/'+ id, //この書き方でid渡せる
           data: {
-              id: id, //消すだけだからidだけ渡せればいい
+            id: id, //消すだけだからidだけ渡せればいい
           }
         })
 
@@ -86,4 +86,6 @@ $(function() {
 
     });
   });
+
+
 });

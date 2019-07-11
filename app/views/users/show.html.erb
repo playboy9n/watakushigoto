@@ -42,15 +42,16 @@
 </div>
 
 
-<div id="calendarModal" class="m_fade">
+<div id="calendarModal" class="m_fade" aria-hidden="true">
   <div class="modal-dialog modal-dialog-center">
     <div class="modal-content">
       <div class="modal-header">
       <h1>予定</h1>
        <p>スケジュール表</p>
-        <!-- <button type="button" class="close" data-dismiss="modal"> -->
-          <button type="button" class="close" data-whatever="modal">
-          <a class="button_x" aria-hidden="true" id=<%#= @event.id %>>x</a>
+        <button type="button" class="close" data-dismiss="modal">
+          <button type="button" class="close" data-target="calendarModal"  data-whatever="modal">
+          <a class="button_x"  aria-hidden="true" data-target="calendarModal" data-whatever="modal">x</a>
+          <!-- <span aria-hidden="true">x</span> -->
           <span class="sr-only">close！</span>
         </button>
         <span id="m_title" class="modal-title"></span>

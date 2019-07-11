@@ -28,7 +28,7 @@ def events
   # GET /events/1.json
   def show
     @events  = Event.all
-    # @event = Event.find_by(id: params[:id])
+    @event = Event.find_by(id: params[:id])
     respond_to do |format|
       format.html
       format.xml { render :xml => @events }
@@ -49,8 +49,6 @@ def events
   # POST /events.json
   def create
     @event = Event.new(event_params)
-    
-
     respond_to do |format|
       if @event.save
         # format.html { redirect_to user_path(current_user.id) }
@@ -81,17 +79,24 @@ def events
   # DELETE /events/1
   # DELETE /events/1.json
   def destroy
+    p params
+    @event = Event.find_by(id: params[:id])
     @event.destroy
     respond_to do |format|
-      format.html { redirect_to events_url, notice: 'Event was successfully destroyed.' }
+      format.html { redirect_to user_path(current_user.id) }
+      # format.html { redirect_to events_url, notice: 'Event was successfully destroyed.' }
       format.json { head :no_content }
     end
+  # redirect_to user_path(current_user.id)
+  #     else
+  #       render :json
+  #     end
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_event
-      @event = Event.find(params[:id])
+      @event = Event.find_by(id: params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

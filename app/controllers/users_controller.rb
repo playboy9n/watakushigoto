@@ -13,6 +13,7 @@ before_action :authenticate_user!,except: [:update]
     @tasks = Task.where(user_id: current_user.id).order(created_at: :asc)
     @events= Event.where(user_id: current_user.id)
     @event = Event.find_by(id: params[:id])
+    @points = Point.all
   end
 
    def edit
