@@ -49,9 +49,8 @@ $(function() {
   $(document).on('click', '.done-button', function(e) {
     e.preventDefault();
     $(this).remove();  //doneボタン削す
-    var id = $(this).data('id');  //セットしたtask.idを取り出す
+    var id = $(this).data('id');  //task.idを取り出す
     $(`#${id}`).addClass('blue');  //青色に変更
-    // doneの処理
     console.log(id);
 
     $.ajax({
@@ -65,6 +64,27 @@ $(function() {
         dataType: 'json'
       })
   })
+//↓未完成、doneしか消えてない。。。
+ $('.done-b').click(function(e){
+    e.preventDefault();
+    $(this).remove();
+    var id = $('.task').attr('id');
+    $(`#${id}`).addClass('blue');
+    console.log(id);
+
+ $.ajax({
+      type: 'PATCH',
+      url: '/tasks/'+ id,
+      data: {
+        task: {
+          done: true,
+        }
+      },
+        dataType: 'json'
+      })
+  })
+
+
 
 
   $('.x-button').click(function(e){

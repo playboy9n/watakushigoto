@@ -84,13 +84,8 @@ def events
     @event.destroy
     respond_to do |format|
       format.html { redirect_to user_path(current_user.id) }
-      # format.html { redirect_to events_url, notice: 'Event was successfully destroyed.' }
       format.json { head :no_content }
     end
-  # redirect_to user_path(current_user.id)
-  #     else
-  #       render :json
-  #     end
   end
 
   private

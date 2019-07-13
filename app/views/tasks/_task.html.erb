@@ -7,7 +7,9 @@
 <% else %>
   <li class="task" id=<%= task.id %>>
    <%= task.task_body %>
-  <span class="x-button">x</span>
+  <a class="x-button">x</a>
+  <a class="done-b" data=<%= @task.done %>>done</a>
+  <!-- <a class="done-b" data=<%#= @task.done %>>done</a> -->
   </li>
 
 <% end %>

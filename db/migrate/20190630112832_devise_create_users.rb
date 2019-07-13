@@ -44,6 +44,8 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       t.string :biography
       t.boolean :decline, default: false, null: false
       t.datetime :decline_at
+      t.integer :exp
+      t.integer :point
 
       t.timestamps null: false
     end

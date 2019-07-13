@@ -13,14 +13,13 @@ before_action :authenticate_user!,except: [:update]
     @tasks = Task.where(user_id: current_user.id).order(created_at: :asc)
     @events= Event.where(user_id: current_user.id)
     @event = Event.find_by(id: params[:id])
-    @points = Point.all
   end
 
    def edit
     @user = User.find(params[:id])
   end
   def update
-    @user = User.find(params[:id])
+    @user = User.find(current_user.id)
     if admin_signed_in? || @user.id == current_user.id
       if @user.update(users_params)
         flash[:notice] = "#{@user.user_name}さんをupdate!"

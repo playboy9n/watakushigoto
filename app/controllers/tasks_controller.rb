@@ -24,6 +24,7 @@ class TasksController < ApplicationController
   def update
     @task = Task.find_by(id: params[:id])
     if @task.update(task_update_params)
+      # @task.done = true
        respond_to do |format|
         format.html { redirect_to user_path(current_user.id) }
         format.json { render json: @task}

@@ -14,9 +14,12 @@
 $(document).on('turbolinks:load', function(){
   'use strict';
   var calendarEl = document.getElementById('calendar');
+  var Calendar = FullCalendar.Calendar;
+  // var Draggable = FullCalendarInteraction.Draggable;
 
   $('#calendar').fullCalendar({
     // events: '/events.json',
+
 
     titleFormat: 'YYYY年 M月',
     dayNamesShort: ['日', '月', '火', '水', '木', '金', '土'],
@@ -39,7 +42,7 @@ $(document).on('turbolinks:load', function(){
       },
       timeFormat: 'HH:mm',
       timezone: 'Asia/Tokyo',
-      eventColor: '#63ceef',//イベントの色
+      eventColor: '#ffe28a',//イベントの色
       eventTextColor: '#000000', //イベント文字色
       eventLimit: true, // イベント増えた時にリンクボタン表示
       editable: true, //これtureにしないと一生動かないんだなフルカレンダー
@@ -68,7 +71,7 @@ $(document).on('turbolinks:load', function(){
           }]);
         var data ={
           event:{
-            id: date, 
+            id: date,
           title: title,
           start: date,
           }
@@ -109,21 +112,61 @@ $(document).on('turbolinks:load', function(){
 
       },
 
+
       select: function(start, end) {
        // カレンダー空白部分をドラッグして範囲指定した時のイベント
         var pro = prompt('へーーーい！');
         alert(pro);
       },
        eventRecieve: function(event){
-        let event_id = event.id
+        var event_id = event.id
         console.log(event_id);
         var now = $(modal).val();
+
+
       },
 
-      eventDrop: function(event, delta, revertFunc, jsEvent, ui, view) {
+      eventDrop: function(event, delta, dayDelta, minuteDelta, allDay, revertFunc, jsEvent, ui, view) {
         alert('移動しました');
+        var id = event.id;
+        var start = moment(event.start).format('Y-MM-DD HH:mm:ss');
+
+          $.ajax({
+            type: 'PATCH',
+            url: '/events/'+ id,
+            data: {
+             event:{
+              title: event.title,
+              start: start,
+             }
+            },
+            dataType: 'json'
+          })
         }
       });
+
+    // document.addEventListener('DOMContentLoaded', function() {
+    //   let draggableEl = document.getElementById('mydraggable');
+    //   let calendarEl = document.getElementById('mycalendar');
+
+    //   let calendar = new Calendar(calendarEl, {
+    //     plugins: [ interactionPlugin ],
+    //     droppable: true
+    //   });
+
+   //    calendar.render();
+   // var containerEl = document.getElementById('external-events-list');
+   //  new Draggable(containerEl, {
+   //    itemSelector: '.fc-event',
+   //    eventData: function(eventEl) {
+   //      return {
+   //        title: eventEl.innerText.trim()
+   //      }
+   //    }
+   //  });
+
+
+    // });
 
     $('#calendarModal').click('show.bs.modal', function(event){
       event.preventDefault();
@@ -141,5 +184,5 @@ $(document).on('turbolinks:load', function(){
             id: id,
           }
         })
-       });
+    });
 });

@@ -57,24 +57,8 @@ ActiveRecord::Schema.define(version: 2019_07_09_145707) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "exps", force: :cascade do |t|
-    t.integer "level"
-    t.integer "level_up"
-    t.integer "level_wall"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "likes", force: :cascade do |t|
     t.integer "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "points", force: :cascade do |t|
-    t.integer "point"
-    t.integer "point_up"
-    t.integer "point_wall"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -113,6 +97,8 @@ ActiveRecord::Schema.define(version: 2019_07_09_145707) do
     t.string "biography"
     t.boolean "decline", default: false, null: false
     t.datetime "decline_at"
+    t.integer "exp"
+    t.integer "point"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true

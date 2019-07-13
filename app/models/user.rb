@@ -16,4 +16,15 @@ class User < ApplicationRecord
 
   # validates :bd, presence: true
   has_many  :tasks, dependent: :destroy
+
+  def  create
+  end
+
+  def update
+    point = 0
+    if @task.done == true
+      point + 1
+    end
+  end
+
 end

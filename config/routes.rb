@@ -25,7 +25,6 @@ Rails.application.routes.draw do
   get '/friday' => 'about#friday'
 
   resources :tasks
-  resources :points, only: [:create, :update, :destroy]
 
   namespace :admins do
     resources :users, only: [:index, :edit, :show, :update]
