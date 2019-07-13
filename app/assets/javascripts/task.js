@@ -52,7 +52,6 @@ $(function() {
     var id = $(this).data('id');  //task.idを取り出す
     $(`#${id}`).addClass('blue');  //青色に変更
     console.log(id);
-
     $.ajax({
       type: 'PATCH',
       url: '/tasks/'+ id,
@@ -64,11 +63,11 @@ $(function() {
         dataType: 'json'
       })
   })
-//↓未完成、doneしか消えてない。。。
+//↓おっと！文字消えるだけで色つかんぞ！！
  $('.done-b').click(function(e){
     e.preventDefault();
+    var id = $(this).parent().attr('id');
     $(this).remove();
-    var id = $('.task').attr('id');
     $(`#${id}`).addClass('blue');
     console.log(id);
 

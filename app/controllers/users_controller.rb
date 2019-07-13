@@ -8,11 +8,11 @@ before_action :authenticate_user!,except: [:update]
   end
 
   def show
-    @user = User.find(current_user.id)
+    @user = current_user
     @task = Task.new
     @tasks = Task.where(user_id: current_user.id).order(created_at: :asc)
-    @events= Event.where(user_id: current_user.id)
-    @event = Event.find_by(id: params[:id])
+    @events= current_user.events
+    # @event = Event.find_by(id: params[:id])
   end
 
    def edit

@@ -25,7 +25,7 @@ def after_sign_in_path_for(resource_or_scope)
     if resource.is_a?(Admin)
       new_admin_session_path
     else
-      new_admin_registration_path
+      new_user_session_path
     end
   end
 
