@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 2019_07_09_145707) do
 
   create_table "diaries", force: :cascade do |t|
     t.string "diary_title"
-    t.string "diary_body"
+    t.text "diary_body"
     t.text "diary_image_id"
     t.integer "user_id"
     t.datetime "created_at", null: false
@@ -97,8 +97,8 @@ ActiveRecord::Schema.define(version: 2019_07_09_145707) do
     t.string "biography"
     t.boolean "decline", default: false, null: false
     t.datetime "decline_at"
-    t.integer "exp"
-    t.integer "point"
+    t.integer "exp", default: 0
+    t.integer "point", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true

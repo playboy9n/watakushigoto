@@ -1,4 +1,5 @@
 class DiariesController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_diary, only: [:show, :edit, :update, :destroy]
 
   # GET /diaries
@@ -10,6 +11,7 @@ class DiariesController < ApplicationController
   # GET /diaries/1
   # GET /diaries/1.json
   def show
+    # @task = current_user.task.all
   end
 
   # GET /diaries/new
@@ -24,17 +26,21 @@ class DiariesController < ApplicationController
   # POST /diaries
   # POST /diaries.json
   def create
-    @diary = Diary.new(diary_params)
-
-    respond_to do |format|
-      if @diary.save
-        format.html { redirect_to @diary, notice: 'Diary was successfully created.' }
-        format.json { render :show, status: :created, location: @diary }
+    diary = Diary.new(diary_params)
+    diary.user = current_user
+       # respond_to do |format|
+      if diary.save
+        diary.point_system
+        flash[:notice] = '日記を保存しました！'
+        redirect_to diaries_path
+        # format.html { redirect_to @diary, notice: 'Diary was successfully created.' }
+        # format.json { render :show, status: :created, location: @diary }
       else
-        format.html { render :new }
-        format.json { render json: @diary.errors, status: :unprocessable_entity }
+        rendar :new
+        # format.html { render :new }
+        # format.json { render json: @diary.errors, status: :unprocessable_entity }
       end
-    end
+    # end
   end
 
   # PATCH/PUT /diaries/1
@@ -42,6 +48,7 @@ class DiariesController < ApplicationController
   def update
     respond_to do |format|
       if @diary.update(diary_params)
+          point = diary.point_system
         format.html { redirect_to @diary, notice: 'Diary was successfully updated.' }
         format.json { render :show, status: :ok, location: @diary }
       else
@@ -69,6 +76,6 @@ class DiariesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def diary_params
-      params.require(:diary).permit(:diary_title, :diary_body, :diary_image_id, :user_id)
+      params.require(:diary).permit(:diary_title, :diary_body, :diary_image_id)
     end
 end

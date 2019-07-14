@@ -15,16 +15,7 @@ class User < ApplicationRecord
   validates :k_my_name, format: { with: /\A[ｧ-ﾝﾞﾟ]+\z/ }
 
   # validates :bd, presence: true
-  has_many  :tasks, dependent: :destroy
+  has_many :tasks, dependent: :destroy
   has_many :events, dependent: :destroy
-  def  create
-  end
-
-  def update
-    point = 0
-    if @task.done == true
-      point + 1
-    end
-  end
-
+  has_many :diaries, dependent: :destroy
 end

@@ -1,6 +1,9 @@
 $(document).on('turbolinks:load', function(){
 $(function() {
 "use strict";
+// moment.locale('ja');
+// var today = moment().format("YYYY-MM-DD HH:mm:SS");
+
   function buildHTML(task) {
     //セレクタの中身を新規に作るという意味
     var html = $('<li class="task" id="'+task.id+'">').append(task.task_body);
@@ -39,11 +42,10 @@ $(function() {
         $('.task').last().append(button);
         textField.val('');
       })
-    //↓フォームの送信に失敗した場合の処理
-    .fail(function() {
-      alert('error');
-    });
-  });
+      .fail(function() {
+        alert('error');
+        });
+      });
 
 
   $(document).on('click', '.done-button', function(e) {
@@ -63,7 +65,6 @@ $(function() {
         dataType: 'json'
       })
   })
-//↓おっと！文字消えるだけで色つかんぞ！！
  $('.done-b').click(function(e){
     e.preventDefault();
     var id = $(this).parent().attr('id');
@@ -83,9 +84,6 @@ $(function() {
       })
   })
 
-
-
-
   $('.x-button').click(function(e){
     e.preventDefault();
     var id = $(this).parent().attr('id'); //親要素のidをとった
@@ -102,9 +100,6 @@ $(function() {
     .fail(function(data) {
       alert('error!');
       });
-
     });
   });
-
-
 });

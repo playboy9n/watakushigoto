@@ -93,7 +93,7 @@ $(document).on('turbolinks:load', function(){
           // allDay: true, //これ何かよくわかってないあとで調べる
         }]);
 
-        var user = document.getElementById('user.id');
+        // var user = document.getElementById('user.id');
         var data ={
           event:{
             id: date,
@@ -101,7 +101,7 @@ $(document).on('turbolinks:load', function(){
             start: date,
           }
         }
-        var nowDate = moment(date._i).format()
+        var nowDate = moment(date._i).format();
         console.log(nowDate);
         console.log(data);
         $.ajax({
@@ -121,7 +121,8 @@ $(document).on('turbolinks:load', function(){
 
         console.log(calEvent);
         console.log(calEvent.id);
-        $('.button_x').attr({id: calEvent.id})
+        var id = $('.button_x').attr({id: calEvent.id});
+        var start = moment(event.start).format('Y-MM-DD HH:mm:ss');
         $('#m_title').html(calEvent.title);
         $('#m_body').html(calEvent.event_body);
 
@@ -133,11 +134,24 @@ $(document).on('turbolinks:load', function(){
          // }else{
          //  carendar.fullCarendar('removeEvents', event.id);
          // }
+// console.log(id);
+
+//          $.ajax({
+//         type: 'PATCH',
+//         url: '/events/'+ id,
+//         data: {
+//          event:{
+//           title: event.title,
+//           start: start,
+//         }
+//       },
+//       dataType: 'json'
+//     })
 
        },
 
 
-     select: function(start, end) {
+     select: function(start, end,view,) {
      // カレンダー空白部分をドラッグして範囲指定した時のイベント
      var pro = prompt('へーーーい！');
      alert(pro);
@@ -152,7 +166,7 @@ $(document).on('turbolinks:load', function(){
       alert('移動しました');
       var id = event.id;
       var start = moment(event.start).format('Y-MM-DD HH:mm:ss');
-
+      console.log(event.id);
       $.ajax({
         type: 'PATCH',
         url: '/events/'+ id,

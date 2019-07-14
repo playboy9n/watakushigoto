@@ -12,7 +12,7 @@ before_action :authenticate_user!,except: [:update]
     @task = Task.new
     @tasks = Task.where(user_id: current_user.id).order(created_at: :asc)
     @events= current_user.events
-    # @event = Event.find_by(id: params[:id])
+    @point = current_user.point
   end
 
    def edit
@@ -39,6 +39,7 @@ before_action :authenticate_user!,except: [:update]
 
 private
   def users_params
+    # ここにpointとかも追加するんか？
     params.require(:user).permit(:nick_name, :user_name, :email, :family_name, :my_name, :k_family_name, :k_my_name, :gender, :phone_number,:profile_image,:bd, :description)
   end
 end

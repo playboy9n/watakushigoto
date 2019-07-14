@@ -11,9 +11,9 @@
         <%= @user.biography %></p>
       <p>id:
       <%= @user.nick_name %></p>
-      <p>lv:
-          point:
-      </p>
+      <p>lv:</p>
+      </p>point:<%= @point %></p>
+
       <p>BD:
         <%= @user.bd %></p>
       <p class='kana'><%= @user.k_family_name %><%= @user.k_my_name %></p>
@@ -34,6 +34,8 @@
     <%= f.text_field :task_body, class: 'form__text-field js-form__text-field' %>
     <%= f.submit class: 'form__submit js-submit' %>
   <% end %>
+
+<span id= 'today'></span>
   <ul class="tasks">
     <%= render @tasks %>
   </ul>

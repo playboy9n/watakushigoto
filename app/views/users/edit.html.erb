@@ -26,8 +26,9 @@
           <% if @minimum_password_length %>
             <em>(<%= @minimum_password_length %> characters minimum)</em>
           <% end %>
+          <p>パスワード変更</p>
             <%= f.password_field :password, autocomplete: "new-password" %>
-              パスワード確認
+          <p>確認</p>
             <%= f.password_field :password_confirmation, autocomplete: "new-password" %></p>
             <%= f.submit '編集ok', class: "btn btn-info" %>
       <% end %>
