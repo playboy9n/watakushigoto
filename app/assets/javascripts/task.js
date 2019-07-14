@@ -12,17 +12,20 @@ $(function() {
     //フォーム（js-from）が送信された時に処理
     $('.js-form').on('submit', function(e) {
       e.preventDefault();
-      var textField = $('.js-form__text-field'); //js-form__text-fieldを代入
-      var task = textField.val(); //js-form__text-fieldのフォームに入力された値を取得、代入
+      var textField = $('#task2'); //js-form__text-fieldを代入
+      var task = textField.val();
+      var task_limit = $('#task1').val()//js-form__text-fieldのフォームに入力された値を取得、代入
       //$.ajax関数→戻り値として XMLHttpRequestオブジェクトを返す。
       //情報の指定（dataに格納）、送信先、データの型（Json）
+      console.log(task);
+      console.log(task_limit);
       $.ajax({
         type: 'POST',
         url: '/tasks',
         data: {
           task: {
             task_body: task,
-            // limit_date: task
+            limit_date: task_limit ,
           }
         },
         dataType: 'json' //データをjson形式で飛
@@ -30,6 +33,7 @@ $(function() {
       //↓フォームの送信に成功
       .done(function(data) {
         var html = buildHTML(data);
+        console.log(data);
         $('.tasks').append(html); //$.append関数、操作後DOMに要素が追加された状態になる。
         //tasksに引数で指定したdataのHTML要素を追加。
         console.log(data.id);

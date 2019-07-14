@@ -31,7 +31,10 @@
 
     <div class="contents">
   <%= form_for @task, html: { class: 'form js-form' } do |f|%>
-    <%= f.text_field :task_body, class: 'form__text-field js-form__text-field' %>
+  <p>何日までに終了させるか設定してください</p>
+    <%= f.date_field :limit_date, value: Time.now.strftime("%Y-%m-%d") , class: 'form__text-field js-form__text-field', id: "task1" %>
+    <br>
+    <%= f.text_field :task_body, placeholder: 'taskの内容', class: 'form__text-field js-form__text-field', id: "task2" %>
     <%= f.submit class: 'form__submit js-submit' %>
   <% end %>
 

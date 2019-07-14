@@ -7,7 +7,7 @@ class TasksController < ApplicationController
   end
   def create
     @task = Task.new(task_params)
-    @task.user_id = current_user.id
+    @task.user = current_user
     if @task.save
       respond_to do |format|
         format.html { redirect_to user_path(current_user.id) }
@@ -23,8 +23,10 @@ class TasksController < ApplicationController
   end
 
   def update
-    @task = Task.find_by(id: params[:id])
-    if @task.update(task_update_params)
+    task = Task.find_by(id: params[:id])
+    task.user = current_user
+    if task.update(task_update_params)
+      task.point_system
        respond_to do |format|
         format.html { redirect_to user_path(current_user.id) }
         format.json { render json: @task}

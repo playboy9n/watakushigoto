@@ -5,12 +5,6 @@ class Diary < ApplicationRecord
   validates :diary_body, length: { minimum: 3 }
 
  def point_system
-    # if task.done == true
-    #   point = 0;
-    #   0.upto(10000) do |up|
-    #     point + up
-    #   end
-    # end
     point = user.point
     diary_body_size = diary_body.size
     if diary_body_size > 3 && diary_body_size <= 10
@@ -32,3 +26,4 @@ class Diary < ApplicationRecord
     user.save!
   end
 end
+

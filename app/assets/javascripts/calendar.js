@@ -47,10 +47,9 @@ $(document).on('turbolinks:load', function(){
     titleFormat: 'YYYY年 M月',
     dayNamesShort: ['日', '月', '火', '水', '木', '金', '土'],
     header: {
-      right: 'month,agendaWeek,agendaDay,listMonth, today prev,next ',
+      right: 'month,agendaWeek,agendaDay,listMonth,  prev,next ',
       center: 'title',
-      left: 'addEventSource'
-        // このlistのとこに達成したタスクかけたら最高なんだけどできる？
+      left: 'today'
       },
       defaultTimedEventDuration: '03:00:00',
       buttonText: {
