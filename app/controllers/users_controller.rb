@@ -11,7 +11,8 @@ before_action :authenticate_user!,except: [:update]
     @user = current_user
     @task = Task.new
     @tasks = Task.where(user_id: current_user.id).where( 'limit_date >= ?', Date.today  ).order(created_at: :asc)
-    @events= current_user.events
+    @events = Event.new
+    @event = current_user
     @point = current_user.point
   end
 
@@ -39,6 +40,6 @@ before_action :authenticate_user!,except: [:update]
 
 private
   def users_params
-    params.require(:user).permit(:nick_name, :user_name, :email, :family_name, :my_name, :k_family_name, :k_my_name, :gender, :phone_number,:profile_image,:bd, :description)
+    params.require(:user).permit(:nick_name, :user_name, :email, :family_name, :my_name, :k_family_name, :k_my_name, :gender, :phone_number,:profile_image,:bd, :biography)
   end
 end

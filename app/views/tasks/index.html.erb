@@ -1,0 +1,52 @@
+<div class='container'>
+  <div class='row'>
+
+    <%= search_form_for @q do |f| %>
+    <div>
+    <%#= f.date_select :created_at_gteq || :updated_at_gteq, :default => Time.now %>
+    <%= f.date_select :created_at_gteq, :default => Time.now %>
+      <span>〜</span>
+    <%#= f.date_select :created_at_lteq || :updated_at_lteq, :default => Time.now %>
+    <%= f.date_select :created_at_lteq_end_of_day, :default => Time.now %>
+    <%= f.submit '🔍', class: 'btn glyphicon glyphicon-search' %>
+    <% end %>
+  </div>
+  <div class="row">
+    <div class="col-lg-4">
+      <table class="table table-hover">
+        <thead>
+          <th>達成task</th>
+        </thead>
+        <tbody>
+          <% @tasks.each do |task| %>
+            <tr>
+              <% if task.done == true %>
+            <!--   <td><%#= task.task_body %></td> -->
+              <td><%= sort_link(@q, :created_at, task.task_body)%></td>
+              <% task.created_at %>
+            </tr>
+            <% end %>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-lg-4">
+      <table class="table table-hover">
+        <thead>
+          <th>未達成task</th>
+        </thead>
+        <tbody>
+          <% @tasks.each do |task| %>
+          <tr>
+            <% if task.done == false %>
+              <!-- <td><%#= task.task_body %></td> -->
+              <td><%= sort_link(@q, :created_at, task.task_body)%></td>
+            <% task.created_at %>
+          </tr>
+            <% end %>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

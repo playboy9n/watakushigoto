@@ -9,6 +9,19 @@ class Task < ApplicationRecord
     user.point = point
     user.save!
   end
+
+  def level_system
+    level = user.level
+    done_size = done.size
+    if done == true
+      # if
+      #   # レベルが上がるごとにdone==trueの数を増やす
+      #   # 次のレベルに行くのに毎回*2 とかで計算していってもらう式を書く
+      #   done.count
+      # end
+    end
+  end
+
 end
 
 

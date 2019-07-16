@@ -106,4 +106,12 @@ $(function() {
       });
     });
   });
+
+  $(document).on('click', '.done-b , .done-button' ,function(e){
+  e.preventDefault();
+   var point = Number($('#point_up').html())
+      console.log(point);
+      point += 1;
+      $('#point_up').html(point);
+  });
 });

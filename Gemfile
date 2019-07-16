@@ -73,4 +73,4 @@ gem 'ransack'
 gem 'faker'
 gem 'pry-rails'
 gem 'jquery-ui-rails'
-# gem 'fullcalendar_engine', '~> 1.0', '>= 1.0.6'
+# gem 'rails-i18n', '~> 5.1' # For 5.0.x, 5.1.x and 5.2.x

@@ -65,7 +65,7 @@ ActiveRecord::Schema.define(version: 2019_07_09_145707) do
 
   create_table "tasks", force: :cascade do |t|
     t.integer "user_id"
-    t.string "state"
+    t.string "top_task"
     t.string "task_body"
     t.date "limit_date"
     t.boolean "done", default: false, null: false

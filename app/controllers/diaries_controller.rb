@@ -2,7 +2,7 @@ class DiariesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_diary, only: [:show, :edit, :update, :destroy]
   def index
-    @diaries = Diary.all
+    @diaries = Diary.all.reverse_order
   end
 
   def show
@@ -47,12 +47,10 @@ class DiariesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_diary
       @diary = Diary.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def diary_params
       params.require(:diary).permit(:diary_title, :diary_body, :diary_image_id)
     end

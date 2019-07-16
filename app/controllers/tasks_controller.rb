@@ -1,5 +1,10 @@
 class TasksController < ApplicationController
 
+  def index
+    @q = Task.where(user_id: current_user.id).ransack(params[:q])
+    @tasks = @q.result
+  end
+
   def  show
     @task = Task.new
     @tasks  = Task.order(created_at: :asc)

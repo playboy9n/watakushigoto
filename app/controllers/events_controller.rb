@@ -8,7 +8,7 @@ def events
       format.json {
         render json:
         @event.to_json(
-          only: [:title, :start, :end]
+          only: [:title, :start, :end, :destroy]
         )
       }
     end
@@ -24,23 +24,6 @@ def events
     end
   end
 
-  # GET /events/1
-  # GET /events/1.json
-  def show
-    @events  = current_user.events
-    @event = Event.find_by(id: params[:id])
-    respond_to do |format|
-      format.html
-      format.xml { render :xml => @events }
-      format.json { render :json  =>  @events }
-    end
-  end
-
-  # GET /events/new
-  def new
-    @event = Event.new
-  end
-
   # GET /events/1/edit
   def edit
   end
@@ -51,11 +34,10 @@ def events
     @event = current_user.events.build(event_params)
     respond_to do |format|
       if @event.save
-        # format.html { redirect_to user_path(current_user.id) }
-        format.html { redirect_to @event, notice: 'Event was successfully created.' }
+        format.html { redirect_to user_path(current_user.id) }
         format.json { render :show, status: :created, location: @event }
       else
-        format.html { render :new }
+        format.html { redirect_to user_path(current_user.id) }
         format.json { render json: @event.errors, status: :unprocessable_entity }
       end
     end
@@ -66,8 +48,7 @@ def events
   def update
     respond_to do |format|
       if @event.update(event_params)
-        # format.html { redirect_to user_path(current_user.id) }
-        format.html { redirect_to @event, notice: 'Event was successfully updated.' }
+        format.html { redirect_to user_path(current_user.id) }
         format.json { render :show, status: :ok, location: @event }
       else
         format.html { render :edit }

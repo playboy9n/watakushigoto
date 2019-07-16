@@ -1,5 +1,3 @@
-  マイページだよ〜〜〜〜
-
 <!-- これはあれ名前をばばばばばばってだすばばばばばばっば -->
 <div class="container">
   <div class="row">
@@ -7,12 +5,12 @@
     <%= attachment_image_tag @user, :profile_image, :fill, 200, 200, format: 'jpeg', fallback: "no_image.jpg", size:'200x200', class: 'img-circle profile-thumb my-img' %>
       <p>ユーザーネーム:
         <%= @user.user_name %></p>
-       <p>description:
+       <p>bio:
         <%= @user.biography %></p>
       <p>id:
       <%= @user.nick_name %></p>
       <p>lv:</p>
-      </p>point:<%= @point %></p>
+      <p>point:<span id='point_up'><%= @point %></span></p>
 
       <p>BD:
         <%= @user.bd %></p>
@@ -26,7 +24,8 @@
       <p>email
         <%= @user.email %></p>
         <%= link_to '編集', edit_user_path(@user.id) %>
-        <%= link_to '日記',diaries_path %>
+        <%= link_to '日記', diaries_path %>
+        <%= link_to 'task', tasks_path %>
     </div>
 
     <div class="contents">
@@ -85,7 +84,7 @@
             <div id='draggable-el' class="item-class mydraggable" data-event='{ title: "my event", duration: "02:00" }'>drag me</div>
           </a>
         </div>
-        <div class='fc-event'>My Event 2</div>
+        <div class='fc-event'>My Event 2</div>r
         <div class='fc-event'>My Event 3</div>
         <div class='fc-event'>My Event 4</div>
         <div class='fc-event'>My Event 5</div>
@@ -93,6 +92,11 @@
     </div>
 </div>
 ここまで-->
+<h1>Editing Event</h1>
+
+<%= render 'events/form', event: @events %>
+ |
+<%= link_to '一覧', events_path %>
 
 
 
