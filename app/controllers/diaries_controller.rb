@@ -6,7 +6,6 @@ class DiariesController < ApplicationController
   end
 
   def show
-    # @task = current_user.task.all
   end
 
   def new

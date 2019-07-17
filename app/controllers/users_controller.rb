@@ -1,5 +1,8 @@
 class UsersController < ApplicationController
 before_action :authenticate_user!,except: [:update]
+# Level.reflect_on_all_associations
+
+PER = 18
   def calendar
   end
 
@@ -10,10 +13,11 @@ before_action :authenticate_user!,except: [:update]
   def show
     @user = current_user
     @task = Task.new
-    @tasks = Task.where(user_id: current_user.id).where( 'limit_date >= ?', Date.today  ).order(created_at: :asc)
+    @tasks = Task.where(user_id: current_user.id).where( 'limit_date >= ?', Date.today  ).order(created_at: :asc).page(params[:page]).per(PER)
     @events = Event.new
     @event = current_user
     @point = current_user.point
+    @level = Level.find_by(user_id: current_user.id)
   end
 
    def edit

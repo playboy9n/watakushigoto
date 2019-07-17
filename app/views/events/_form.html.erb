@@ -1,12 +1,14 @@
 <%= form_with(model: event, local: true) do |form| %>
   <div class="field">
     <%= form.label :title %>
-    <%= form.text_field :title %>
+  <br>
+    <%= form.text_field :title, class: 'title' %>
   </div>
 
   <div class="field">
     <%= form.label :description %>
-    <%= form.text_area :description %>
+  <br>
+    <%= form.text_area :description, class: 'description' %>
   </div>
 
   <div class="field">

@@ -18,6 +18,7 @@ class Admins::UsersController < ApplicationController
   end
   def show
     @user = User.find(params[:id])
+    @level = current_user.level
   end
 
   def edit

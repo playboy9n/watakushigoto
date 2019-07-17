@@ -1,17 +1,50 @@
 <!-- これはあれ名前をばばばばばばってだすばばばばばばっば -->
 <div class="container">
   <div class="row">
-    <div class="col-lg-4">
+    <div class="contents col-lg-4">
+      <p>これだけやればいいぞ！</p>
+      <% if @task.top_task == nil %>
+        <h4>[今日の目標を設定してください！]</h4>
+      <% else %>
+      <h4>[<%= @task.top_task %>]</h4>
+      <% end %>
+    <%= form_for @task, html: { class: 'form js-form' } do |f|%>
+      <p>何日までに終了させるか設定してください</p>
+      <%= f.date_field :limit_date, value: Time.now.strftime("%Y-%m-%d") , class: 'form__text-field js-form__text-field', id: "task1" %>
+      <br>
+      <%= f.text_field :task_body, placeholder: 'taskの内容', class: 'form__text-field js-form__text-field', id: "task2" %>
+      <%= f.submit class: 'form__submit js-submit' %>
+    <% end %>
+
+    <span id= 'today'></span>
+    <ul class="tasks">
+      <%= render @tasks %>
+      <%= paginate @tasks, class: 'tasks_kaminari' %>
+    </ul>
+    </div>
+
+    <div class="col-lg-5">
+      <div id='tom_speak'></div>
+    </div>
+
+    <div class="col-lg-3">
     <%= attachment_image_tag @user, :profile_image, :fill, 200, 200, format: 'jpeg', fallback: "no_image.jpg", size:'200x200', class: 'img-circle profile-thumb my-img' %>
       <p>ユーザーネーム:
         <%= @user.user_name %></p>
-       <p>bio:
+      <p>bio:
         <%= @user.biography %></p>
       <p>id:
-      <%= @user.nick_name %></p>
-      <p>lv:</p>
+        <%= @user.nick_name %></p>
+    <% if @level != nil %>
+        <p>lv:
+        <span id='your_level'><%= @level.lv %></span></p>
+          <meter id='lv_gauge'><%= @level.exp %></meter>
+    <% else %>
+        <p>lv:
+          <span id='your_level'>1</span></p>
+          <meter id='lv_gauge'>1</meter>
+    <% end %>
       <p>point:<span id='point_up'><%= @point %></span></p>
-
       <p>BD:
         <%= @user.bd %></p>
       <p class='kana'><%= @user.k_family_name %><%= @user.k_my_name %></p>
@@ -27,78 +60,35 @@
         <%= link_to '日記', diaries_path %>
         <%= link_to 'task', tasks_path %>
     </div>
-
-    <div class="contents">
-  <%= form_for @task, html: { class: 'form js-form' } do |f|%>
-  <p>何日までに終了させるか設定してください</p>
-    <%= f.date_field :limit_date, value: Time.now.strftime("%Y-%m-%d") , class: 'form__text-field js-form__text-field', id: "task1" %>
-    <br>
-    <%= f.text_field :task_body, placeholder: 'taskの内容', class: 'form__text-field js-form__text-field', id: "task2" %>
-    <%= f.submit class: 'form__submit js-submit' %>
-  <% end %>
-
-<span id= 'today'></span>
-  <ul class="tasks">
-    <%= render @tasks %>
-  </ul>
-</div>
   </div>
 </div>
 
+<div class= "row">
 
-<div id="calendarModal" class="m_fade" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-center">
-    <div class="modal-content">
-      <div class="modal-header">
-      <h1>予定</h1>
-       <p>スケジュール表</p>
-        <button type="button" class="close" data-dismiss="modal">
-          <button type="button" class="close" data-target="calendarModal"  data-whatever="modal">
-          <a class="button_x"  aria-hidden="true" data-target="calendarModal" data-whatever="modal">x</a>
-          <!-- <span aria-hidden="true">x</span> -->
-          <span class="sr-only">close！</span>
-        </button>
-        <span id="m_title" class="modal-title"></span>
-      </div>
-      <div id="m_body" class="modal-body"></div>
-      <div id="m_foot" class="modal-footer"></div>
-    </div>
+  <div class="col-lg-offset-2 col-lg-3">
+    <h1>Editing Event</h1>
+      <%= render 'events/form', event: @events %>
+      <%= link_to '一覧', events_path %>
   </div>
-</div>
-
-<!--↓公式でも参考(4.0.1~)-->
-<!-- <div class="accordion__panel-content"  role="tabpanel"id="a1-content" aria-labelledby="a1-heading" aria-hidden="true">
-  <div class="fc-event fc-draggble gu-mirror"></div>
-  <div class="fc-event fc-draggble"></div>
-
-  <div class="fc-content">
-
-
-
-    <div id='external-events'>
-      <h4>Draggable Events</h4>
-
-      <div id='external-events-list'>
-        <div class='fc-event'>
-          <a id="mydraggable" class="fc-day-grid-event fc-h-event fc-event fc-start fc-end fc-draggable">
-            <div id='draggable-el' class="item-class mydraggable" data-event='{ title: "my event", duration: "02:00" }'>drag me</div>
-          </a>
+  <div class="col-lg-5">
+  <div id="calendarModal" class="m_fade" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-center">
+      <div class="modal-content">
+        <div class="modal-header">
+        <h1>予定</h1>
+         <p>スケジュール表</p>
+            <button type="button" class="close" data-target="calendarModal"  data-whatever="modal">
+            <a class="button_x"  aria-hidden="true" data-target="calendarModal" data-whatever="modal">x</a>
+            <span class="sr-only">close！</span>
+          </button>
+          <span id="m_title" class="modal-title"></span>
         </div>
-        <div class='fc-event'>My Event 2</div>r
-        <div class='fc-event'>My Event 3</div>
-        <div class='fc-event'>My Event 4</div>
-        <div class='fc-event'>My Event 5</div>
+        <div id="m_body"  class="modal-body"></div>
+        <div id="m_foot" class="modal-footer"></div>
       </div>
     </div>
-</div>
-ここまで-->
-<h1>Editing Event</h1>
-
-<%= render 'events/form', event: @events %>
- |
-<%= link_to '一覧', events_path %>
-
-
-
+  </div>
+  </div>
+  </div>
 <div id="calendar"></div>
 </div>

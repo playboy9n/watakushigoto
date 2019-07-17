@@ -1,12 +1,8 @@
 <div class='container'>
   <div class='row'>
-
     <%= search_form_for @q do |f| %>
-    <div>
-    <%#= f.date_select :created_at_gteq || :updated_at_gteq, :default => Time.now %>
     <%= f.date_select :created_at_gteq, :default => Time.now %>
       <span>〜</span>
-    <%#= f.date_select :created_at_lteq || :updated_at_lteq, :default => Time.now %>
     <%= f.date_select :created_at_lteq_end_of_day, :default => Time.now %>
     <%= f.submit '🔍', class: 'btn glyphicon glyphicon-search' %>
     <% end %>
@@ -21,7 +17,6 @@
           <% @tasks.each do |task| %>
             <tr>
               <% if task.done == true %>
-            <!--   <td><%#= task.task_body %></td> -->
               <td><%= sort_link(@q, :created_at, task.task_body)%></td>
               <% task.created_at %>
             </tr>
@@ -39,7 +34,6 @@
           <% @tasks.each do |task| %>
           <tr>
             <% if task.done == false %>
-              <!-- <td><%#= task.task_body %></td> -->
               <td><%= sort_link(@q, :created_at, task.task_body)%></td>
             <% task.created_at %>
           </tr>

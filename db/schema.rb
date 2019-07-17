@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_09_145707) do
+ActiveRecord::Schema.define(version: 2019_07_16_112005) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -57,6 +57,15 @@ ActiveRecord::Schema.define(version: 2019_07_09_145707) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "levels", force: :cascade do |t|
+    t.integer "lv", default: 1
+    t.integer "exp", default: 0
+    t.integer "exp_box", default: 200
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "likes", force: :cascade do |t|
     t.integer "user_id"
     t.datetime "created_at", null: false
@@ -65,6 +74,7 @@ ActiveRecord::Schema.define(version: 2019_07_09_145707) do
 
   create_table "tasks", force: :cascade do |t|
     t.integer "user_id"
+    t.integer "level_id"
     t.string "top_task"
     t.string "task_body"
     t.date "limit_date"
@@ -97,7 +107,7 @@ ActiveRecord::Schema.define(version: 2019_07_09_145707) do
     t.string "biography"
     t.boolean "decline", default: false, null: false
     t.datetime "decline_at"
-    t.integer "exp", default: 0
+    t.integer "level_id"
     t.integer "point", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

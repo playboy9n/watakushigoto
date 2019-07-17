@@ -17,5 +17,6 @@ class User < ApplicationRecord
   # validates :bd, presence: true
   has_many :tasks, dependent: :destroy
   has_many :events, dependent: :destroy
+  has_many :levels, dependent: :destroy
   has_many :diaries, dependent: :destroy
 end
