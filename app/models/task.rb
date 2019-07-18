@@ -9,6 +9,8 @@ class Task < ApplicationRecord
     if done == true
       point += 1
     end
+    if top_done == true
+      point += 6
     user.point = point
     user.save!
   end

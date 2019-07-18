@@ -1,0 +1,6 @@
+ <%= search_form_for q do |f| %>
+    <%= f.date_select :created_at_gteq, :default => Time.now %>
+      <span>〜</span>
+    <%= f.date_select :created_at_lteq_end_of_day, :default => Time.now %>
+    <%= f.submit '🔍', class: 'btn glyphicon glyphicon-search' %>
+<% end %>

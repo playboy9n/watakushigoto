@@ -79,6 +79,7 @@ ActiveRecord::Schema.define(version: 2019_07_16_112005) do
     t.string "task_body"
     t.date "limit_date"
     t.boolean "done", default: false, null: false
+    t.boolean "top_done", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

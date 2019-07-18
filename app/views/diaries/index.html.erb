@@ -1,6 +1,7 @@
 <div class='container'>
   <%= render 'layouts/flash' %>
   <h1>Diaries</h1>
+  <%= render 'layouts/search', q: @q %>
     <table class='table table-hover'>
       <thead>
         <tr>
@@ -11,7 +12,7 @@
       <tbody>
         <% @diaries.each do |diary| %>
           <tr>
-            <td><%= diary.diary_title %></td>
+            <td><%= sort_link(@q, :created_at, diary.diary_title) %></td>
             <td><%= diary.diary_body %></td>
             <td><%= link_to 'Show', diary %></td>
             <td><%= link_to 'Edit', edit_diary_path(diary) %></td>

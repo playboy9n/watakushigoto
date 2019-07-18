@@ -2,7 +2,9 @@ class DiariesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_diary, only: [:show, :edit, :update, :destroy]
   def index
-    @diaries = Diary.all.reverse_order
+    @q = Diary.where(user_id: current_user.id).ransack(params[:q])
+    @diaries = @q.result
+    # @diaries = Diary.all.reverse_order
   end
 
   def show
