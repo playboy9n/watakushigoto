@@ -2,6 +2,8 @@ class Task < ApplicationRecord
   belongs_to :user
   belongs_to :level
 
+  validates :task_body, presence: true
+
   def point_system
     point = user.point
     if done == true

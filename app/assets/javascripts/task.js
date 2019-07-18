@@ -28,9 +28,9 @@ $(function() {
             limit_date: task_limit ,
           }
         },
-        dataType: 'json' //データをjson形式で飛
+        dataType: 'json'
       })
-      //↓フォームの送信に成功
+
       .done(function(data) {
         var html = buildHTML(data);
         console.log(data);
@@ -38,25 +38,24 @@ $(function() {
         //tasksに引数で指定したdataのHTML要素を追加。
         console.log(data.id);
 
-        $(".form__submit").attr("disabled", false); //これでボタンをもう一度押せるようにしてる
+        $(".form__submit").attr("disabled", false); //ボタンをもう一度押せるようにしている。
         var button = $(`<a href="" class="done-button" data-id=${data.id}>`).append('done');
-        // var button = $(`<a href="" class="done-button" data-id=${data.id}>`).addClass('x-button');
-        // $('.task').append(button);
-        // .lastをつけることで最後の要素にdoneを追加している。
-        $('.task').last().append(button);
+        // var btn = $(`<a href="" class="x-button" data-id=${data.id}>`).append('x');
+        // $('.task').last().append(btn);
+        $('.task').last().append(button); // .lastをつけることで最後の要素にdoneを追加している。
         textField.val('');
       })
       .fail(function() {
-        alert('error');
+        alert('タスクがつくれないよ！');
+        $(".form__submit").attr("disabled", false);
         });
       });
-
 
   $(document).on('click', '.done-button', function(e) {
     e.preventDefault();
     $(this).remove();  //doneボタン削す
     var id = $(this).data('id');  //task.idを取り出す
-    $(`#${id}`).addClass('blue');  //青色に変更
+    $(`#${id}`).addClass('blue');  //青色にする
     console.log(id);
     $.ajax({
       type: 'PATCH',
@@ -95,23 +94,24 @@ $(function() {
 
     $.ajax({
           type: 'DELETE',
-          url: '/tasks/'+ id, //この書き方でid渡せる
+          url: '/tasks/'+ id,
           data: {
             id: id, //消すだけだからidだけ渡せればいい
           }
         })
 
     .fail(function(data) {
-      alert('error!');
+      alert('うまく消せませんでした；');
       });
     });
   });
 
   $(document).on('click', '.done-b , .done-button' ,function(e){
-  e.preventDefault();
-   var point = Number($('#point_up').html())
+    e.preventDefault();
+    let point = Number($('#point_up').html())
       console.log(point);
       point += 1;
       $('#point_up').html(point);
   });
+
 });

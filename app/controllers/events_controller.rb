@@ -26,6 +26,7 @@ def events
 
   # GET /events/1/edit
   def edit
+    @event = Event.find(params[:id])
   end
 
   # POST /events
@@ -50,6 +51,7 @@ def events
       if @event.update(event_params)
         format.html { redirect_to user_path(current_user.id) }
         format.json { render :show, status: :ok, location: @event }
+        flash[:notice] = '予定を変更しました！'
       else
         format.html { render :edit }
         format.json { render json: @event.errors, status: :unprocessable_entity }

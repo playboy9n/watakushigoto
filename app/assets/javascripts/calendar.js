@@ -92,7 +92,12 @@ $(document).on('turbolinks:load', function(){
         },
         dataType: 'json'
       })
+      .fail(function() {
+        alert('文字を入力してね！');
+        $(".form__submit").attr("disabled", false);
+        });
     },
+
 
     eventClick: function(calEvent, jsEvent, view) {
       console.log(calEvent);

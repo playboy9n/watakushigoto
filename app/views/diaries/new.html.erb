@@ -1,5 +1,6 @@
-<h1>New Diary</h1>
-
-<%= render 'form', diary: @diary %>
-
-<%= link_to 'Back', diaries_path %>
+<div class='container'>
+  <%= render 'layouts/errors', hoge: @diary%>
+    <h1>New Diary</h1>
+  <%= render 'form', diary: @diary %>
+  <%= link_to 'Back', diaries_path %>
+</div>

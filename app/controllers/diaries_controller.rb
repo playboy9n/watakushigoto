@@ -13,18 +13,18 @@ class DiariesController < ApplicationController
   end
 
   def edit
-    diary = Diary.find_by(id: params[:id])
+    @diary = Diary.find_by(id: params[:id])
   end
 
   def create
-    diary = Diary.new(diary_params)
-    diary.user = current_user
-    if diary.save
-      diary.point_system
+    @diary = Diary.new(diary_params)
+    @diary.user = current_user
+    if @diary.save
+      @diary.point_system
       flash[:notice] = '保存完了！'
       redirect_to diaries_path
     else
-      rendar :new
+      render :new
     end
   end
 
@@ -33,15 +33,16 @@ class DiariesController < ApplicationController
         flash[:notice] = '日記をアプデート！'
         redirect_to diaries_path
       else
-        rendar :edit
+        render :edit
     end
   end
 
   def destroy
     if@diary.destroy
+      flash[:danger] = '削除しました><！'
       redirect_to diaries_path
     else
-      rendar :new
+      render :index
    end
   end
 

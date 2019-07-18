@@ -1,6 +1,8 @@
-ユーザの編集ページだよ
 <div class="container">
   <div class="row">
+    <div>
+      <%= render 'layouts/errors', hoge: @user %>
+    </div>
     <%= attachment_image_tag @user, :profile_image, :fill, 200, 200, format: 'jpeg', fallback: "no_image.jpg", size:'200x200', class: 'img-circle profile-thumb my-img' %>
       <%= form_for(@user) do |f| %>
        <%= f.attachment_field :profile_image %>
@@ -22,14 +24,14 @@
           <%= f.telephone_field :phone_number,size:15 %></p>
         <p>email
           <%= f.text_field :email %></p>
-        <p>パスワード
-          <% if @minimum_password_length %>
-            <em>(<%= @minimum_password_length %> characters minimum)</em>
-          <% end %>
-          <p>パスワード変更</p>
-            <%= f.password_field :password, autocomplete: "new-password" %>
-          <p>確認</p>
-            <%= f.password_field :password_confirmation, autocomplete: "new-password" %></p>
+        <!-- <p>パスワード -->
+          <%# if @minimum_password_length %>
+         <!--    <em>(<%#= @minimum_password_length %> characters minimum)</em> -->
+          <%# end %>
+          <!-- <p>パスワード変更</p> -->
+            <%#= f.password_field :password, autocomplete: "new-password" %>
+          <!-- <p>確認</p> -->
+            <%#= f.password_field :password_confirmation, autocomplete: "new-password" %></p>
             <%= f.submit '編集ok', class: "btn btn-info" %>
       <% end %>
   </div>

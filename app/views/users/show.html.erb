@@ -2,6 +2,7 @@
 <div class="container">
   <div class="row">
     <div class="contents col-lg-4">
+      <%= render 'layouts/flash' %>
       <p>これだけやればいいぞ！</p>
       <% if @task.top_task == nil %>
         <h4>[今日の目標を設定してください！]</h4>
@@ -38,11 +39,12 @@
     <% if @level != nil %>
         <p>lv:
         <span id='your_level'><%= @level.lv %></span></p>
-          <meter id='lv_gauge'><%= @level.exp %></meter>
+          <progress id='exp_up' value=<%= @level.exp %> , max=<%= @level.exp_box %>>
+            <span class="lv_up"><%= @level.lv %></span></progress>
     <% else %>
         <p>lv:
           <span id='your_level'>1</span></p>
-          <meter id='lv_gauge'>1</meter>
+          <progress id='exp_up' value='0' max='200' id='lv_gauge'><span class="lv_up"></span></progress>
     <% end %>
       <p>point:<span id='point_up'><%= @point %></span></p>
       <p>BD:

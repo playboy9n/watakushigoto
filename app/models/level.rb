@@ -20,9 +20,4 @@ class Level < ApplicationRecord
     level.save
   end
 
-  # def level
-  #   level = current_user.level
-  #   @level.save
-  # end
-
 end
