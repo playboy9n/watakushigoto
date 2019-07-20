@@ -24,8 +24,14 @@ Rails.application.routes.draw do
   get '/thursday' =>  'about#thursday'
   get '/friday' => 'about#friday'
 
-  resources :tasks
   resources :level, only: [:create, :update]
+  # patch '/:id/top/task' => 'tasks#top_task_create', as:'top_task'
+  # post '/top/task' => 'tasks#top_task', as:'to_task'
+  resources :tasks
+
+    post 'tasks/top' => 'tasks#top_task_create', as:'task_top'
+    patch 'tasks/id' => 'tasks#top_task_update', as:'to'
+
 
   namespace :admins do
     resources :users, only: [:index, :edit, :show, :update]

@@ -9,3 +9,8 @@
 .x-button {
   cursor: pointer;
 }
+
+input::-webkit-input-placeholder{
+    color: #9f9f9f;
+    font-size: 0.7em;
+}

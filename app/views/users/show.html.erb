@@ -3,18 +3,25 @@
   <div class="row">
     <div class="contents col-lg-4">
       <%= render 'layouts/flash' %>
-      <p>これだけやればいいぞ！</p>
-      <% if @task.top_task == nil %>
-        <h4>[今日の目標を設定してください！]</h4>
-      <% else %>
-      <h4>[<%= @task.top_task %>]</h4>
+
+    <% if @top.top_task == nil %>
+      <p class="to">これだけやればいいぞ！</p>
+      <%= form_with  model: @task, class: 'top-form' do |f|%>
+      <%= f.text_field :top_task, size: '22', placeholder: '1番大切なタスクを設定してください！', class: 'top__text-field top-form__text-field', id: "task0" %>
+      <%= f.submit class: 'top-form__submit top-submit'%>
       <% end %>
+    <% else %>
+    <li><%= @top.top_task %>
+      <a class='top_done' id=<%=@top.id%>>できた！</a>
+    </li>
+    <% end %>
+
     <%= form_for @task, html: { class: 'form js-form' } do |f|%>
       <p>何日までに終了させるか設定してください</p>
       <%= f.date_field :limit_date, value: Time.now.strftime("%Y-%m-%d") , class: 'form__text-field js-form__text-field', id: "task1" %>
-      <br>
+        <br>
       <%= f.text_field :task_body, placeholder: 'taskの内容', class: 'form__text-field js-form__text-field', id: "task2" %>
-      <%= f.submit class: 'form__submit js-submit' %>
+       <%= f.submit class: 'form__submit js-submit', name: 'task_body' %>
     <% end %>
 
     <span id= 'today'></span>
@@ -94,3 +101,7 @@
   </div>
 <div id="calendar"></div>
 </div>
+
+
+
+

@@ -1,14 +1,18 @@
+  <!-- h4><li class="tp_task"id=<%= task.id %>><%= task.top_task %></h4> -->
 
+<!-- <table class='table table-hover'> -->
 <% if task.done === true%>
-  <li class="task blue" id=<%= task.id %>>
+  <li class='task blue' id=<%= task.id %>>
     <%= task.task_body %>
-  <span class="x-button">x</span>
+  <span class='x-button'>x</span>
   </li>
 <% else %>
-  <li class="task" id=<%= task.id %>>
+  <span class='to-btn'>
+  <li class='task' id=<%= task.id %>>
    <%= task.task_body %>
-  <a class="x-button">x</a>
-  <a class="done-b" data=<%= task.id %>>done</a>
+  <a class='x-button'>x</a>
+  <a class='done-b' data=<%= task.id %>>done</a>
   </li>
 
 <% end %>
+<!-- </table> -->

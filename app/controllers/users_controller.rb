@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
 before_action :authenticate_user!,except: [:update]
-# Level.reflect_on_all_associations
 
 PER = 18
   def calendar
@@ -18,6 +17,11 @@ PER = 18
     @event = current_user
     @point = current_user.point
     @level = Level.find_by(user_id: current_user.id)
+    p "test"
+    p Task.where(user_id: current_user.id).first
+    @top = Task.where(user_id: current_user.id).where( 'created_at >= ?', Date.today  )
+    # @top = Task.find_by(user_id: current_user.id).where( 'created_at >= ?', Date.today  )
+    @top = @top[0]
   end
 
    def edit

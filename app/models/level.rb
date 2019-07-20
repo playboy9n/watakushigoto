@@ -10,14 +10,14 @@ class Level < ApplicationRecord
       level.exp_box = level.exp_box + (level.lv * 100)
     end
 
-    if top_task == true
-       exp += 25
-     end
+    # if top_task == true
+    #    exp += 25
+    #  end
 
     if task.done == true
       level.exp += 5
     end
-    level.save
+    level.save!
   end
 
 end

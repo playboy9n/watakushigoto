@@ -7,7 +7,7 @@ class CreateTasks < ActiveRecord::Migration[5.2]
       t.string :task_body
       t.date :limit_date
       t.boolean :done,  default: false, null: false
-      t.boolean :top_done, default: false, null: false
+      t.boolean :top_btn, default: false, null: false
 
       t.timestamps
     end
