@@ -4,9 +4,10 @@
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
-  <!-- 画像指定したら画像表示できるようにしたいよなぁ？ -->
-  <%= attachment_image_tag @user, :profile_image, :fill, 200, 200, format: 'jpeg', fallback: "no_image.jpg", size:'200x200', class: 'img-circle profile-thumb my-img' %>
-  <%= f.attachment_field :profile_image %>
+
+  <img src='' class='preview_cicle'>
+
+  <%= f.attachment_field :profile_image, class: 'attach_filed' %>
   <div class="field">
     <%= f.label 'ユーザー名' %>
     <%= f.text_field :user_name %>

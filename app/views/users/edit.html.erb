@@ -3,9 +3,11 @@
     <div>
       <%= render 'layouts/errors', hoge: @user %>
     </div>
-    <%= attachment_image_tag @user, :profile_image, :fill, 200, 200, format: 'jpeg', fallback: "no_image.jpg", size:'200x200', class: 'img-circle profile-thumb my-img' %>
+
+    <img class='preview_cicle'>
+
       <%= form_for(@user) do |f| %>
-       <%= f.attachment_field :profile_image %>
+       <%= f.attachment_field :profile_image, class: 'attach_filed' %>
         <p>id:
         <%=f.text_field :nick_name %></p>
         <p>bio</p>

@@ -19,10 +19,12 @@
 
 // $font-family: 'TanukiMagic';
 
+
 @font-face {
   font-family: '851MkPOP_002';
-  src: url(font-path('851MkPOP_002.ttf'));
+  src: font-url('851MkPOP_002.ttf') format('truetype');
 }
+
 
 *{
   margin: 0;
@@ -30,8 +32,15 @@
   box-sizing: border-box;
 }
 
-body{
+body, p, li, a {
   color: #257985;
+  font-family: '851MkPOP_002';
+  font-size: 16px;
+
+}
+
+.password{
+  font-family: 'Verdana';
 }
 
  a{
@@ -77,6 +86,7 @@ li{
 table tr[data-href] {
   cursor: pointer;
 }
+
 //search
 select{
   cursor: pointer;
@@ -85,3 +95,16 @@ select{
 input{
   cursor: pointer;
 }
+
+//refile
+  .preview {
+    height: 200px;
+  }
+
+  .preview_cicle{
+    width:  180px;
+    height: 180px;
+    border-radius: 50%;
+    background: #fff;
+    margin: 6px 0 30px;
+  }

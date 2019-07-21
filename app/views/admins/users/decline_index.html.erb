@@ -1,2 +1,11 @@
-<%= render 'admins/users/user_index', users: @users %>
-
+<div class="container">
+  <div class='row'>
+    <div class='col-lg-offset-1  col-lg-3'>
+    <%= form_tag(admins_decline_path, method: :get, enforce_utf8: false) do %>
+      <%= text_field_tag :q, params[:q], placeholder: "検索" %>
+      <%= submit_tag "🔍", class: " btn glyphicon glyphicon-search" %>
+      <% end %>
+    </div>
+  </div>
+    <%= render 'admins/users/user_index', users: @users %>
+</div>

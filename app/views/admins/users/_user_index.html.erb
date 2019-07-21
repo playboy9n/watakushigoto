@@ -1,22 +1,20 @@
-<div class="container">
-  <div class="col-lg-offset-1 col-lg-10">
-    <table class="table table-hover">
-      <thead>
-        <tr>
-          <th></th>
-          <th>id</th>
-          <th>ユーザ</th>
-        </tr>
-      </thead>
-        <tbody>
-          <% users.each do |user| %>
-        <tr data-href=<%= admins_user_path(user) %>>
-            <td><%= user.id %></td>
-            <td><%= user.nick_name %></td>
-            <td><%= user.user_name %></td>
-        </tr>
-      <% end %>
-      </tbody>
-    </table>
-  </div>
+<div class="col-lg-offset-1 col-lg-10">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th></th>
+        <th>id</th>
+        <th>ユーザ</th>
+      </tr>
+    </thead>
+      <tbody>
+        <% users.each do |user| %>
+      <tr data-href=<%= admins_user_path(user) %>>
+          <td><%= user.id %></td>
+          <td><%= user.nick_name %></td>
+          <td><%= user.user_name %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
 </div>
