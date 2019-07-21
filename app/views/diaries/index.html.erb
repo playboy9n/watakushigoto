@@ -11,10 +11,9 @@
       </thead>
       <tbody>
         <% @diaries.each do |diary| %>
-          <tr>
+          <tr data-href=<%= diary_path(diary) %>>
             <td><%= sort_link(@q, :created_at, diary.diary_title) %></td>
             <td><%= diary.diary_body %></td>
-            <td><%= link_to 'Show', diary %></td>
             <td><%= link_to 'Edit', edit_diary_path(diary) %></td>
             <td><%= link_to 'Destroy', diary, method: :delete, data: { confirm: '日記消えちゃうよ‎(´･ω･｀)?' } %></td>
           </tr>

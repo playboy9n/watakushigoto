@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <%= attachment_image_tag @user, :profile_image, :fill, 200, 200, format: 'jpeg', fallback: "no_image.jpg", size:'200x200', class: 'img-circle profile-thumb my-img' %>
-      <%= form_for(@user) do |f| %>
+      <%= form_for @user, url: admins_user_path(@user.id) do |f| %>
        <%= f.attachment_field :profile_image %>
         <p>id:
         <%=f.text_field :nick_name %></p>
@@ -21,7 +21,6 @@
           <%= f.text_field :phone_number %></p>
         <p>email
           <%= f.text_field :email %></p>
-        <p>パスワード
           <% if @minimum_password_length %>
             <em>(<%= @minimum_password_length %> characters minimum)</em>
           <% end %>

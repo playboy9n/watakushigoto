@@ -4,18 +4,18 @@ class DiariesController < ApplicationController
   def index
     @q = Diary.where(user_id: current_user.id).ransack(params[:q])
     @diaries = @q.result
-    # @diaries = Diary.all.reverse_order
   end
 
   def show
+     #@diary.diary_image
   end
 
   def new
     @diary = Diary.new
+    @diary.diary_image
   end
 
   def edit
-    @diary = Diary.find_by(id: params[:id])
   end
 
   def create
@@ -54,6 +54,6 @@ class DiariesController < ApplicationController
     end
 
     def diary_params
-      params.require(:diary).permit(:diary_title, :diary_body, :diary_image_id)
+      params.require(:diary).permit(:diary_title, :diary_body, diary_images: [])
     end
 end

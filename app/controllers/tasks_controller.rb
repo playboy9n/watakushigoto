@@ -27,24 +27,25 @@ class TasksController < ApplicationController
         format.json { render json: @task }
       end
     else
-      render :json, alert: 'taskを入力してください'
+    render :json, alert: 'taskを入力してください'
   end
 end
-  def top_task_create
+
+def top_task_create
     if Level.exists?(user_id: current_user.id)
        @level = Level.find_by(user_id: current_user.id)
     else
       @level = Level.create(user_id: current_user.id)
     end
-    if Task.exists?(created_at: Date.today, user_id: current_user.id)
+    unless Task.where('created_at between ? and ?', Time.current.beginning_of_day, Time.current.end_of_day).where.not(top_task: nil).exists?(user_id: current_user.id)
       @task = Task.new(top_task_params)
       @task.user_id = current_user.id
       @task.level_id = @level.id
       if @task.save
-        respond_to do |format|
-          format.html { redirect_to root_path(current_user.id) }
-          format.json { render json: @task }
-        end
+        # respond_to do |format|
+        #   format.html { redirect_to root_path(current_user.id) }
+        #   format.json { render json: @task }
+        # end
       else
         render :json, alert: '失敗だ〜〜'
       end
@@ -52,15 +53,18 @@ end
   end
 
   def top_task_update
-    if Task.exists?(created_at: Date.today, user_id: current_user.id)
-      task = Task.find(params[:id])
-      task.update(top_update_params)
-      # (top_btn: true)
+    @task = Task.find(params[:id])
+    if @task.update(top_update_params)
+      level = current_user.levels.first
+      level.leveling(level, @task)
+      @task.point_system
+       respond_to do |format|
+        format.html { redirect_to user_path(current_user.id) }
+        format.json { render json: @task}
+        end
       flash[:notice] = ' ^_^ いいね！'
-      redirect_to user_path(current_user.id)
     else
-      flash[:notice] = '失敗！'
-      redirect_to  user_path(current_user.id)
+      render :json, alert: '失敗だぞ'
     end
   end
 

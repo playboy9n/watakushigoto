@@ -1,7 +1,8 @@
 <div class='container'>
-  <% if :diary_image != nil %>
-    <%= attachment_image_tag @user, :diary_image,format: 'jpeg',  size:'200x200', class: 'img-circle profile-thumb my-img' %>
-  <% end %>
+  <%# if @diary.diary_image != nil %>
+    <%#= attachment_image_tag @diary, :diary_image,format: 'jpeg', class: 'img-circle profile-thumb my-img' %>
+  <%# end %>
+   <%= attachment_image_tag @diary, :diary_image ,format: 'jpg', class: 'img-circle profile-thumb my-img' %>
   <p>
     <strong>Diary</strong>
     <%= @diary.diary_title %>

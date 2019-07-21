@@ -33,8 +33,8 @@ $(document).on('turbolinks:load', function(){
     },
     timeFormat: 'HH:mm',
     timezone: 'Asia/Tokyo',
-    eventColor: '#ffe28a',//イベントの色
-    eventTextColor: '#000000', //イベント文字色
+    eventColor: '#257985',//イベントの色
+    eventTextColor: '#FFF', //イベント文字色
     eventLimit: true, // イベント増えた時にリンクボタン表示
     editable: true, //これtureにしないと一生動かないんだなフルカレンダー
     slotEventOverlap: true,

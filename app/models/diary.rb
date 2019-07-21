@@ -1,7 +1,6 @@
 class Diary < ApplicationRecord
   belongs_to :user
   attachment :diary_image
-
   validates :diary_body, length: { minimum: 3 }
 
  def point_system

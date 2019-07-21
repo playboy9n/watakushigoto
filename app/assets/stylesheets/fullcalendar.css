@@ -18,7 +18,7 @@ body .fc {
 --------------------------------------------------------------------------------------------------*/
 .fc-highlight {
   /* when user is selecting cells */
-  background: #bce8f1;
+  background: #5EA8A7;
   opacity: .3; }
 
 .fc-bgevent {
@@ -341,7 +341,7 @@ temporary rendered events).
 
 .fc-event,
 .fc-event-dot {
-  background-color: #3a87ad;
+  background-color: #fff7b5;
   /* default BACKGROUND color */ }
 
 .fc-event,
@@ -613,7 +613,7 @@ TODO: more distinction between this file and common.css
   color: #666; }
 
 .fc-unthemed td.fc-today {
-  background: #fcf8e3; }
+  background: #d0e5e4; }
 
 .fc-unthemed .fc-disabled-day {
   background: #d7d7d7;

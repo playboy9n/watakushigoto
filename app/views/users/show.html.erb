@@ -2,18 +2,22 @@
 <div class="container">
   <div class="row">
     <div class="contents col-lg-4">
-      <%= render 'layouts/flash' %>
+    <%= render 'layouts/flash' %>
 
-    <% if @top.top_task == nil %>
+    <% if @top.nil? %>
       <p class="to">これだけやればいいぞ！</p>
       <%= form_with  model: @task, class: 'top-form' do |f|%>
-      <%= f.text_field :top_task, size: '22', placeholder: '1番大切なタスクを設定してください！', class: 'top__text-field top-form__text-field', id: "task0" %>
-      <%= f.submit class: 'top-form__submit top-submit'%>
+        <%= f.text_field :top_task, size: '22', placeholder: '1番大切なタスクを設定してください！', class: 'top__text-field top-form__text-field', id: "task0" %>
+        <%= f.submit class: 'top-form__submit top-submit'%>
       <% end %>
     <% else %>
-    <li><%= @top.top_task %>
-      <a class='top_done' id=<%=@top.id%>>できた！</a>
-    </li>
+        <% if @top.top_btn == true%>
+          <li class='top red' id=<%= @top.id %>><%= @top.top_task %>
+          </li>
+        <% else %>
+          <li class='top' id=<%= @top.id %>><%= @top.top_task %>
+          <a class='top_done' data=<%= @top.id%>>できた！done</a>
+        <% end %>
     <% end %>
 
     <%= form_for @task, html: { class: 'form js-form' } do |f|%>
@@ -32,7 +36,7 @@
     </div>
 
     <div class="col-lg-5">
-      <div id='tom_speak'></div>
+      <div class='animated flipInX tom' id='tom_speak'></div>
     </div>
 
     <div class="col-lg-3">

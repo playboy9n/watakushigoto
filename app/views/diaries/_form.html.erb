@@ -1,19 +1,20 @@
-<%= form_with(model: diary, local: true) do |form| %>
+<%= form_with(model: diary, local: true) do |f| %>
   <div class="field">
-    <%= form.label :diary_title %>
-    <%= form.text_field :diary_title %>
+  <p>Title</p>
+    <% f.label :diary_title %>
+    <%= f.text_field :diary_title, size: '30x5' %>
   </div>
 
   <div class="field">
-    <%= form.label :diary_body %>
-    <%= form.text_area :diary_body %>
+    <% f.label :diary_body %>
+    <%= f.text_area :diary_body, size: '80x15' %>
   </div>
 
   <div class="field">
-    <%#= form.attachment_field :diary_image %>
+   <%= f.attachment_field :diary_image, multiple: true  %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= f.submit %>
   </div>
 <% end %>

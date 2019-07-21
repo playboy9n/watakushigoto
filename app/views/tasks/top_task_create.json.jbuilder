@@ -1,1 +1,1 @@
-json.top @task.top
+json.top @task.top_task

@@ -30,7 +30,7 @@ Rails.application.routes.draw do
   resources :tasks
 
     post 'tasks/top' => 'tasks#top_task_create', as:'task_top'
-    patch 'tasks/id' => 'tasks#top_task_update', as:'to'
+    patch 'tasks/:id/top' => 'tasks#top_task_update', as:'to'
 
 
   namespace :admins do

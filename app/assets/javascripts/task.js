@@ -59,7 +59,7 @@ $(function() {
     var id = $(this).data('id');
     //↑task.idを取り出す。
     //↓青色にする。
-    $(`#${id}`).addClass('blue');
+    $(`#${id}`).addClass('red');
     console.log(id);
     $.ajax({
       type: 'PATCH',
@@ -76,7 +76,7 @@ $(function() {
     e.preventDefault();
     var id = $(this).parent().attr('id');
     $(this).remove();
-    $(`#${id}`).addClass('blue');
+    $(`#${id}`).addClass('red');
     console.log(id);
 
  $.ajax({
@@ -101,8 +101,7 @@ $(function() {
           type: 'DELETE',
           url: '/tasks/'+ id,
           data: {
-            id: id,
-            //消すだけだからidだけ渡せればおk。
+            id: id, //消すだけだからidだけ渡せればおk。
           }
         })
 
@@ -128,6 +127,7 @@ $(function() {
   });
 
  $('.top-form').on('click', '.top-submit', function(e){
+    e.preventDefault();
     var top = $('#task0').val()
     console.log(top);
 
@@ -143,6 +143,9 @@ $(function() {
     })
 
   .done(function(data) {
+    console.log(data);
+    location.reload();
+
         $('.to').html(top);
       })
   .fail(function() {
@@ -151,16 +154,16 @@ $(function() {
     });
   });
 
- $(document).on('click', '.top_done', function(e) {
+  $('.top_done').click(function(e){
     e.preventDefault();
-  $(this).remove();
-   let id =  $(this).attr("id");
-  $(`#${id}`).addClass('blue');
-  console.log(id);
+    let id = $(this).parent().attr('id');
+    $(this).remove();
+    $(`#${id}`).addClass('red');
+    console.log(id);
 
   $.ajax({
     type: 'PATCH',
-    url: '/tasks/'+ id,
+    url: '/tasks/'+ id + '/top',
     data: {
       task:{
         top_btn: true,

@@ -2,26 +2,26 @@
   <div class="field">
     <%= form.label :title %>
   <br>
-    <%= form.text_field :title, class: 'title' %>
+    <%= form.text_field :title, size: '32x5', class: 'title' %>
   </div>
 
   <div class="field">
     <%= form.label :description %>
   <br>
-    <%= form.text_area :description, class: 'description' %>
+    <%= form.text_area :description, size: '48x5', class: 'description' %>
   </div>
 
-  <div class="field">
+  <div class='field'>
     <%= form.label :start %>
     <%= form.datetime_select :start %>
   </div>
 
-  <div class="field">
+  <div class='field'>
     <%= form.label :end %>
     <%= form.datetime_select :end %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class='actions'>
+<%= form.submit %>
   </div>
 <% end %>

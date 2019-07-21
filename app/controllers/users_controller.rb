@@ -17,11 +17,8 @@ PER = 18
     @event = current_user
     @point = current_user.point
     @level = Level.find_by(user_id: current_user.id)
-    p "test"
     p Task.where(user_id: current_user.id).first
-    @top = Task.where(user_id: current_user.id).where( 'created_at >= ?', Date.today  )
-    # @top = Task.find_by(user_id: current_user.id).where( 'created_at >= ?', Date.today  )
-    @top = @top[0]
+    @top = Task.where(user_id: current_user.id).where.not(top_task: nil).where( 'created_at between ? and ?', Time.current.beginning_of_day, Time.current.end_of_day).first
   end
 
    def edit

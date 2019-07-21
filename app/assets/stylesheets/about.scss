@@ -4,8 +4,11 @@
 
 // サイドば！
 #about-side{
-  background-color: #ffe8b1;
+  background-color: #FF4447;
   height: auto;
   min-height:100vh;
   display:none;
+}
+#about-side a:visited {
+  color: #fff !important;
 }

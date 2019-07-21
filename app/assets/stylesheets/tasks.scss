@@ -2,8 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.blue {
-  color: blue;
+.red {
+  color: #FF4447;
 }
 
 .x-button {
@@ -13,4 +13,8 @@
 input::-webkit-input-placeholder{
     color: #9f9f9f;
     font-size: 0.7em;
+}
+
+progress[value]::-webkit-progress-bar {
+  background-color: #9f9f9f !important;
 }
