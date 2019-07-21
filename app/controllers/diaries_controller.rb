@@ -7,12 +7,11 @@ class DiariesController < ApplicationController
   end
 
   def show
-     #@diary.diary_image
   end
 
   def new
     @diary = Diary.new
-    @diary.diary_image
+    @diary.diary_images.build
   end
 
   def edit
@@ -54,6 +53,6 @@ class DiariesController < ApplicationController
     end
 
     def diary_params
-      params.require(:diary).permit(:diary_title, :diary_body, diary_images: [])
+      params.require(:diary).permit(:diary_title, :diary_body, diary_images_images: [])
     end
 end

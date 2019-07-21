@@ -1,6 +1,7 @@
 class Diary < ApplicationRecord
   belongs_to :user
-  attachment :diary_image
+  has_many :diary_images, dependent: :destroy
+  accepts_attachments_for :diary_images, attachment: :image
   validates :diary_body, length: { minimum: 3 }
 
  def point_system

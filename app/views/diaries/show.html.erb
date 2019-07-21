@@ -1,8 +1,9 @@
 <div class='container'>
-  <%# if @diary.diary_image != nil %>
-    <%#= attachment_image_tag @diary, :diary_image,format: 'jpeg', class: 'img-circle profile-thumb my-img' %>
-  <%# end %>
-   <%= attachment_image_tag @diary, :diary_image ,format: 'jpg', class: 'img-circle profile-thumb my-img' %>
+  <% if @diary.diary_images.present? %>
+   <% @diary.diary_images.each do |image|%>
+   <%= attachment_image_tag image, :image, class: 'diary-img' %>
+   <% end %>
+  <% end %>
   <p>
     <strong>Diary</strong>
     <%= @diary.diary_title %>
