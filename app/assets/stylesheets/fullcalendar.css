@@ -13,12 +13,11 @@
 body .fc {
   /* extra precedence to overcome jqui */
   font-size: 1em; }
-
 /* Colors
 --------------------------------------------------------------------------------------------------*/
 .fc-highlight {
   /* when user is selecting cells */
-  background: #5EA8A7;
+  background: rgba(255, 238, 136, 1);
   opacity: .3; }
 
 .fc-bgevent {
@@ -29,7 +28,7 @@ body .fc {
 .fc-nonbusiness {
   /* default look for non-business-hours areas */
   /* will inherit .fc-bgevent's styles */
-  background: #d7d7d7; }
+  background: #d7d7d7;}
 
 /* Buttons (styled <button> tags, normalized to work cross-browser)
 --------------------------------------------------------------------------------------------------*/
@@ -90,7 +89,7 @@ body .fc {
   background-repeat: repeat-x;
   border-color: #e6e6e6 #e6e6e6 #bfbfbf;
   border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
-  color: #333;
+  color: rgba(254, 2, 126, 1);
   text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05); }
 
@@ -98,11 +97,11 @@ body .fc {
 .fc-state-down,
 .fc-state-active,
 .fc-state-disabled {
-  color: #333333;
-  background-color: #e6e6e6; }
+  color: #FE027E;
+  background-color: rgba(255, 238, 136, 0.8); }
 
 .fc-state-hover {
-  color: #333333;
+  color: #FE027E;
   text-decoration: none;
   background-position: 0 -15px;
   -webkit-transition: background-position 0.1s linear;
@@ -112,7 +111,7 @@ body .fc {
 
 .fc-state-down,
 .fc-state-active {
-  background-color: #cccccc;
+  background-color: rgba(255, 238, 136, 0.3);
   background-image: none;
   box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05); }
 
@@ -336,7 +335,7 @@ temporary rendered events).
   font-size: .85em;
   line-height: 1.3;
   border-radius: 3px;
-  border: 1px solid #3a87ad;
+  border: 1px solid #FE027E;
   /* default BORDER color */ }
 
 .fc-event,
@@ -599,7 +598,7 @@ TODO: more distinction between this file and common.css
 .fc-unthemed .fc-popover,
 .fc-unthemed .fc-list-view,
 .fc-unthemed .fc-list-heading td {
-  border-color: #ddd; }
+  border-color: #FE027E; }
 
 .fc-unthemed .fc-popover {
   background-color: #fff; }
@@ -607,13 +606,13 @@ TODO: more distinction between this file and common.css
 .fc-unthemed .fc-divider,
 .fc-unthemed .fc-popover .fc-header,
 .fc-unthemed .fc-list-heading td {
-  background: #eee; }
+  background: #FE027E; }
 
 .fc-unthemed .fc-popover .fc-header .fc-close {
   color: #666; }
 
 .fc-unthemed td.fc-today {
-  background: #d0e5e4; }
+  background: rgba(255, 238, 136, 0.3); }
 
 .fc-unthemed .fc-disabled-day {
   background: #d7d7d7;
@@ -913,8 +912,8 @@ NOTE: use percentage font sizes or else old IE chokes
 .fc-basic-view .fc-day-top .fc-week-number {
   min-width: 1.5em;
   text-align: center;
-  background-color: #f2f2f2;
-  color: #808080; }
+  background-color: #FE027E;
+  color: #FE027E; }
 
 /* when week/day number have own column */
 .fc-basic-view td.fc-week-number {
@@ -1295,3 +1294,12 @@ be a descendant of the grid when it is being dragged.
 #calendar {
   margin: 80px 100px 160px;
 }
+
+.fc-widget-content {
+  background: rgba(255, 255, 255, 0.9);
+}
+.fc-day-header ,.fc-widget-header {
+  background-color:rgba(254, 2, 126, 0.6);
+  color: #fff;
+}
+

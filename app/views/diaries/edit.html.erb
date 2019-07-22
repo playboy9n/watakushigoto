@@ -1,6 +1,11 @@
 <div class='container'>
   <%= render 'layouts/errors', hoge: @diary%>
   <h1>Editing Diary</h1>
+    <% if @diary.diary_images.present? %>
+     <% @diary.diary_images.each do |image|%>
+     <%= attachment_image_tag image, :image, class: 'diary-img' %>
+     <% end %>
+    <% end %>
   <%= render 'form', diary: @diary %>
     <%= link_to 'Show', @diary %> |
     <%= link_to 'Back', diaries_path %>

@@ -33,10 +33,13 @@
 }
 
 body, p, li, a {
-  color: #257985;
-  font-family: '851MkPOP_002';
+  color: #FE027E;
+  font-family: '851MkPOP_002', 'sans-serif';
   font-size: 16px;
 
+}
+.link_to{
+  color: #fff;
 }
 
 .password{
@@ -47,31 +50,26 @@ body, p, li, a {
   text-decoration:none;
 
 }
-li{
+li {
   list-style-type :none;
-}
-
-//rqagistration
-.hello{
-  background-color: pink;
-  height: 300px;
 }
 
 //header
 .head-body {
   padding-top: 120px;
+  background: #ffed7a;
 }
 
-.navbar-default{
+.navbar-default {
   padding: 16px 0;
-  background: #5EA8A7;
+  background: #F6248A;
 }
-.navbar-default .navbar-brand{
+.navbar-default .navbar-brand {
   color: #FFF;
 }
 
 .navbar-default .navbar-nav > li > a {
-  color: #FFF;
+  color: #FFF !important;
 }
 .my-img{
   margin-bottom: 20px;
@@ -79,7 +77,10 @@ li{
 
 //flash
 .notice{
-  color: green;
+  color: #fff;
+}
+.danger{
+  color: #FE027E;
 }
 
 //table
@@ -105,6 +106,13 @@ input{
     width:  180px;
     height: 180px;
     border-radius: 50%;
-    background: #fff;
+    border:solid 2px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
     margin: 6px 0 30px;
+    background: rgba(255, 255, 255 ,0.6);
+  }
+//modal
+.modal-content {
+    -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.6);
   }

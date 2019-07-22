@@ -3,7 +3,8 @@
 
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <div class='field'>
-      <%= f.label :nick_name %><br />
+      <% f.label :nick_name %>
+      <h4>id</h4>
       <%= f.text_field :nick_name, autofocus: true, autocomplete: 'id' %>
     </div>
 

@@ -3,7 +3,25 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
-
-.diary-img{
+.diary-img {
   width: 30%;
+}
+
+.diary-tr {
+  background: #FE027E;
+  color: #fff;
+}
+
+.diary_table {
+  background: rgba(255, 255, 255, 0.3);
+  margin: 20px 0;
+}
+
+.sort_link,a:visited {
+  color: #FE027E !important;
+}
+
+#d_img img {
+  width: 30%;
+  padding: 12px;
 }

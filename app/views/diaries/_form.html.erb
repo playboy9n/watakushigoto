@@ -14,9 +14,9 @@
     <%= f.attachment_field :diary_images_images, multiple: true, direct: true, presigned: true, class: 'attach_filed', type: 'file'  %>
   </div>
 
-  <img class='preview'>
-
+<div id='d_img'>
+</div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit '● 投稿 ●', class: 'f_submit' %>
   </div>
 <% end %>

@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 before_action :authenticate_user!,except: [:update]
 
-PER = 18
+PER = 13
   def calendar
   end
 

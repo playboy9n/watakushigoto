@@ -1,9 +1,5 @@
-// Place all the styles related to the tasks controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-
-.red {
-  color: #FF4447;
+.blue {
+  color: #3c87fd;
 }
 
 .x-button {
@@ -15,6 +11,42 @@ input::-webkit-input-placeholder{
     font-size: 0.7em;
 }
 
-progress[value]::-webkit-progress-bar {
-  background-color: #9f9f9f !important;
+.message {
+  font-size: 13px;
+  margin-bottom: 3px;
 }
+
+.js-submit, .f_submit {
+  position: relative;
+  display: inline-block;
+  padding: 4px;
+  background: #FE027E;
+  box-shadow: inset 0 2px 0 rgba(255,255,255,0.2);
+  border-bottom: solid 1px #354b6f;
+  border-radius: 4px;
+  text-shadow: -1px -1px rgba(255, 255, 255, 0.44), 1px 1px rgba(0, 0, 0, 0.38);
+  font-size: 13px;
+}
+.js-submit{
+  margin: 4px 0 24px 60px;
+}
+
+.js-submit:active {
+  background: rgba(254, 2, 126, 0.7);
+}
+
+.task_table {
+  width: 220px;
+  padding:0 1em;
+  background: rgba(255,255,255, 0.4);
+  line-height: 2.5em;
+  border-bottom: 1px solid #ccc;
+  overflow: hidden;
+  text-align: center;
+  margin-left: 10px;
+}
+.task_table:hover{
+  cursor: pointer;
+  background: rgba(255,255,255, 0.9);
+}
+

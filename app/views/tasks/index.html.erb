@@ -4,13 +4,13 @@
   </div>
   <div class="row">
     <div class="col-lg-4">
-      <table class="table table-hover">
+      <table class="table table-hover task_back">
         <thead>
           <th>達成task</th>
         </thead>
         <tbody>
           <% @tasks.each do |task| %>
-            <tr>
+            <tr class='task_back'>
               <% if task.done == true %>
               <td><%= sort_link(@q, :created_at, task.task_body)%></td>
             </tr>
@@ -26,7 +26,7 @@
         </thead>
         <tbody>
           <% @tasks.each do |task| %>
-          <tr>
+          <tr class='task_back'>
             <% if task.done == false %>
               <td><%= sort_link(@q, :created_at, task.task_body)%></td>
           </tr>

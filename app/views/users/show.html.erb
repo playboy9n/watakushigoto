@@ -1,7 +1,7 @@
 <!-- これはあれ名前をばばばばばばってだすばばばばばばっば -->
 <div class="container">
   <div class="row">
-    <div class="contents col-lg-4">
+    <div class="contents col-lg-3">
     <%= render 'layouts/flash' %>
 
     <% if @top.nil? %>
@@ -12,31 +12,34 @@
       <% end %>
     <% else %>
         <% if @top.top_btn == true%>
-          <li class='top red' id=<%= @top.id %>><%= @top.top_task %>
+          <li class='top blue' id=<%= @top.id %>>
+            <h3 class='ok'><%= @top.top_task %></h3>
           </li>
         <% else %>
-          <li class='top' id=<%= @top.id %>><%= @top.top_task %>
+          <li class='top' id=<%= @top.id %>>
+            <h3><%= @top.top_task %><h3>
+          </li>
           <a class='top_done' data=<%= @top.id%>>できた！done</a>
         <% end %>
     <% end %>
-
-    <%= form_for @task, html: { class: 'form js-form' } do |f|%>
-      <p>何日までに終了させるか設定してください</p>
-      <%= f.date_field :limit_date, value: Time.now.strftime("%Y-%m-%d") , class: 'form__text-field js-form__text-field', id: "task1" %>
-        <br>
-      <%= f.text_field :task_body, placeholder: 'taskの内容', class: 'form__text-field js-form__text-field', id: "task2" %>
-       <%= f.submit class: 'form__submit js-submit', name: 'task_body' %>
-    <% end %>
-
-    <span id= 'today'></span>
+  <span id= 'today'></span>
     <ul class="tasks">
       <%= render @tasks %>
       <%= paginate @tasks, class: 'tasks_kaminari' %>
     </ul>
+    <%= form_for @task, html: { class: 'form js-form' } do |f|%>
+      <p class='message'>何日までに終了させるか設定してください</p>
+      <%= f.date_field :limit_date, value: Time.now.strftime("%Y-%m-%d"), class: 'form__text-field js-form__text-field', id: "task1" %>
+      <br>
+      <%= f.text_field :task_body, placeholder: 'taskの内容', size: '26', class: 'form__text-field js-form__text-field', id: "task2" %>
+       <%= f.submit '● 送信 ●', class: 'form__submit js-submit' %>
+    <% end %>
+
     </div>
 
-    <div class="col-lg-5">
+    <div class="col-lg-6">
       <div class='animated flipInX tom' id='tom_speak'></div>
+      <div class='box'></div>
     </div>
 
     <div class="col-lg-3">
@@ -67,11 +70,11 @@
         <%= @user.gender %></p>
       <p>電話:
         <%= @user.phone_number %></p>
-      <p>email
+      <p>email:
         <%= @user.email %></p>
-        <%= link_to '編集', edit_user_path(@user.id) %>
-        <%= link_to '日記', diaries_path %>
-        <%= link_to 'task', tasks_path %>
+        <%= link_to '編集', edit_user_path(@user.id), style: 'color:#3c87fd' %>
+        <%= link_to '日記', diaries_path, style: 'color:#3c87fd' %>
+        <%= link_to 'task', tasks_path, style: 'color:#3c87fd' %>
     </div>
   </div>
 </div>
@@ -96,8 +99,6 @@
           </button>
           <span id="m_title" class="modal-title"></span>
         </div>
-        <div id="m_body"  class="modal-body"></div>
-        <div id="m_foot" class="modal-footer"></div>
       </div>
     </div>
   </div>

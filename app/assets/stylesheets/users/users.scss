@@ -3,6 +3,12 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .tom {
-   animation-duration: 4s; /* アニメーションの時間 */
+  animation-duration: 4s; /* アニメーションの時間 */
   animation-delay: 1s; /* アニメーション開始時間 */
+}
+
+.box {
+  background: #fff;
+  height: 400px;
+  // weight: 400px;
 }

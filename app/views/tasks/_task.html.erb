@@ -1,15 +1,26 @@
-<table class='table table-hover table-dark'>
-  <% if task.done === true%>
-    <li class='task red' id=<%= task.id %>>
-      <%= task.task_body %>
-    <a class='x-button'>x</a>
-    </li>
-  <% else %>
-    <li class='task' id=<%= task.id %>>
-     <%= task.task_body %>
-    <a class='x-button'>x</a>
-    <a class='done-b' data=<%= task.id %>>done</a>
-    </li>
+<div class='row task_row'>
 
+<table class='task_table'>
+<tr>
+  <% if task.done === true %>
+    <td>
+      <li class='task blue task_ground' id=<%= task.id %>>
+        <%= task.task_body %>
+          <a class='x-button'>x</a>
+      </li>
+    </td>
+  <% else %>
+    <td>
+      <li class='task task_ground' id=<%= task.id %>>
+        <%= task.task_body %>
+          <a class='x-button'>x</a>
+          <a class='done-b' data=<%= task.id %>>done</a>
+      </li>
+    </td>
   <% end %>
+</tr>
 </table>
+</div>
+
+
+

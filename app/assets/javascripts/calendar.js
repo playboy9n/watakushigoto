@@ -33,7 +33,7 @@ $(document).on('turbolinks:load', function(){
     },
     timeFormat: 'HH:mm',
     timezone: 'Asia/Tokyo',
-    eventColor: '#257985',//イベントの色
+    eventColor: '#FE027E',//イベントの色
     eventTextColor: '#FFF', //イベント文字色
     eventLimit: true, // イベント増えた時にリンクボタン表示
     editable: true, //これtureにしないと一生動かないんだなフルカレンダー

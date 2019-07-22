@@ -59,7 +59,7 @@ $(function() {
     var id = $(this).data('id');
     //↑task.idを取り出す。
     //↓青色にする。
-    $(`#${id}`).addClass('red');
+    $(`#${id}`).addClass('blue');
     console.log(id);
     $.ajax({
       type: 'PATCH',
@@ -76,7 +76,7 @@ $(function() {
     e.preventDefault();
     var id = $(this).parent().attr('id');
     $(this).remove();
-    $(`#${id}`).addClass('red');
+    $(`#${id}`).addClass('blue');
     console.log(id);
 
  $.ajax({
@@ -158,7 +158,7 @@ $(function() {
     e.preventDefault();
     let id = $(this).parent().attr('id');
     $(this).remove();
-    $(`#${id}`).addClass('red');
+    $(`#${id}`).addClass('blue');
     console.log(id);
 
   $.ajax({
