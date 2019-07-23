@@ -23,6 +23,7 @@
               <% elsif admin_signed_in? %>
                 <li class='about_li'><%= link_to 'マイページ', top_path %></li>
               <% end %>
+            <li class='about_li'><%= link_to 'about', about_path %>
             <li class='about_li'><%= link_to 'week', week_path %></li>
             <li class='about_me'><%= link_to '^_^', secret_path %></li>
           <% else %>

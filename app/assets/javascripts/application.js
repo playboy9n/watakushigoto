@@ -20,10 +20,17 @@
 
 $(document).on('click', '#watakushigoto', function(e) {
   e.preventDefault();
+  var user_link = $('#mypage_li, #logout_li, #about_li');
   $('.dark').fadeIn('slow');
- });
+  user_link.fadeIn();
+
+  user_link.mouseover(function(){
+      $(this).css('opacity', '.1').animate({'opacity': '1'}, '1');
+  });
 
   $('.dark').click(function(){
    $(this).fadeOut('slow');
+   user_link.hide();
   });
 
+});

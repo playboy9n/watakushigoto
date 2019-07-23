@@ -7,13 +7,6 @@ $(function() {
     return html;
   }
 
-  // function check() {
-  //       if(document.task1.value === "") {
-  //           alert("名前を入力してください");
-  //           return false;
-  //       }
-
-
     $('.js-form').on('submit', function(e) {
       e.preventDefault();
 
@@ -21,6 +14,7 @@ $(function() {
       var task = textField.val();
       if (!task) {
         alert('タスクが空！だよ！');
+        (this).disabled = 'false';
         return;
       }
       var task_limit = $('#task1').val()
@@ -47,7 +41,8 @@ $(function() {
       .done(function(data) {
         var html = buildHTML(data);
         console.log(data);
-        $('.tasks').append(html);
+        // $(this).css(.task_table);
+        $('.tasks').append(html).addClass('task_table');
         //$.append関数、操作後DOMに要素が追加された状態になる。
         //tasksに引数で指定したdataのHTML要素を追加。
         console.log(data.id);
@@ -161,7 +156,7 @@ $(function() {
     console.log(data);
     location.reload();
 
-        $('.to').html(top);
+    $('.to').html(top);
       })
   .fail(function() {
     alert('わはは^__^');
@@ -169,9 +164,9 @@ $(function() {
     });
   });
 
-  $('.top_done').click(function(e){
+  $('#top_done').click(function(e){
     e.preventDefault();
-    let id = $(this).parent().attr('id');
+    let id = $(this).data('id');
     $(this).remove();
     $(`#${id}`).addClass('blue');
     console.log(id);

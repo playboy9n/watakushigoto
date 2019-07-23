@@ -105,9 +105,10 @@ li {
   top:200px;
   right:1050px;
   bottom: 200px;
-    img{
-      border-radius: 50%;
-    }
+  display: none;
+  img{
+    border-radius: 50%;
+  }
 }
 
 #logout_li{
@@ -115,12 +116,14 @@ li {
   position: absolute;
   top:300px;
   right:660px;
+  display: none;
 }
 
 #about_li{
   position: absolute;
   top:300px;
   right:560px;
+  display: none;
 }
 
 
