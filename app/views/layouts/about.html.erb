@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <!-- titleあとで変更する -->
-    <title>3ヶ月目の課題</title>
+    <title>わたくしごと！</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.js"></script>
@@ -14,22 +13,18 @@
     <meta name="turbolinks-cache-control" content="no-cache">
   </head>
 
-  <body>
+  <body id='about_body'>
     <header>
       <div class="col-lg-2" id="about-side">
         <ul>
           <% if admin_signed_in? || user_signed_in? %>
               <% if user_signed_in? %>
-                <li><%= link_to 'マイページ',user_path(current_user.id) %></li>
+                <li class='about_li'><%= link_to 'マイページ',user_path(current_user.id) %></li>
               <% elsif admin_signed_in? %>
-                <li><%= link_to 'マイページ', top_path %></li>
+                <li class='about_li'><%= link_to 'マイページ', top_path %></li>
               <% end %>
-            <li class=><%= link_to 'saturday',saturday_path %></li>
-            <li class="about-li"><%= link_to 'monday', monday_path %></li>
-            <li class="about-li"><%= link_to 'tuesday', tuesday_path %></li>
-            <li class="about-li"><%= link_to 'wednesday', wednesday_path %></li>
-            <li class="about-li"><%= link_to 'thursday', thursday_path %></li>
-            <li class="about-li"><%= link_to 'friday', friday_path %></li>
+            <li class='about_li'><%= link_to 'week', week_path %></li>
+            <li class='about_me'><%= link_to '^_^', secret_path %></li>
           <% else %>
             <li><%= link_to "ログイン", new_user_session_path %></li>
             <li><%= link_to "新規登録", new_user_registration_path %></li>

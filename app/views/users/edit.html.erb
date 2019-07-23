@@ -7,7 +7,7 @@
     <img class='preview_cicle'>
 
       <%= form_for(@user) do |f| %>
-       <%= f.attachment_field :profile_image, class: 'attach_filed' %>
+       <%= f.attachment_field :profile_image, class: 'attach' %>
         <p>id:
         <%=f.text_field :nick_name %></p>
         <p>bio</p>
@@ -18,8 +18,8 @@
           <label><%= f.radio_button :gender, "秘密" %>内緒</label></p>
            <p>BD<%= f.date_field :bd, value: @user.bd %></p>
         <p>--------------------------------------------------------</p>
-        <h3>非公開情報</h3>
-         <p class='kana'><%= f.text_field :k_family_name %><%= f.text_field :k_my_name %></p>
+         <p class='kana'>ｶﾅ
+          <%= f.text_field :k_family_name %><%= f.text_field :k_my_name %></p>
         <p>姓名
            <%= f.text_field :family_name %><%= f.text_field :my_name %></p>
         <p>電話番号
@@ -34,7 +34,7 @@
             <%#= f.password_field :password, autocomplete: "new-password" %>
           <!-- <p>確認</p> -->
             <%#= f.password_field :password_confirmation, autocomplete: "new-password" %></p>
-            <%= f.submit '編集ok', class: "btn btn-info" %>
+            <%= f.submit '● 更新 ●', class: "f_submit" %>
       <% end %>
   </div>
 </div>

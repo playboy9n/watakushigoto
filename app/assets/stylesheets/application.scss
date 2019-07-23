@@ -17,9 +17,6 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-// $font-family: 'TanukiMagic';
-
-
 @font-face {
   font-family: '851MkPOP_002';
   src: font-url('851MkPOP_002.ttf') format('truetype');
@@ -33,10 +30,16 @@
 }
 
 body, p, li, a {
-  color: #FE027E;
   font-family: '851MkPOP_002', 'sans-serif';
   font-size: 16px;
+}
 
+body, p {
+color: #FE027E;
+}
+
+.kana {
+  font-family: 'Verdana';
 }
 .link_to{
   color: #fff;
@@ -54,6 +57,17 @@ li {
   list-style-type :none;
 }
 
+//mypage
+.room {
+  background-image: linear-gradient(160deg, rgba( 254, 2, 126, 0.5), rgba(255, 237, 122, 0.1)), url('room.jpg');
+  background-position: center;
+  background-size: cover;
+  height: 400px;
+  position: absolute;
+  width: 90%;
+  // opacity: 0.2;
+}
+
 //header
 .head-body {
   padding-top: 120px;
@@ -61,19 +75,55 @@ li {
 }
 
 .navbar-default {
-  padding: 16px 0;
+  padding: 10px 0;
   background: #F6248A;
 }
-.navbar-default .navbar-brand {
+
+#watakushigoto {
   color: #FFF;
+  margin-left: 700px;
+  line-height: 36px;
+  font-size: 34px;
+  position: relative;
 }
 
-.navbar-default .navbar-nav > li > a {
+.navbar-default, .navbar-nav > li > a {
   color: #FFF !important;
 }
 .my-img{
   margin-bottom: 20px;
 }
+
+.user_link {
+  display:none;
+  position: absolute;
+  z-index: 2000;
+}
+
+#mypage_li{
+  position: absolute;
+  top:200px;
+  right:1050px;
+  bottom: 200px;
+    img{
+      border-radius: 50%;
+    }
+}
+
+#logout_li{
+  position: absolute;
+  position: absolute;
+  top:300px;
+  right:660px;
+}
+
+#about_li{
+  position: absolute;
+  top:300px;
+  right:560px;
+}
+
+
 
 //flash
 .notice{
@@ -98,21 +148,33 @@ input{
 }
 
 //refile
-  .preview {
-    height: 200px;
-  }
+.preview {
+  height: 200px;
+}
 
-  .preview_cicle{
-    width:  180px;
-    height: 180px;
-    border-radius: 50%;
-    border:solid 2px rgba(0, 0, 0, 0.3);
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-    margin: 6px 0 30px;
-    background: rgba(255, 255, 255 ,0.6);
-  }
+.preview_cicle{
+  width:  180px;
+  height: 180px;
+  border-radius: 50%;
+  border:solid 2px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  margin: 6px 0 30px;
+  background: rgba(255, 255, 255 ,0.6);
+}
 //modal
 .modal-content {
     -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
     box-shadow: 0 5px 15px rgba(255, 255, 255, 0.6);
-  }
+}
+
+//暗くなります！
+.dark {
+  z-index:1000;
+  display:none;
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:120%;
+  background-color:rgba(0,0,0,0.8);
+}

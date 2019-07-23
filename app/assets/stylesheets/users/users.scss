@@ -7,8 +7,12 @@
   animation-delay: 1s; /* アニメーション開始時間 */
 }
 
-.box {
-  background: #fff;
-  height: 400px;
-  // weight: 400px;
+#food{
+  cursor: pointer;
 }
+.droppable {
+  background: rgba(0, 0, 0, 0.2);
+  height: 100px;
+  width: 100px;
+}
+

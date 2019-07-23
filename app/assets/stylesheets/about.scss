@@ -9,7 +9,30 @@
   min-height:100vh;
   display:none;
 }
-#about-side a:visited {
+#about_body {
+  background: rgb(255, 237, 122);
+}
+
+.about_li a, .about_li > a:visited {
   color: #fff !important;
 }
 
+a.about-head {
+  color: #FE027E;
+  cursor: pointer;
+}
+//secret
+li.about_me {
+color: #FE027E !important;
+margin: 20px 19px 0 5px;
+}
+
+li.about_me >a:hover {
+  color: #FE027E;
+  background-color: #FE027E;
+  cursor: default;
+}
+
+.negi:hover{
+  background: #FFF;
+}

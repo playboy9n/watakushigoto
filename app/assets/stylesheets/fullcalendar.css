@@ -1296,7 +1296,7 @@ be a descendant of the grid when it is being dragged.
 }
 
 .fc-widget-content {
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.4);
 }
 .fc-day-header ,.fc-widget-header {
   background-color:rgba(254, 2, 126, 0.6);

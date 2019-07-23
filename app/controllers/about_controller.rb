@@ -4,6 +4,9 @@ layout 'about'
   def top
   end
 
-  def monday
+  def week
+  end
+
+  def secret
   end
 end

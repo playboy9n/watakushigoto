@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>3ヶ月目の課題</title>
+    <title>わたくしごと！</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -26,7 +26,8 @@
               <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand" href="#">
-              タイトルあとで入れるよ！な！
+              <div class="dark"></div>
+              <span id='watakushigoto'>わたくしごと！</span>
             </a>
           </div>
 
@@ -37,10 +38,15 @@
                 <li><%= link_to 'ログアウト', destroy_admin_session_path, method: :delete %></li>
                 <li><%= link_to 'ABOUT', about_path%></li>
               <% elsif user_signed_in? %>
-              <li><%= attachment_image_tag @user, :profile_image, :fill, 35, 35, format: 'jpeg', fallback: "no_image.jpg", size:'45x45', class: 'img-circle profile-thumb my-img' %></li>
-                <li><%= link_to 'マイページ',user_path(current_user.id) %></li>
-                <li><%= link_to 'ログアウト', destroy_admin_session_path, method: :delete %></li>
-                <li><%= link_to 'ABOUT', about_path%></li>
+                <li>
+                  <%= link_to attachment_image_tag(@user, :profile_image, :fill, 35, 35, format: 'jpeg', fallback: 'no_image.jpg', size:'100x100'), user_path(current_user.id), id:'mypage_li', class: ' user_link img-circle profile-thumb my-img' %>
+                </li>
+                <li id='logout_li' class='user_link'>
+                  <%= link_to 'ログアウト', destroy_admin_session_path, method: :delete %>
+                </li>
+                <li id='about_li' class='user_link'>
+                  <%= link_to 'ABOUT', about_path%>
+                </li>
               <% else %>
                 <li><%= link_to "ログイン", new_user_session_path %></li>
                 <li><%= link_to "新規登録", new_user_registration_path %></li>

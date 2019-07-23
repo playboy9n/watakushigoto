@@ -17,16 +17,10 @@ Rails.application.routes.draw do
   root 'users#show'
   get '/top' => 'admins/top#top'
   get '/about' => 'about#top'
-  get '/saturday' =>  'about#saturday'
-  get '/monday' => 'about#monday'
-  get '/tuesday' => 'about#tuesday'
-  get '/wednesday' => 'about#wednesday'
-  get '/thursday' =>  'about#thursday'
-  get '/friday' => 'about#friday'
+  get '/week' =>  'about#week'
+  get '2019/05/01/co' => 'about#secret', as: 'secret'
 
   resources :level, only: [:create, :update]
-  # patch '/:id/top/task' => 'tasks#top_task_create', as:'top_task'
-  # post '/top/task' => 'tasks#top_task', as:'to_task'
   resources :tasks
 
     post 'tasks/top' => 'tasks#top_task_create', as:'task_top'

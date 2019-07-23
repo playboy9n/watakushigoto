@@ -17,3 +17,13 @@
 //= require_tree .
 //= require jquery
 //= require jquery_ujs
+
+$(document).on('click', '#watakushigoto', function(e) {
+  e.preventDefault();
+  $('.dark').fadeIn('slow');
+ });
+
+  $('.dark').click(function(){
+   $(this).fadeOut('slow');
+  });
+

@@ -92,6 +92,62 @@ $(document).on('turbolinks:load', function(){
       $('#tom_speak').html(msg8[Rnd8]);
     }
 
+    let currentDroppable = null;
+    let food = document.getElementById('food');
+    if (!food) return; //この方法だとこれの下に書くと下のも呼ばれなくなるから注意が必要！！
+    food.onmousedown = function(event){
+      let shiftX = event.clientX - food.getBoundingClientRect().left;
+      let shiftY = event.clientY - food.getBoundingClientRect().top;
+      food.style.position = 'absolute';
+      food.style.zIndex = 1000;
+      document.body.append(food);
+
+      moveAt(event.pageX, event.pageY);
+
+      function moveAt(pageX, pageY){
+        food.style.left = pageX - shiftX + 'px';
+        food.style.top = pageY - shiftY + 'px';
+      }
+      function onMouseMove(event) {
+        moveAt(event.pageX, event.pageY);
+
+        food.hidden = true;
+        let elemBelow = document.elementFromPoint(event.clientX, event.clientY);
+        food.hidden = false;
+
+        if (!elemBelow) return;
+
+        let droppableBelow = elemBelow.closest('.droppable');
+        if (currentDroppable != droppableBelow){
+          if(currentDroppable){
+            leaveDroppable(currentDroppable);
+          }
+          currentDroppable = droppableBelow;
+            if (currentDroppable){
+              enterDroppable(currentDroppable);
+            }
+          }
+        }
+        document.addEventListener('mousemove', onMouseMove);
+
+        food.onmouseup = function(){
+          document.removeEventListener('mousemove',  onMouseMove);
+          food.onmouseup = null;
+        };
+      };
+    function enterDroppable(elem){
+      elem.style.background = 'pink';
+      food.style.display ="none";
+    }
+
+    function leaveDroppable(elem){
+      elem.style.background = '';
+    }
+
+    food.ondragstart = function(){
+      return false;
+    };
+
 });
 
 

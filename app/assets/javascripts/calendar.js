@@ -68,7 +68,7 @@ $(document).on('turbolinks:load', function(){
         id: date,
         title: title,
         start: date,
-        // allDay: true, //これ何かよくわかってないあとで調べる
+        allDay: true,
       }]);
 
       var data ={

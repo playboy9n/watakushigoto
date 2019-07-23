@@ -6,10 +6,23 @@ $(function() {
     var html = $('<li class="task" id="'+task.id+'">').append(task.task_body);
     return html;
   }
+
+  // function check() {
+  //       if(document.task1.value === "") {
+  //           alert("名前を入力してください");
+  //           return false;
+  //       }
+
+
     $('.js-form').on('submit', function(e) {
       e.preventDefault();
+
       var textField = $('#task2');
       var task = textField.val();
+      if (!task) {
+        alert('タスクが空！だよ！');
+        return;
+      }
       var task_limit = $('#task1').val()
       //js-formに入力された値を取得しつつ代入
       //$.ajax関数→戻り値として XMLHttpRequestオブジェクトを返す。
@@ -17,6 +30,8 @@ $(function() {
       //送信先,データの型Json
       console.log(task);
       console.log(task_limit);
+
+
       $.ajax({
         type: 'POST',
         url: '/tasks',
