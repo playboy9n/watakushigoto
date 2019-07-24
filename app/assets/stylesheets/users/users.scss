@@ -5,14 +5,48 @@
 .tom {
   animation-duration: 4s; /* アニメーションの時間 */
   animation-delay: 1s; /* アニメーション開始時間 */
+  background: rgba(255,255,255, 0.6);
+  height:60px;
+  text-align: center;
+  padding-top: 14px;
+}
+.tom_back{
+  position:absolute;
+  top:340px;
+  animation-duration: 3s; /* アニメーションの時間 */
+  animation-delay: 0.1s; /* アニメーション開始時間 */
+  width: 100%;
 }
 
 #food{
   cursor: pointer;
+  position:relative;
 }
 .droppable {
-  background: rgba(0, 0, 0, 0.2);
-  height: 100px;
-  width: 100px;
+  background: rgba(0, 0, 0, 0);
+  height: 50px;
+  width: 50px;
+  position: absolute;
+  right: 260px;
+  top:170px;
 }
 
+#friend{
+  width: 290px;
+  position: absolute;
+  right: 140px;
+  top: 18px;
+}
+
+.fadeOut {
+  animation : fadeOut 1s;
+  animation-fill-mode: both;
+}
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}

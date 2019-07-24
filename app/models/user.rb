@@ -19,4 +19,15 @@ class User < ApplicationRecord
   has_many :events, dependent: :destroy
   has_many :levels, dependent: :destroy
   has_many :diaries, dependent: :destroy
+
+
+  def eat
+    point = user.point
+
+    point -= 8
+
+    ser.point = point
+    user.save!
+  end
+
 end

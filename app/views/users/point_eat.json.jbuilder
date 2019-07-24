@@ -1,0 +1,2 @@
+json.point @user.point
+

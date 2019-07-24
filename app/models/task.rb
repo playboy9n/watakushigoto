@@ -10,6 +10,7 @@ class Task < ApplicationRecord
     if top_btn == true
       point += 6
     end
+
     user.point = point
     user.save!
   end

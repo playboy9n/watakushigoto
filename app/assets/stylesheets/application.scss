@@ -103,7 +103,7 @@ li {
 #mypage_li{
   position: absolute;
   top:200px;
-  right:1050px;
+  right:1010px;
   bottom: 200px;
   display: none;
   img{
@@ -113,19 +113,27 @@ li {
 
 #logout_li{
   position: absolute;
-  position: absolute;
   top:300px;
-  right:660px;
+  right:800px;
+  width: 140px;
+  height: 140px;
+  background-size: cover;
+  background-position: center;
   display: none;
+
 }
 
 #about_li{
   position: absolute;
-  top:300px;
-  right:560px;
+  top:200px;
+  right:550px;
   display: none;
+  width: 200px;
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 50%;
 }
-
 
 
 //flash

@@ -27,7 +27,7 @@ PER = 13
   def update
     @user = User.find(current_user.id)
     if admin_signed_in? || @user.id == current_user.id
-      if @user.update(users_params)
+      if @user.update(user_params)
         flash[:notice] = "#{@user.user_name}さんをupdate!"
         if admin_signed_in?
           redirect_to admins_user_path(@user.id)
@@ -43,8 +43,21 @@ PER = 13
     end
   end
 
+  def point_eat
+    @user = User.find(current_user.id)
+    point = @user.point
+    point -= 5
+
+    @user.point = point
+    @user.save!
+      respond_to do |format|
+        format.html {redirect_to user_path(current_user.id)}
+        format.json { render json: @user}
+      end
+  end
+
 private
-  def users_params
-    params.require(:user).permit(:nick_name, :user_name, :email, :family_name, :my_name, :k_family_name, :k_my_name, :gender, :phone_number,:profile_image,:bd, :biography)
+  def user_params
+    params.require(:user).permit(:nick_name, :email, :family_name, :my_name, :k_family_name, :k_my_name, :gender, :phone_number,:profile_image,:bd, :biography)
   end
 end

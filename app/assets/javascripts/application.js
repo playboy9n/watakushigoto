@@ -24,13 +24,20 @@ $(document).on('click', '#watakushigoto', function(e) {
   $('.dark').fadeIn('slow');
   user_link.fadeIn();
 
+  $('#friend').fadeOut();
+
   user_link.mouseover(function(){
       $(this).css('opacity', '.1').animate({'opacity': '1'}, '1');
   });
 
+  // $('#mypage_li').mouseover(function(){
+  
+  // });
+
   $('.dark').click(function(){
    $(this).fadeOut('slow');
    user_link.hide();
+   $('#friend').fadeIn();
   });
 
 });

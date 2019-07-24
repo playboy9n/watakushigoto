@@ -5,8 +5,8 @@
 // サイドば！
 #about-side{
   background-color: #FE027E;
-  height: auto;
-  min-height:100vh;
+  height: 100%;
+  min-height: 730vh;
 }
 #about_body {
   background: rgb(255, 237, 122);
@@ -34,6 +34,14 @@ li.about_me >a:hover {
 
 .negi:hover{
   background: #FFF;
+}
+
+.about_row{
+  margin-left: 20px;
+}
+
+.instructions{
+  background-color: rbga(255,255,255,0.8) !important;
 }
 
 .lady{

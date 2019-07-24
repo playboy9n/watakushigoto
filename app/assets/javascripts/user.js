@@ -92,6 +92,10 @@ $(document).on('turbolinks:load', function(){
       $('#tom_speak').html(msg8[Rnd8]);
     }
 
+    $('.tom_back').dblclick(function(){
+      $(this).fadeOut();
+    })
+
     let currentDroppable = null;
     let food = document.getElementById('food');
     if (!food) return; //この方法だとこれの下に書くと下のも呼ばれなくなるから注意が必要！！
@@ -136,17 +140,32 @@ $(document).on('turbolinks:load', function(){
         };
       };
     function enterDroppable(elem){
-      elem.style.background = 'pink';
-      food.style.display ="none";
-    }
+      let point = document.getElementById('point_up');
+      // let id = document.getElementById('current');
+      // let id = $('.current').val();
+      const idC = document.querySelector(".current");
+      let idNum = idC.innerHTML;
+
+      let id = parseInt(idNum);
+      console.log(point);
+
+      food.classList.add('fadeOut');
+
+        $.ajax({
+          type: 'PATCH',
+          url: '/user/'+ id + '/eat',
+          dataType: 'json'
+        })
+     };
 
     function leaveDroppable(elem){
-      elem.style.background = '';
-    }
+      food.style.display ="none";
+    };
 
     food.ondragstart = function(){
       return false;
     };
+
 
 });
 

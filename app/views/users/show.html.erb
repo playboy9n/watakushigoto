@@ -38,8 +38,11 @@
     </div>
 
     <div class="col-lg-6">
-      <div class='animated flipInX tom' id='tom_speak'></div>
         <div class='room'>
+          <%= image_tag('friend.png', :id => "friend") %>
+          <div class='tom_back animated zoomIn'>
+          <div class='animated flipInX tom' id='tom_speak'></div>
+          </div>
         <div class='droppable'></div>
         <%= image_tag('food.png', :id => "food") %>
         </div>
@@ -49,6 +52,7 @@
     <%= attachment_image_tag @user, :profile_image, :fill, 200, 200, format: 'jpeg', fallback: "no_image.jpg", size:'200x200', class: 'img-circle profile-thumb my-img' %>
       <p>ユーザーネーム:
         <%= @user.user_name %></p>
+        <span class='current'><%= @user.id %></span>
       <p>bio:
         <%= @user.biography %></p>
       <p>id:
@@ -57,7 +61,7 @@
         <p>lv:
         <span id='your_level'><%= @level.lv %></span></p>
           <progress id='exp_up' value=<%= @level.exp %> , max=<%= @level.exp_box %>>
-            <span class="lv_up"><%= @level.lv %></span></progress>
+            <span class="lv_up" data-level=<%= @level.lv %>><%= @level.lv %></span></progress>
     <% else %>
         <p>lv:
           <span id='your_level'>1</span></p>

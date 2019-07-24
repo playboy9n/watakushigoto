@@ -128,11 +128,23 @@ $(function() {
       point += 1;
       $('#point_up').html(point);
 
-
-    // let level = Number($('#lyour_level').html());
-    // let you = Number($(".lv_up"));
+    // reloadじゃなくて下でうまく渡せるなら下で渡したいです。。。
+      location.reload();
+    // const exp_up = $('#exp_up');
+    // let exp = exp_up.attr('value');
+    // let exp_box = exp_up.attr('max');
+    // let level = $('.lv_up').data('level');
     // console.log(level);
-    // console.log(you);
+    // console.log(exp);
+    // console.log(exp_box);
+    // exp += 5;
+    // $('progress').html('value=' , 'exp');
+
+
+    if(exp > exp_box){
+      level += 1;
+      $('.lv_up').html(level);
+    }
 
   });
 
