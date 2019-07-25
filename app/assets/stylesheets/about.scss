@@ -3,7 +3,11 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 // サイドば！
-#about-side{
+.info_link > a {
+  color: #FE027E !important;
+}
+
+#about-side {
   background-color: #FE027E;
   height: 100%;
   min-height: 730vh;
@@ -32,29 +36,29 @@ li.about_me >a:hover {
   cursor: default;
 }
 
-.negi:hover{
+.negi:hover {
   background: #FFF;
 }
 
-.about_row{
+.about_row {
   margin-left: 20px;
 }
 
-.instructions{
+.instructions {
   background-color: rbga(255,255,255,0.8) !important;
 }
 
-.lady{
+.lady {
 }
-.loud_voice{
+.loud_voice {
 }
-.task_link{
+.task_link {
 }
-.Isuppose{
+.Isuppose {
 }
-.whisper{
+.whisper {
 }
-.sorry{
+.sorry {
 }
-.calm{
+.calm {
 }

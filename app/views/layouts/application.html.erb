@@ -4,16 +4,9 @@
     <title>わたくしごと！</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <%= favicon_link_tag('favicon.ico') %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
-      <!--   ↓これでjQueryが後に来るようになっていた -->
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.js"></script>
-    <script type="module" src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.js"></script>
-    <meta name="turbolinks-cache-control" content="no-cache">
-  </head>
-
+   <%#= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   <body class="head-body">
     <header>
       <nav class="navbar navbar-default navbar-fixed-top">
@@ -25,10 +18,8 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">
-              <div class="dark"></div>
+            <div class="dark"></div>
               <span id='watakushigoto'>わたくしごと！</span>
-            </a>
           </div>
 
           <div class="collapse navbar-collapse" id="navbarEexample8">
@@ -39,7 +30,7 @@
                 <li><%= link_to 'ABOUT', about_path%></li>
               <% elsif user_signed_in? %>
                 <li>
-                  <%= link_to attachment_image_tag(@user, :profile_image, :fill, 200, 200, format: 'jpeg', fallback: 'no_image.jpg', size:'200x200'), user_path(current_user.id), id:'mypage_li', class: ' user_link img-circle profile-thumb my-img' %>
+                  <%= link_to attachment_image_tag(@user, :profile_image, :fill, 200, 200, fallback: 'no_image.png', size:'200x200'), user_path(current_user.id), id:'mypage_li', class: ' user_link img-circle profile-thumb my-img' %>
                 </li>
                 <li class='user_link'>
                   <%= link_to link_to image_tag('logout.png', :id => "logout_li"), destroy_admin_session_path, method: :delete %>
@@ -62,6 +53,12 @@
      <!-- <small>＆copy; 2018 大槻 inc.</small> -->
      </footer>
 
+    <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+      <!--   ↓これでjQueryが後に来るようになっていた -->
+       <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.js"></script>
+    <script type="module" src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.js"></script>
+    <meta name="turbolinks-cache-control" content="no-cache">
 
   </body>
 

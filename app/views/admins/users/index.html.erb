@@ -8,4 +8,5 @@
       </div>
     </div>
   <%= render 'admins/users/user_index', users: @users%>
+  <%= paginate @users, class: 'user_kaminari' %>
 </div>

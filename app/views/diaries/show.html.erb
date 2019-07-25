@@ -1,17 +1,23 @@
 <div class='container'>
-  <% if @diary.diary_images.present? %>
-   <% @diary.diary_images.each do |image|%>
-   <%= attachment_image_tag image, :image, class: 'diary-img' %>
-   <% end %>
-  <% end %>
-  <p>
-    <strong>Diary</strong>
-    <%= @diary.diary_title %>
-  </p>
-  <p>
-    <%= @diary.diary_body %>
-  </p>
-  <%= link_to 'Edit', edit_diary_path(@diary) %> |
-  <%= link_to 'Back', diaries_path %>
+  <div class='row diary_show'>
+    <div class='diary_wrap'>
+      <p class='diaryTitle'>
+        <%= @diary.diary_title %>
+      </p>
+      <% if @diary.diary_images.present? %>
+       <% @diary.diary_images.each do |image|%>
+       <%= attachment_image_tag image, :image, class: 'diary-img' %>
+       <% end %>
+      <% end %>
+      <p class='diaryBody'>
+        <%= @diary.diary_body %>
+      </p>
+    </div>
+      <li class='dLink'>
+        <%= link_to 'Edit', edit_diary_path(@diary) %> |
+        <%= link_to 'Back', diaries_path %>
+      </li>
+  </div>
+   <p class='diaryNomal'>Diary</p>
 </div>
 

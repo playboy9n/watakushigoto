@@ -1,3 +1,4 @@
+
 "use strict";
 $(document).on('turbolinks:load', function(){
   let msg1 = new Array(
@@ -96,9 +97,16 @@ $(document).on('turbolinks:load', function(){
       $(this).fadeOut();
     })
 
+
+
+
+    const food = document.getElementById('food');
+    let point = document.querySelector('#point_up');
     let currentDroppable = null;
-    let food = document.getElementById('food');
+
     if (!food) return; //この方法だとこれの下に書くと下のも呼ばれなくなるから注意が必要！！
+
+
     food.onmousedown = function(event){
       let shiftX = event.clientX - food.getBoundingClientRect().left;
       let shiftY = event.clientY - food.getBoundingClientRect().top;
@@ -113,6 +121,10 @@ $(document).on('turbolinks:load', function(){
         food.style.top = pageY - shiftY + 'px';
       }
       function onMouseMove(event) {
+         if( 5 >= point ){
+     food.style.display ="none";
+     console.log(point);
+    }else{
         moveAt(event.pageX, event.pageY);
 
         food.hidden = true;
@@ -138,19 +150,19 @@ $(document).on('turbolinks:load', function(){
           document.removeEventListener('mousemove',  onMouseMove);
           food.onmouseup = null;
         };
+        }
       };
+
     function enterDroppable(elem){
-      let point = document.getElementById('point_up');
-      // let id = document.getElementById('current');
-      // let id = $('.current').val();
-      const idC = document.querySelector(".current");
-      let idNum = idC.innerHTML;
-
+      const idStr = document.querySelector(".current");
+      let idNum = idStr.innerHTML;
       let id = parseInt(idNum);
-      console.log(point);
-
+      console.log(point.innerHTML);
+      let pointNum = parseInt(point.innerHTML);
+      console.log(pointNum);
+      // pointNum = pointNum -5;
       food.classList.add('fadeOut');
-
+      "toggle(this,'targetID')">
         $.ajax({
           type: 'PATCH',
           url: '/user/'+ id + '/eat',
@@ -167,6 +179,6 @@ $(document).on('turbolinks:load', function(){
     };
 
 
-});
 
+});
 

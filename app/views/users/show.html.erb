@@ -1,16 +1,14 @@
-<!-- これはあれ名前をばばばばばばってだすばばばばばばっば -->
 <div class="container">
   <div class="row">
     <div class="contents col-lg-3">
-    <%= render 'layouts/flash' %>
-
-    <% if @top.nil? %>
-      <p class="to">これだけやればいいぞ！</p>
-      <%= form_with  model: @task, class: 'top-form' do |f|%>
+      <%= render 'layouts/flash' %>
+      <% if @top.nil? %>
+        <p class="to">これだけやればいいぞ！</p>
+        <%= form_with  model: @task, class: 'top-form' do |f|%>
         <%= f.text_field :top_task, size: '22', placeholder: '1番大切なタスクを設定してください！', class: 'top__text-field top-form__text-field', id: "task0" %>
-        <%= f.submit class: 'top-form__submit top-submit'%>
-      <% end %>
-    <% else %>
+          <%= f.submit class: 'top-form__submit top-submit'%>
+        <% end %>
+      <% else %>
         <% if @top.top_btn == true%>
           <li class='top blue' id=<%= @top.id %>>
             <h3 class='ok'><%= @top.top_task %></h3>
@@ -21,100 +19,108 @@
           </li>
           <a id='top_done' data-id=<%= @top.id%>>できた！</a>
         <% end %>
-    <% end %>
-  <span id= 'today'></span>
-    <ul class="tasks">
-      <%= render @tasks %>
-      <%= paginate @tasks, class: 'tasks_kaminari' %>
-    </ul>
-    <%= form_for @task, html: { class: 'form js-form' } do |f|%>
-      <p class='message'>何日までに終了させるか設定してください</p>
+      <% end %>
+      <span id= 'today'></span>
+        <ul class="tasks">
+          <%= render @tasks %>
+          <%= paginate @tasks, class: 'tasks_kaminari' %>
+        </ul>
+      <%= form_for @task, html: { class: 'form js-form' } do |f|%>
+        <p class='message'>何日までに終了させるか設定してください</p>
       <%= f.date_field :limit_date, value: Time.now.strftime("%Y-%m-%d"), class: 'form__text-field js-form__text-field', id: "task1" , onSubmit: "return check()" %>
       <br>
       <%= f.text_field :task_body, placeholder: 'taskの内容', size: '26', class: 'form__text-field js-form__text-field', id: "task2" %>
-       <%= f.submit '● 送信 ●', class: 'form__submit js-submit' %>
-    <% end %>
-
+         <%= f.submit '● 送信 ●', class: 'form__submit js-submit' %>
+      <% end %>
     </div>
-
     <div class="col-lg-6">
-        <div class='room'>
-          <%= image_tag('friend.png', :id => "friend") %>
-          <div class='tom_back animated zoomIn'>
+      <div class='room'>
+      <%= image_tag('friend.png', :id => "friend") %>
+        <div class='tom_back animated zoomIn'>
           <div class='animated flipInX tom' id='tom_speak'></div>
-          </div>
-        <div class='droppable'></div>
-        <%= image_tag('food.png', :id => "food") %>
         </div>
+        <div class='droppable'></div>
+      </div>
     </div>
+    <div class='col-lg-3 You_re'>
+      <p class='user_name'><%= @user.user_name %></p>
+        <span class='current'><% @user.id %></span>
 
-    <div class="col-lg-3">
-    <%= attachment_image_tag @user, :profile_image, :fill, 200, 200, format: 'jpeg', fallback: "no_image.jpg", size:'200x200', class: 'img-circle profile-thumb my-img' %>
-      <p>ユーザーネーム:
-        <%= @user.user_name %></p>
-        <span class='current'><%= @user.id %></span>
-      <p>bio:
-        <%= @user.biography %></p>
-      <p>id:
-        <%= @user.nick_name %></p>
-    <% if @level != nil %>
-        <p>lv:
+      <%= attachment_image_tag @user, :profile_image, :fill, 200, 200, fallback: "no_image.png", size:'200x200', class: 'img-circle profile-thumb my-img' %>
+
+      <% if @level != nil %>
+        <p>Lv.
         <span id='your_level'><%= @level.lv %></span></p>
           <progress id='exp_up' value=<%= @level.exp %> , max=<%= @level.exp_box %>>
-            <span class="lv_up" data-level=<%= @level.lv %>><%= @level.lv %></span></progress>
-    <% else %>
+        <span class="lv_up" data-level=<%= @level.lv %>><%= @level.lv %></span></progress>
+      <% else %>
         <p>lv:
           <span id='your_level'>1</span></p>
           <progress id='exp_up' value='0' max='200' id='lv_gauge'><span class="lv_up"></span></progress>
-    <% end %>
-      <p>point:<span id='point_up'><%= @point %></span></p>
-      <p>BD:
-        <%= @user.bd %></p>
-      <p class='kana'>ｶﾅ:
-        <%= @user.k_family_name %><%= @user.k_my_name %></p>
-      <p>姓名:
-        <%= @user.family_name %><%= @user.my_name %></p>
-      <p>性別:
-        <%= @user.gender %></p>
-      <p>電話:
-        <%= @user.phone_number %></p>
-      <p>email:
-        <%= @user.email %></p>
-        <%= link_to '編集', edit_user_path(@user.id), style: 'color:#3c87fd' %>
-        <%= link_to '日記', diaries_path, style: 'color:#3c87fd' %>
-        <%= link_to 'task', tasks_path, style: 'color:#3c87fd' %>
+      <% end %>
+        <p>point:<span id='point_up'><%= @point %></span></p>
     </div>
   </div>
 </div>
-
-<div class= "row">
-
-  <div class="col-lg-offset-2 col-lg-3">
-    <h1>Editing Event</h1>
-      <%= render 'events/form', event: @events %>
-      <%= link_to '一覧', events_path %>
+  <div class='breaktime'>
+    <div class='aitem_zoon'>
+      <%= image_tag('food.png', :id => "food") %>
+    </div>
   </div>
-  <div class="col-lg-5">
-  <div id="calendarModal" class="m_fade" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-center">
-      <div class="modal-content">
-        <div class="modal-header">
-        <h1>予定</h1>
-         <p>スケジュール表</p>
-            <button type="button" class="close" data-target="calendarModal"  data-whatever="modal">
-            <a class="button_x"  aria-hidden="true" data-target="calendarModal" data-whatever="modal">x</a>
-            <span class="sr-only">close！</span>
-          </button>
-          <span id="m_title" class="modal-title"></span>
+<div class='container'>
+  <div class= 'EdiBio'>
+    <div class='col-lg-5 Editing_Eve'>
+      <h1>Editing Event</h1>
+        <%= render 'events/form', event: @events %>
+        <%= link_to '一覧', events_path, class: 'eventLink' %>
+    </div>
+    <div class='col-lg-6 You_bio'>
+      <h3><%= @user.user_name %>さんについて</h3>
+        <p>bio:
+          <%= @user.biography %></p>
+        <p>id:
+          <%= @user.nick_name %></p>
+        <p>BD:
+          <%= @user.bd %></p>
+        <p class='kana'>ｶﾅ:
+          <%= @user.k_family_name %><%= @user.k_my_name %></p>
+        <p>姓名:
+          <%= @user.family_name %><%= @user.my_name %></p>
+        <p>性別:
+          <%= @user.gender %></p>
+        <p>電話:
+          <%= @user.phone_number %></p>
+        <p>email:
+          <%= @user.email %></p>
+      <div class='other_link'>
+        <%= link_to '編集', edit_user_path(@user.id), style: 'color:#3c87fd' %>
+        <%= link_to '日記', diaries_path, style: 'color:#3c87fd' %>
+        <%= link_to 'task', tasks_path, style: 'color:#3c87fd' %>
+      </div>
+    </div>
+  </div>
+  <div class='row mo'>
+    <div class='col-lg-11'>
+      <div id="calendarModal" class="m_fade" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-center">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1>予定</h1>
+             <p>スケジュール表</p>
+              <button type="button" class="close" data-target="calendarModal"  data-whatever="modal">
+                <a class="button_x"  aria-hidden="true" data-target="calendarModal" data-whatever="modal">x</a>
+                <span class="sr-only">close！</span>
+              </button>
+              <span id="m_title" class="modal-title"></span>
+          </div>
+        </div>
         </div>
       </div>
     </div>
   </div>
   </div>
+  <div class='calendar_row'>
+    <div id="calendar"></div>
   </div>
-<div id="calendar"></div>
 </div>
-
-
-
 

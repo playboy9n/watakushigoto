@@ -10,7 +10,7 @@
   text-align: center;
   padding-top: 14px;
 }
-.tom_back{
+.tom_back {
   position:absolute;
   top:340px;
   animation-duration: 3s; /* アニメーションの時間 */
@@ -18,7 +18,7 @@
   width: 100%;
 }
 
-#food{
+#food {
   cursor: pointer;
   position:relative;
 }
@@ -31,22 +31,72 @@
   top:170px;
 }
 
-#friend{
+#friend {
   width: 290px;
   position: absolute;
   right: 140px;
   top: 18px;
 }
 
-.fadeOut {
-  animation : fadeOut 1s;
-  animation-fill-mode: both;
+.room {
+  margin-top: 40px;
 }
-@keyframes fadeOut {
-  0% {
-    opacity: 1;
+
+.other_link {
+  text-align:right;
+  margin:30px 0 40px;
+ }
+
+.You_re {
+  text-align:center;
+  margin: 0 auto;
+  .user_name{
+    font-size: 30px;
+    margin: 58px 0 30px;
   }
-  100% {
-    opacity: 0;
+}
+
+.You_bio {
+  margin: 16px auto;
+  padding-top: 20px;
+  background: rgba(255,255,255,0.3);
+  padding: 12px;
+  h3{
+    padding: 20px 0 10px 20px;
   }
+  p{
+    padding-left:30px;
+  }
+}
+
+.Editing_Eve {
+  margin-left: 30px;
+}
+
+.EdiBio {
+  margin-top:30px;
+}
+
+.calendar_row{
+  width: 88%;
+  height: auto;
+  margin: 0 auto;
+}
+
+.breaktime {
+  height: 100px;
+  width: 100%;
+  margin: 100px 0 50px;
+  padding:0;
+  background: #F6248A;
+}
+.aitem_zoon {
+  width: 650px;
+  height: 80px;
+  margin: 0 auto;
+  padding-top: 20px;
+}
+
+.eventLink {
+  text-align: right;
 }

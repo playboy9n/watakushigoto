@@ -6,9 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-# 管理者登録情報
-# (gitに公開するのはとてもまずいのでこれはのちに変えるか消すかする
-# もしくはデプロイ環境でアドミンが作れるならばそこで作成する。知らんけど)
+#管理者
 admin = Admin.new(:email => 'hogehoge@gmail.com', :password=> 'hugahuga')
 level = Level.create(id: admin.id)
 admin.save!
@@ -16,11 +14,12 @@ admin.save!
 #ユーザー
 25.times do
   Faker::Config.locale = :ja
-    nick_name = Faker::Internet.username
+    user_name = Faker::Internet.username
     user_name = Faker::Games::Pokemon.name
     email = Faker::Internet.email
 
-  User.create!(nick_name: 'nick_name',
+  User.create!(
+    nick_name: rand(1000000..9999999),
     user_name: user_name,
     family_name: '佐野',
     my_name: '浩一',
@@ -28,7 +27,10 @@ admin.save!
     k_my_name: 'ｺｳｲﾁ',
     email: email,
     password: rand(1000000..9999999),
-    bd: '20190501')
+    bd: '20190501',
+    phone_number: rand(00000000000...99999999999),
+    gender: '秘密',
+    )
 
 end
 

@@ -2,6 +2,18 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.diaryNomal {
+  margin: 0 0 100px;
+  text-align: right;
+}
+.diaryTitle {
+  margin-bottom: 40px;
+  font-size: 36px;
+}
+
+.diaryBody {
+  margin: 80px 0 20px;
+}
 
 .diary-img {
   width: 30%;
@@ -21,7 +33,22 @@
   color: #FE027E !important;
 }
 
+.dLink {
+  text-align: right;
+  margin-top: 300px;
+}
+
 #d_img img {
   width: 30%;
   padding: 12px;
+}
+
+.diary_show {
+  margin: 40px;
+  min-height: 700px;
+  background: rgba(255,255,255,0.3);
+}
+.diary_wrap {
+  margin: 80px auto;
+  width: 86%;
 }

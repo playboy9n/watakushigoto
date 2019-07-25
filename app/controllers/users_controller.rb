@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 before_action :authenticate_user!,except: [:update]
 
-PER = 13
+PER = 11
   def calendar
   end
 
@@ -58,6 +58,6 @@ PER = 13
 
 private
   def user_params
-    params.require(:user).permit(:nick_name, :email, :family_name, :my_name, :k_family_name, :k_my_name, :gender, :phone_number,:profile_image,:bd, :biography)
+    params.require(:user).permit(:nick_name, :user_name, :email, :family_name, :my_name, :k_family_name, :k_my_name, :gender, :phone_number,:profile_image,:bd, :biography)
   end
 end

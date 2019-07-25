@@ -23,7 +23,7 @@
 }
 
 
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -41,11 +41,11 @@ color: #FE027E;
 .kana {
   font-family: 'Verdana';
 }
-.link_to{
+.link_to {
   color: #fff;
 }
 
-.password{
+.password {
   font-family: 'Verdana';
 }
 
@@ -75,7 +75,7 @@ li {
 }
 
 .navbar-default {
-  padding: 10px 0;
+  padding: 20px 0;
   background: #F6248A;
 }
 
@@ -85,6 +85,7 @@ li {
   line-height: 36px;
   font-size: 34px;
   position: relative;
+  cursor: pointer;
 }
 
 .navbar-default, .navbar-nav > li > a {
@@ -174,10 +175,16 @@ input{
 }
 //modal
 .modal-content {
-    -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.6);
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+    width:  600px;
+    h1{
+      padding-left: 140px;
+    }
 }
 
+#calendar {
+  margin-top: 5px;
+}
 //暗くなります！
 .dark {
   z-index:1000;

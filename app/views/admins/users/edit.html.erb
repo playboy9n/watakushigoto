@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <%= attachment_image_tag @user, :profile_image, :fill, 200, 200, format: 'jpeg', fallback: "no_image.jpg", size:'200x200', class: 'img-circle profile-thumb my-img' %>
+    <%= attachment_image_tag @user, :profile_image, :fill, 200, 200, fallback: "no_image.png", size:'200x200', class: 'img-circle profile-thumb my-img' %>
       <%= form_for @user, url: admins_user_path(@user.id) do |f| %>
        <%= f.attachment_field :profile_image %>
         <p>id:

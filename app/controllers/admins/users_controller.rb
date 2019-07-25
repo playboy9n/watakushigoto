@@ -1,5 +1,7 @@
 class Admins::UsersController < ApplicationController
   before_action :login_check
+  PER = 20
+
   def index
     query = { user_name_cont: params[:q] }
     @users = User.where(decline: false).page(params[:page]).reverse_order

@@ -65,12 +65,10 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'
 gem 'bootstrap-sass', '~> 3.3.6'
-# gem 'bootstrap', '~> 4.2.1'
 gem 'jquery-rails'
 gem 'kaminari', '~> 1.1.1'
 gem "refile", require: "refile/rails", github: 'manfe/refile'
-# gem "refile-mini_magick"
-gem "mini_magick", ">= 4.9.4"
+gem "refile-mini_magick"
 gem 'ransack'
 gem 'faker'
 gem 'pry-rails'

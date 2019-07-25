@@ -26,4 +26,3 @@ class Diary < ApplicationRecord
     user.save!
   end
 end
-
