@@ -5,15 +5,39 @@
 // サイドば！
 .info_link > a {
   color: #FE027E !important;
+  font-size: 40px;
+}
+
+.info_link {
+  background: rgba(255,255,255,0.6);
+  height: auto;
+  min-height: 260px;
+  width: 100%;
+  margin: 0;
+  padding: 20px 0 30px 40px;
+  text-align: center;
+}
+
+
+
+.arrow {
+  font-size: 66px;
+  padding-bottom: 10px;
+  margin: 0 auto;
 }
 
 #about-side {
   background-color: #FE027E;
-  height: 100%;
-  min-height: 730vh;
+  height: auto;
+  min-height: 710vh;
 }
 #about_body {
   background: rgb(255, 237, 122);
+}
+
+.about_row{
+  text-align: center;
+  margin: 0 auto;
 }
 
 .about_li a, .about_li > a:visited {
@@ -36,12 +60,32 @@ li.about_me >a:hover {
   cursor: default;
 }
 
-.negi:hover {
+#about_info {
+  margin: 0 auto;
+  text-align: center;
+  p{
+    padding-top:20px;
+  }
+  h1 {
+    animation-duration: 5s; /* アニメーションの時間 */
+    animation-delay: 2s; /* アニメーション開始時間 */
+    animation-iteration-count: infinite; /* アニメーションの繰り返し回数 */
+  }
+}
+
+#negi{
+  cursor: pointer;
+}
+#negi:hover {
   background: #FFF;
 }
 
-.about_row {
-  margin-left: 20px;
+#negimg{
+  width: 10%;
+  display: none;
+  animation-duration: 2s; /* アニメーションの時間 */
+  animation-delay: 1s; /* アニメーション開始時間 */
+  animation-iteration-count: infinite;
 }
 
 .instructions {
@@ -49,16 +93,50 @@ li.about_me >a:hover {
 }
 
 .lady {
+  font-size: 23px;
 }
+
+.lady:hover{
+  animation: heartBeat 1s infinite;
+}
+
+.impressed:hover {
+  animation: shake 1s infinite;
+}
+
+.instructions, {
+  background: rgba(255,255,255,0.6);
+}
+
+.hart:hover {
+  animation: heartBeat 1s infinite;
+}
+
+.boxGroup {
+  margin: 0 auto;
+  background: rgba(255,255,255,0.6);
+  height: 150px;
+  }
+
 .loud_voice {
+  color: #3c87fd;
+  font-size: 19px;
+}
+
+.loud_voice:hover {
+  animation: flash 1s infinite;
 }
 .task_link {
 }
 .Isuppose {
+  font-size: 12px;
 }
 .whisper {
 }
-.sorry {
+.sorry, .calm{
+  font-size: 13px;
+  color: #3c87fd;
+
 }
 .calm {
 }

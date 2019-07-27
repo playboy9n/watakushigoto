@@ -16,5 +16,17 @@ $(document).on('turbolinks:load', function(){
     $("html,body").animate({scrollTop:position}, speed, 'swing');
   });
 
-});
+    let negi = $('#negi');
+    let negimg = $('#negimg');
 
+    negi.mouseover(function(){
+      negimg.show()
+      $('#about_info').css('cursor', 'pointer')
+    });
+
+    $('#about_info').dblclick(function(){
+      negimg.fadeOut(2000);
+      $('#about_info').css('cursor', 'default')
+    })
+
+});

@@ -1,9 +1,8 @@
-<!-- h4とかh3とか一旦つけてるけど別にタイトルではなく本分なのであとでclassつけてpで振り分ける -->
-<div class='row'>
-  <div class="col-lg-6 about_row">
   <a class="about-head">ABOUT</a>
+<div class='about_row'>
+
   <div class='info_link'>
-    <h3 id='index'>目次</h3>
+  <span id='index', class='arrow glyphicon glyphicon-arrow-down animated fadeInDownBig'></span>
     <ul>
       <li><a href ='#about_info'>はじまり</a></li>
       <li><a href ='#dairy_instructions'>Diary</a></li>
@@ -18,12 +17,15 @@
       <li><a href ='#ending'>おわり</a></li>
     </ul>
   </div>
+</div>
+  <div class='about_row'>
   <div id='about_info'>
-    <h1>はじまり</h1>
+    <h1 class='farst_message '>はじまり</h1>
       <p>なぜこのサイトを作成したか....?</p>
-    <h2>はじまりは
-      <span class='negi'>ネギ</span>
+    <h2 class='hart'>はじまりは
+      <span id='negi'>ネギ</span>
                             でした</h2>
+       <%= image_tag('negi.png', :id => 'negimg', class: 'animated flip') %>
       <p>...ある日</p>
       <p>金髪だった私は「色の実験になってください！！！」
         <br>と美容師に声をかけられ美容室に行きました</p>
@@ -34,14 +36,18 @@
       <p>頭に？マークを浮かべていると<br>
           お姉さんは語り始めました.......</p>
     <p class='lady'>
-      「ネギってさ、自然から生まれてきたものなのになんであのcolorなんですかね？」<br>
+      「ネギってさ、自然から生まれてきたものなのになんであのcolorなんですかね？」</p>
+    <p class='lady'>
       「普通に考えて奇跡じゃないですか？！！？？本当すごくないですか！！？」</p>
       <p>確かに。普段目にしているものだから何も思うこともなかったけれどその通りすぎました。<br>
           感心です...お姉さん.....</p>
       <p>そう心の中で感動している間もお姉さんの話は続いている...</p>
     <p class='lady'>
-      「あの白と緑...そしてその二つが交わる時のあの！！！！グラデーション...！！！！！！！」<br>
-      「私はネギが大好きです！！！！！！！！！！！！」</p>
+      「あの白と緑...そしてその二つが交わる時のあの！！！！グラデーション...！！！！！！！」
+    </p>
+    <p class='lady'>
+      「私はネギが大好きです！！！！！！！！！！！！」
+    </p>
       <p>そうお姉さんは自信満々に言っていました</p>
       <p>その美容室から出る時には髪の色がどうこうより<br>
           私の見える世界がきらきら輝いてみえてしかたなかった！</p>
@@ -53,17 +59,20 @@
       <p>そもそも私があの美容師さんに遭遇したのも<br>
           普段は断るのについていっちゃったのも奇跡だし</p>
     <p>........もうなんか</p>
-    <h2>世界めっちゃきらきらしてる！！！！！！！！！！！！</h2>
+    <h2 class='impressed animated flipInX'>世界めっちゃきらきらしてる！！！！！！！！！！！！</h2>
       <p>そんな普通のことに気づけて毎日が楽しくなったのはその日からでした！</p>
 
       <p>うん？<p>
           それはわかったけどなんでこのサイト作ったのって...?</h2>
-      <h4>当たり前のことって本当は奇跡なんだなって忘れちゃってたら思い出して欲しかったんです！</h4>
-
+      <h4 lass='hart'>当たり前のことって本当は奇跡なんだなって忘れちゃってたら思い出して欲しかったんです！</h4>
+  <div class='boxGroup'>
+    <div class='texBox'>
     <p>このサイトには</p>
     <h4>日記</h4>
     <h4>Task(To do)</h4>
     <h4>カレンダー</h4>
+    </div>
+  </div>
       <p>の3つの機能があります</p>
 
       <p>日記で日々の感動を忘れないように綴ってください！</p>
@@ -78,7 +87,7 @@
   </div>
 
   <div class='instructions'>
-    <h2>わたくしごと！
+    <h2 class='hart'>わたくしごと！
       <span>の使い方</span>
     </h2>
     <p>1.日記<br>
@@ -88,7 +97,7 @@
   </div>
 
   <div id='dairy_instructions'>
-    <h2>1.Diary</h2>
+    <h2 class='hart'>1.Diary</h2>
       <p class='loud_voice'>日記にはルールはありません</h3>
         <p>そのため使い方は自由です<br>
         ...例えば</p>
@@ -110,15 +119,15 @@
       <h5>ぜひ何かしら書いてみて習慣づけてみてはいかがでしょうか...！</h5>
     </div>
 
-    <div id='diary_operation'>
-      <h2>-操作方法-</h2>
+    <div id='diary_operation' class='instructions'>
+      <h2 class='hart'>-操作方法-</h2>
       <p>あなたのマイページにいくと</p>
       <p><span class='task_link'>という表記があるでしょう。</span></p>
       <p>そこに行くと今までに投稿した日記の一覧を見ることができます</p>
       <p>一覧の年月を検索することであなたが見たい日記の期間を絞ることができます</p>
     </div>
   <div id='task_instructions'>
-    <h2>2.Task</h2>
+    <h2 class='hart'>2.Task</h2>
     <h5>なんでもいいです。</h5>
     <p>すべきことを書き込んでみましょう。<p>
     <p>例えば<br>
@@ -148,21 +157,22 @@
             <p>自分自身で１日以内に達成できそうなところ(挑戦するのもよし)を設定してあげると<br>
               きっとそれはあなたを課題達成に導いてくれるでしょう。</p>
     </div>
-    <div id='task_operation'>
-      <h2>-操作方法-</h2>
+    <div id='task_operation' class='instructions'>
+      <h2 class='hart'>-操作方法-</h2>
         <p>あなたのマイページにいくことでタスクを作成できることができます。
         <p>タスクには２種類のタスクがあります</p>
         <p>上のタスクが「これだけやればいい」タスクです</p>
         <p>「どういうこと？」</p>
         <p>...と思われた方。<br>
           次の説明を飛ばさず読んでください！</p>
-        <h4>これだけやればいいタスク</h4>
+        <h2 class='hart'>これだけやればいいタスク</h2>
         <p class='Isuppose'>※このタスクは1日に1度しか投稿できない最も重要なタスクです</p>
-        <p class='loud_voice'>逆に言えば他のタスクを一切やらなくてもいいからこれだけやってくれ！</p>
+        <p class='loud_voice'>
+          逆に言えば他のタスクを一切やらなくてもいいからこれだけやってくれ！</p>
         <p>というタスクになります。</p>
         <p>何か一つでも目に見える形で達成することで</p>
         <p>「今日を無駄にしなかった！」</p>
-        <p>と思えるはずです。</p>>
+        <p>と思えるはずです。</p>
         <p>(というより思いましょう！！！！)</p>
         <p>とにかくその感覚を味わってください！</p>
 
@@ -181,7 +191,7 @@
     </div>
 
     <div id='calendar_instructions'>
-      <h2>3.Calendar</h2>
+      <h2 class='hart'>3.Calendar</h2>
         <h3>色々なイベントを追加することを推奨します</h3>
         <p>特に誕生日は欠かせません！</p>
         <p>だって！あなたが！そして大切な仲間が生まれた日なんですから！</p>
@@ -199,8 +209,8 @@
           <p class='loud_voice'>記念日ってそれだけで素敵な響きじゃないですか？</p>
             <p>色々登録してみてください！</p>
     </div>
-    <div id='calendar_operation'>
-      <h2>-操作方法-</h2>
+    <div id='calendar_operation' class='instructions'>
+      <h2 class='hart'>-操作方法-</h2>
         <p>マイページに行きカレンダーをタッチすると予定を登録できます</p>
         <p class='sorry'>※ここで登録できるものはそのカレンダーのtitleだけです</p>
         <p>すぐにでも記述したい場合や<br>
@@ -219,7 +229,7 @@
     </div>
 
     <div id='point_instruction'>
-      <h2>4.pointについて</h2>
+      <h2 class='hart'>4.pointについて</h2>
         <p>pointがたまるとマイページにいるキャラクター
             <span class=''>(あなたのフレンドの一人です)</span><br>
               にプレゼントを送ることができます。</p>
@@ -229,32 +239,33 @@
         </p>
         <p>pointを貯め続けて増えた数値を見て優越感を得るのも◎！</p>
         <p>どんどん貯めましょう！</p>
-      <h2>pointの貯め方</h2>
-        <p>これだけやればいい　のタスクを達成すると
-        <p>通常のタスクを達成すると
+    <div class='instructions'>
+      <h2 class='hart'>pointの貯め方</h2>
+        <p>これだけやればいい　のタスクを達成すると</p>
+        <p>通常のタスクを達成すると</p>
           <p>日記の内容が3~10文字なら</p>
-            <p class='calm'>+3pt</p>
+            <p>+<span class='calm'>3</span>pt</p>
           <p>日記の内容が11~25文字なら</p>
-            <p class='calm'>+5pt</p>
+            <p>+<span class='calm'>5</span>pt</p>
           <p>日記の内容が26~40文字なら</p>
-            <p class='calm'>+9pt</p>
+            <p>+<span class='calm'>9</span>pt</p>
           <p>日記の内容が41~60文字なら</p>
-            <p class='calm'>+9pt</p>
+            <p>+<span class='calm'>9</span>pt</p>
            <p>日記の内容が61~100文字なら</p>
-            <p class='calm'>+12pt</p>
+            <p>+<span class='calm'>12</span>pt</p>
           <p>日記の内容が101~160文字なら</p>
-            <p class='calm'>+15pt</p>
+            <p>+<span class='calm'>15</span>pt</span>
           <p>日記の内容が161文字以上なら</p>
-            <p class='calm'>+20pt</p>
-
+            <p>+<span class='calm'>20</span>pt</p>
+    </div>
     </div>
     <div id='level_instruction'>
-      <h2>4.levelについて</h2>
+      <h2 class='hart'>4.levelについて</h2>
         <p>levelupすると気持ちいいですね？</p>
         <p>levelと一緒に人間レベルをあげていきましょう！</p>
     </div>
 
-    <div id='contact_us_instructio'>
+    <div id='contact_us_instructio' class='instructions'>
       <p>他にわからないことなどありましたらメールを送ってください！</p>
       <p class='sorry'>※お時間をいただく場合があります。ご了承ください。</p>
     </div>
@@ -266,7 +277,6 @@
       <p>１日１膳以上するといっぱいの笑顔がみれる！</p>
       <p>辛いことがあってもそのあとにいいことが絶対くるから辛いこともラッキー！</p>
       <p>あなたは一人じゃないです！応援しています！</p>
-    <h2>Lets Enjoy Life！です！</h2>
+    <h2 class='hart'>Lets Enjoy Life！です！</h2>
     </div>
 </div>
-    <!-- <p>あなたの誕生日、大切な人達の誕生日などバースデ前にカウントしてくれます</p> -->

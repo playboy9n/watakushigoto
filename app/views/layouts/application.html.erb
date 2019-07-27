@@ -7,6 +7,13 @@
     <%= favicon_link_tag('favicon.ico') %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
    <%#= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+      <!--   ↓これでjQueryが後に来るようになっていた -->
+       <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.js"></script>
+    <script type="module" src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.js"></script>
+    <meta name="turbolinks-cache-control" content="no-cache">
+  </head>
   <body class="head-body">
     <header>
       <nav class="navbar navbar-default navbar-fixed-top">
@@ -53,12 +60,6 @@
      <!-- <small>＆copy; 2018 大槻 inc.</small> -->
      </footer>
 
-    <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
-      <!--   ↓これでjQueryが後に来るようになっていた -->
-       <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.js"></script>
-    <script type="module" src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.js"></script>
-    <meta name="turbolinks-cache-control" content="no-cache">
 
   </body>
 

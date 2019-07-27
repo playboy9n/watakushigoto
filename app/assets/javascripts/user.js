@@ -120,28 +120,27 @@ $(document).on('turbolinks:load', function(){
         food.style.left = pageX - shiftX + 'px';
         food.style.top = pageY - shiftY + 'px';
       }
-      function onMouseMove(event) {
-         if( 5 >= point ){
-     food.style.display ="none";
-     console.log(point);
-    }else{
-        moveAt(event.pageX, event.pageY);
 
-        food.hidden = true;
-        let elemBelow = document.elementFromPoint(event.clientX, event.clientY);
-        food.hidden = false;
+     if( point.innerHTML >= 5 ){
+        function onMouseMove(event) {
 
-        if (!elemBelow) return;
+          moveAt(event.pageX, event.pageY);
 
-        let droppableBelow = elemBelow.closest('.droppable');
-        if (currentDroppable != droppableBelow){
-          if(currentDroppable){
-            leaveDroppable(currentDroppable);
-          }
-          currentDroppable = droppableBelow;
-            if (currentDroppable){
-              enterDroppable(currentDroppable);
+          food.hidden = true;
+          let elemBelow = document.elementFromPoint(event.clientX, event.clientY);
+          food.hidden = false;
+
+          if (!elemBelow) return;
+
+          let droppableBelow = elemBelow.closest('.droppable');
+          if (currentDroppable != droppableBelow){
+            if(currentDroppable){
+              leaveDroppable(currentDroppable);
             }
+            currentDroppable = droppableBelow;
+              if (currentDroppable){
+                enterDroppable(currentDroppable);
+              }
           }
         }
         document.addEventListener('mousemove', onMouseMove);
@@ -150,8 +149,10 @@ $(document).on('turbolinks:load', function(){
           document.removeEventListener('mousemove',  onMouseMove);
           food.onmouseup = null;
         };
-        }
       };
+
+
+    };
 
     function enterDroppable(elem){
       const idStr = document.querySelector(".current");
@@ -162,7 +163,6 @@ $(document).on('turbolinks:load', function(){
       console.log(pointNum);
       // pointNum = pointNum -5;
       food.classList.add('fadeOut');
-      "toggle(this,'targetID')">
         $.ajax({
           type: 'PATCH',
           url: '/user/'+ id + '/eat',
