@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 #管理者
-admin = Admin.new(:email => 'hogehoge@gmail.com', :password=> 'hugahuga')
+admin = Admin.new(:email => 'hogehoge@hoge.com', :password=> 'hugahuga')
 level = Level.create(id: admin.id)
 admin.save!
 
