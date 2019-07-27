@@ -129,21 +129,25 @@ $(function() {
       $('#point_up').html(point);
 
     // reloadじゃなくて下でうまく渡せるなら下で渡したいです。。。
-      location.reload();
-    // const exp_up = $('#exp_up');
-    // let exp = exp_up.attr('value');
-    // let exp_box = exp_up.attr('max');
-    // let level = $('.lv_up').data('level');
-    // console.log(level);
-    // console.log(exp);
-    // console.log(exp_box);
-    // exp += 5;
-    // $('progress').html('value=' , 'exp');
+      // location.reload();
+    const exp_up = $('#exp_up');
+    let exp = parseInt(exp_up.attr('value'));
+    let exp_box = parseInt(exp_up.attr('max'));
+    let level = parseInt($('#your_level').text());
+    console.log("-----------------");
+    console.log(level);
+    console.log(exp);
+    console.log(exp_box);
+     exp += 5;
+    console.log(exp);
+    console.log(exp_box);
+
+    $('#exp_up').val(exp);
 
 
     if(exp > exp_box){
       level += 1;
-      $('.lv_up').html(level);
+      $('#your_level').text(level);
     }
 
   });

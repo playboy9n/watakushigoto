@@ -37,7 +37,7 @@
                 <li><%= link_to 'ABOUT', about_path%></li>
               <% elsif user_signed_in? %>
                 <li>
-                  <%= link_to attachment_image_tag(@user, :profile_image, :fill, 200, 200, fallback: 'no_image.png', size:'200x200'), user_path(current_user.id), id:'mypage_li', class: ' user_link img-circle profile-thumb my-img' %>
+                  <%= link_to attachment_image_tag(current_user, :profile_image, :fill, 200, 200, fallback: 'no_image.png', size:'200x200'), user_path(current_user.id), id:'mypage_li', class: ' user_link img-circle profile-thumb my-img' %>
                 </li>
                 <li class='user_link'>
                   <%= link_to link_to image_tag('logout.png', :id => "logout_li"), destroy_admin_session_path, method: :delete %>

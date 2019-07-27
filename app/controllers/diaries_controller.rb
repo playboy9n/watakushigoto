@@ -1,5 +1,6 @@
 class DiariesController < ApplicationController
   before_action :authenticate_user!
+  before_action :diary_corect, only: [:edit, :update, :destroy, :show]
   before_action :set_diary, only: [:show, :edit, :update, :destroy]
   def index
     @q = Diary.where(user_id: current_user.id).ransack(params[:q])
@@ -10,7 +11,6 @@ class DiariesController < ApplicationController
   end
 
   def new
-    @diary = Diary.new
     @diary.diary_images.build
   end
 
@@ -55,5 +55,12 @@ class DiariesController < ApplicationController
 
     def diary_params
       params.require(:diary).permit(:diary_title, :diary_body, diary_images_images: [])
+    end
+
+    def diary_corect
+      diary = Diary.find(params[:id])
+      if diary.user != current_user
+        redirect_to diaries_path
+      end
     end
 end

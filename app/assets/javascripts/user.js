@@ -104,7 +104,8 @@ $(document).on('turbolinks:load', function(){
     let point = document.querySelector('#point_up');
     let currentDroppable = null;
 
-    if (!food) return; //この方法だとこれの下に書くと下のも呼ばれなくなるから注意が必要！！
+    if (!food) return;
+    //この方法だとこれの下に書くと下のも呼ばれなくなるから注意が必要！！
 
 
     food.onmousedown = function(event){
@@ -171,6 +172,7 @@ $(document).on('turbolinks:load', function(){
      };
 
     function leaveDroppable(elem){
+      // food.classList.add('eatTime');
       food.style.display ="none";
     };
 
