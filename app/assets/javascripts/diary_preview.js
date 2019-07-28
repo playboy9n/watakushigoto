@@ -1,3 +1,4 @@
+$(document).on('turbolinks:load', function(){
 $(function() {
 'use strict';
   $('.attach_filed').on('change', function(e) {
@@ -9,6 +10,8 @@ $(function() {
     let img = document.createElement('img');
     img.setAttribute('src', blobUrl );
     d_img.appendChild(img);
+    console.log(blobUrl);
     }
   });
+});
 });

@@ -11,6 +11,7 @@ class DiariesController < ApplicationController
   end
 
   def new
+    @diary = Diary.new
     @diary.diary_images.build
   end
 
