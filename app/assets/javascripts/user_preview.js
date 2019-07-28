@@ -1,4 +1,4 @@
-$(function() {
+$(document).on('turbolinks:load', function(){
   $('.attach').on('change', function(e) {
     let file = e.target.files[0];
     // ファイルのブラウザ上でのURLを取得する
@@ -7,3 +7,5 @@ $(function() {
     $('.preview_cicle').attr('src', blobUrl);
   });
 });
+
+
