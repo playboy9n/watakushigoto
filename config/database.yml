@@ -22,4 +22,10 @@ test:
 
 production:
   <<: *default
-  database: db/production.sqlite3
+  database: watakushigoto
+  adapter: mysql2
+  encoding: utf8mb4
+  collation: utf8mb4_general_ci
+  host: rds-mysql-server.csuc1p6n5kz4.us-east-2.rds.amazonaws.com
+  username: root
+  password: hogehoge
