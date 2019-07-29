@@ -185,21 +185,21 @@ $(document).on('turbolinks:load', function(){
       function mgmg(){
         eatA.style.display="none";
         eatB.style.display = "block";
-      }
+      };
 
       function mgm(){
         eatB.style.display ="none";
         eatC.style.display = "block";
-      }
+      };
 
       function mg(){
         eatC.style.display = "none";
         eatD.style.display = "block";
-      }
+      };
 
       function m(){
         eatD.style.display = "none";
-      }
+      };
     };
 
     food.ondragstart = function(){

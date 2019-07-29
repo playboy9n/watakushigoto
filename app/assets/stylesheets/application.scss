@@ -77,6 +77,7 @@ li {
 .navbar-default {
   padding: 20px 0;
   background: #F6248A;
+  height:100px;
 }
 
 #watakushigoto {
@@ -103,8 +104,8 @@ li {
 
 #mypage_li{
   position: absolute;
-  top:200px;
-  right:1010px;
+  top:140px;
+  right:800px;
   bottom: 200px;
   display: none;
   img{
@@ -114,10 +115,10 @@ li {
 
 #logout_li{
   position: absolute;
-  top:300px;
-  right:800px;
-  width: 140px;
-  height: 140px;
+  top:110px;
+  right:500px;
+  width: 450px;
+  height: 450px;
   background-size: cover;
   background-position: center;
   display: none;
@@ -126,11 +127,11 @@ li {
 
 #about_li{
   position: absolute;
-  top:200px;
-  right:550px;
+  top:240px;
+  right:900px;
   display: none;
-  width: 200px;
-  height: 200px;
+  width: 150px;
+  height: 150px;
   background-size: cover;
   background-position: center;
   border-radius: 50%;

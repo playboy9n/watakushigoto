@@ -25,7 +25,7 @@
               <% end %>
             <li class='about_li'><%= link_to 'about', about_path %>
             <li class='about_li'><%= link_to 'week', week_path %></li>
-            <li class='about_me'><%= link_to '^_^', secret_path %></li>
+            <li class='about_me'><%= link_to '^_^', secret_path, class: "abo_me" %></li>
           <% else %>
             <li class='about_li'><%= link_to "ログイン", new_user_session_path %></li>
             <li class='about_li'><%= link_to "新規登録", new_user_registration_path %></li>

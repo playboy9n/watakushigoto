@@ -3,7 +3,6 @@ $(document).on('click', '#watakushigoto', function() {
   $('.dark').fadeIn('slow');
     userLink.fadeIn();
     $('#friend').fadeOut();
-
   userLink.mouseover(function(){
     $(this).css('opacity', '0.1');
   });
