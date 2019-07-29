@@ -173,15 +173,24 @@ $(document).on('turbolinks:load', function(){
         })
      };
 
+    let is_eat = true;
+    // フラグを立てて管理する（一回やったらやらない）
+
     function leaveDroppable(elem){
-      window.setTimeout(mgmg, 10);
-      window.setTimeout(mgm, 350);
-      window.setTimeout(mg, 550);
-      window.setTimeout(m, 650);
+      if(is_eat){
+        window.setTimeout(mgmgm, 1);
+        window.setTimeout(mgmg, 10);
+        window.setTimeout(mgm, 350);
+        window.setTimeout(mg, 550);
+        window.setTimeout(m, 650);
+        is_eat = false;
+      }
 
       food.style.display = "none";
-      eatA.style.display = "block";
 
+      function mgmgm(){
+        eatA.style.display = "block";
+      }
       function mgmg(){
         eatA.style.display="none";
         eatB.style.display = "block";
