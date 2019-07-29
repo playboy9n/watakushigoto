@@ -99,14 +99,16 @@ $(document).on('turbolinks:load', function(){
 
 
 
-
     const food = document.getElementById('food');
+    const eatA = document.getElementById('eatA');
+    const eatB = document.getElementById('eatB');
+    const eatC = document.getElementById('eatC');
+    const eatD = document.getElementById('eatD');
     let point = document.querySelector('#point_up');
     let currentDroppable = null;
 
     if (!food) return;
     //この方法だとこれの下に書くと下のも呼ばれなくなるから注意が必要！！
-
 
     food.onmousedown = function(event){
       let shiftX = event.clientX - food.getBoundingClientRect().left;
@@ -172,8 +174,32 @@ $(document).on('turbolinks:load', function(){
      };
 
     function leaveDroppable(elem){
-      // food.classList.add('eatTime');
-      food.style.display ="none";
+      window.setTimeout(mgmg, 10);
+      window.setTimeout(mgm, 350);
+      window.setTimeout(mg, 550);
+      window.setTimeout(m, 650);
+
+      food.style.display = "none";
+      eatA.style.display = "block";
+
+      function mgmg(){
+        eatA.style.display="none";
+        eatB.style.display = "block";
+      }
+
+      function mgm(){
+        eatB.style.display ="none";
+        eatC.style.display = "block";
+      }
+
+      function mg(){
+        eatC.style.display = "none";
+        eatD.style.display = "block";
+      }
+
+      function m(){
+        eatD.style.display = "none";
+      }
     };
 
     food.ondragstart = function(){
@@ -181,6 +207,15 @@ $(document).on('turbolinks:load', function(){
     };
 
 
-
 });
+
+
+
+
+
+
+
+
+
+
 

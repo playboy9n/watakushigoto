@@ -20,8 +20,40 @@
 
 #food {
   cursor: pointer;
-  position:relative;
+  position: relative;
 }
+
+#eatA {
+  cursor: pointer;
+  position: absolute;
+  top: 330px;
+  right: 854px;
+  display: none;
+}
+#eatB {
+ cursor: pointer;
+ position: absolute;
+ top:317px;
+ right:828px;
+ display: none;
+}
+
+#eatC {
+  cursor: pointer;
+  position: absolute;
+  top:300px;
+  right:810px;
+  display:none;
+}
+
+#eatD {
+  cursor: pointer;
+  position: absolute;
+  top:305px;
+  right:787px;
+  display: none;
+}
+
 .droppable {
   background: rgba(0, 0, 0, 0);
   height: 50px;
@@ -30,10 +62,6 @@
   right: 260px;
   top:170px;
 }
-
-// .eatTime {
-//   transition: margin-right 2s;
-// }
 
 #friend {
   width: 290px;
