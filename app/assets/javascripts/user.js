@@ -178,12 +178,12 @@ $(document).on('turbolinks:load', function(){
 
     function leaveDroppable(elem){
       if(is_eat){
+        is_eat = false;
         window.setTimeout(mgmgm, 1);
         window.setTimeout(mgmg, 10);
         window.setTimeout(mgm, 350);
         window.setTimeout(mg, 550);
         window.setTimeout(m, 650);
-        is_eat = false;
       }
 
       food.style.display = "none";
