@@ -2,7 +2,7 @@
   <div class='field'>
   <p>Title</p>
     <% f.label :diary_title %>
-    <%= f.text_field :diary_title, size: '30x5' %>
+    <%= f.simple_format :diary_title, size: '30x5' %>
   </div>
 
   <div class='field'>
@@ -21,3 +21,5 @@
   </div>
 <% end %>
 <%= render 'diaries/preview' %>
+
+

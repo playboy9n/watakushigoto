@@ -1,6 +1,7 @@
 class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
 
+  PER = 15
 def events
     @event = Event.all
     # render :json => @event
@@ -16,7 +17,8 @@ def events
   # GET /events
   # GET /events.json
   def index
-    @events= current_user.events
+    @q = Event.where(user_id: current_user.id).ransack(params[:q])
+    @events= @q.result.page(params[:page]).per(PER)
     respond_to do |format|
       format.html
       format.xml { render :xml => @events }

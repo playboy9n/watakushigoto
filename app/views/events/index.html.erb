@@ -1,6 +1,14 @@
-<div class="container">
-  <h1>Events</h1>
-
+<div class='container'>
+  <div class='row'>
+    <h1>Events</h1>
+    <%= search_form_for @q do |f| %>
+      <%= f.date_select :start_gteq, :default => Time.now  %>
+        <span>〜</span>
+      <%= f.date_select :start_lteq_end_of_day, :default => Time.now %>
+      <%= f.submit '● 検索 ●', class: 'f_submit' %>
+    <% end %>
+  </div>
+  <div class='row'>
   <table class="table table-hover">
     <thead>
       <tr>
@@ -24,4 +32,6 @@
       <% end %>
     </tbody>
   </table>
+  <%= paginate @events %>
+  </div>
 </div>
