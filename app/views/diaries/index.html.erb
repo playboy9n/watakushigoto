@@ -1,25 +1,34 @@
 <div class='container'>
   <%= render 'layouts/flash' %>
-  <h1>Diaries</h1>
-  <%= render 'layouts/search', q: @q %>
+  <div class='row'>
+    <div class='col-lg-12'>
+      <h1>Diaries</h1>
+      <%= render 'layouts/search', q: @q %>
+    </div>
+  </div>
+  <div class='row'>
+    <div ckass='col-lg-offset-1 col-lg-10'>
     <table class='table table-hover diary_table'>
       <thead>
         <tr class='diary-tr'>
           <th>title</th>
-          <th colspan='4'></th>
+          <th colspan='6'>contents</th>
         </tr>
       </thead>
       <tbody>
         <% @diaries.each do |diary| %>
           <tr data-href=<%= diary_path(diary) %>>
             <td><%= sort_link(@q, :created_at, diary.diary_title) %></td>
-            <td><%= diary.diary_body %></td>
+            <td><%= truncate(diary.diary_body, slength: 10) %></td>
             <td><%= link_to 'Edit', edit_diary_path(diary) %></td>
             <td><%= link_to 'Destroy', diary, method: :delete, data: { confirm: '日記消えちゃうよ‎(´･ω･｀)?' } %></td>
           </tr>
+
         <% end %>
       </tbody>
     </table>
-  <br>
-  <%= link_to 'New Diary', new_diary_path %>
+      <br>
+      <%= link_to 'New Diary', new_diary_path %>
+    </div>
+  </div>
 </div>

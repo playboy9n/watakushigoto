@@ -115,13 +115,14 @@ li {
 
 #logout_li{
   position: absolute;
-  top:110px;
-  right:500px;
-  width: 450px;
-  height: 450px;
+  top: 200px;
+  right: 520px;
+  width: 350px;
+  height: 350px;
   background-size: cover;
   background-position: center;
   display: none;
+  z-index: 3000px;
 
 }
 

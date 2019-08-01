@@ -11,8 +11,13 @@
   font-size: 36px;
 }
 
-.diaryBody {
-  margin: 80px 0 20px;
+.diary_wrap {
+  margin: 80px auto;
+  width: 86%;
+  .diaryBody {
+    margin: 80px 0 20px;
+    word-wrap: break-word; //要素サイズに改行
+  }
 }
 
 .diary-img {
@@ -47,8 +52,4 @@
   margin: 40px;
   min-height: 700px;
   background: rgba(255,255,255,0.3);
-}
-.diary_wrap {
-  margin: 80px auto;
-  width: 86%;
 }
