@@ -18,13 +18,21 @@
     <header>
       <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container-fluid">
-          <div class="navbar-header">
 
             <div class='dark dark_loader'>
               <div ckass='loading_anime'></div>
             </div>
 
-          <span id='watakushigoto' class='col-md-offset-6'>わたくしごと！</span>
+          <span id='watakushigoto' class='col-md-offset-6'>
+            わたくしごと！
+          </span>
+          <div class="navbar-header">
+              <ul class="nav navbar-nav respondNav">
+                <li><%= link_to 'Mypage', user_path(current_user.id) %></li>
+                <li><%= link_to 'About',about_path %></li>
+                <li><%= link_to 'Logout', destroy_admin_session_path, method: :delete  %></li>
+              </ul>
+          </div>
         </div>
 
           <div class="collapse navbar-collapse" id="navbarEexample8">
@@ -32,7 +40,7 @@
               <% if admin_signed_in? %>
                 <li><%= link_to 'マイページ', top_path %></li>
                 <li><%= link_to 'ログアウト', destroy_admin_session_path, method: :delete %></li>
-                <li><%= link_to 'ABOUT', about_path%></li>
+                <li><%= link_to 'ABOUT', about_path %></li>
               <% elsif user_signed_in? %>
                 <li>
                   <%= link_to attachment_image_tag(current_user, :profile_image, :fill, 150, 150, fallback: '/images/no_image.png', size:'150x150'), user_path(current_user.id), id:'mypage_li', class: ' user_link img-circle profile-thumb my-img' %>

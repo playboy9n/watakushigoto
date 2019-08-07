@@ -138,6 +138,9 @@ li {
   border-radius: 50%;
 }
 
+.respondNav {
+  display: none;
+}
 
 //flash
 .notice{
@@ -208,7 +211,7 @@ input{
 
    #watakushigoto {
     text-align: center;
-    margin-left: 340px;
+    margin-left: 315px;
   }
 
   .head-body {
@@ -234,6 +237,7 @@ input{
     right: 160px;
     top: 18px;
   }
+
   .YouName {
     position: absolute;
     top: 580px;
@@ -254,40 +258,39 @@ input{
     margin: 30px auto;
   }
 
-  // #mypage_li{
-  //   top: 380px;
-  //   right:400px;
-  // }
+  .respondNav {
+    display:  block;
+    margin: 0 300px;
+  }
 
-  // #logout_li{
-  //   top: 420px;
-  //   right: 650px;
-  // }
+  .nav>li {
+    float: left;
+    display: inline-block;
+  }
 
-  // #about_li{
-  //   top: 440px;
-  //   right: 300px;
-  // }
+  .user_link {
+    pointer-events: none;
+  }
 
-  // #eatA {
-  //   top: 552px;
-  //   right: 495px;
-  // }
+  #eatA {
+    top: 540px;
+    left: 340px;
+  }
 
-  // #eatB {
-  //   top: 540px;
-  //   right: 469px;
-  // }
+  #eatB {
+    top: 526px;
+    left: 300px;
+  }
 
-  // #eatC {
-  //   top: 519px;
-  //   right: 445px;
-  // }
+  #eatC {
+    top: 512px;
+    left: 390px;
+  }
 
-  // #eatD {
-  //   top: 528px;
-  //   right: 427px;
-  // }
+  #eatD {
+    top: 512px;
+    left: 405px;
+  }
 
   .You_bio {
     position: absolute;
@@ -305,16 +308,13 @@ input{
     margin-top: 20px;
   }
 
-
   .breaktime {
     margin: 460px 0 30px;
   }
 
 }
 
-
-
-@media screen and (min-width:768px) and (max-width: 1024px) {
+@media screen and (min-width: 768px) and (max-width: 1024px) {
   #watakushigoto {
     margin-left: 410px;
     line-height: 50px;
@@ -404,6 +404,165 @@ input{
 
   .breaktime {
     margin: 300px 0 50px;
+  }
+}
+
+@media screen and (min-width: 426px) and (max-width: 767px) {
+  #watakushigoto {
+    margin: 270px;
+  }
+
+  .room {
+    margin: 50px 0 30px 60px;
+    width: 80%;
+  }
+
+  .my-img{
+    display: none;
+  }
+
+  .YouName {
+    position: absolute;
+    bottom: 100px;
+    right: 190px;
+  }
+
+  .YourLvP {
+    position: absolute;
+    bottom: 17px;
+    right: 90px;
+  }
+
+  .respondNav {
+    display:  block;
+    margin: 0 260px;
+    width: 1000px;
+  }
+
+  .nav>li {
+    float: left;
+    display: inline-block;
+  }
+
+  .user_link {
+    pointer-events: none;
+  }
+
+  #eatA {
+    top: 530px;
+    right: 344px;
+  }
+
+  #eatB {
+    top: 520px;
+    right: 320px;
+  }
+
+  #eatC {
+    top: 500px;
+    right: 295px;
+  }
+
+  #eatD {
+    top: 505px;
+    right: 280px;
+  }
+
+  .You_bio {
+    text-align: center;
+  }
+
+  .Editing_Eve {
+    text-align: center;
+  }
+
+  .calendar_row{
+    width: 100%;
+    margin-top: 50px;
+  }
+
+  .breaktime {
+    margin: 500px 0 50px;
+  }
+
+}
+
+@media screen and (min-width: 1025px) and (max-width: 1199px) {
+   #watakushigoto {
+    margin-left: 400px;
+  }
+
+  .room {
+    margin: 50px 0 30px 88px;
+    width: 80%;
+  }
+
+  .my-img{
+    display: none;
+  }
+
+  .YouName {
+    position: absolute;
+    bottom: 130px;
+    right: 290px;
+  }
+
+  .YourLvP {
+    position: absolute;
+    bottom: 30px;
+    right: 190px;
+  }
+
+  .respondNav {
+    display:  block;
+    margin: 0 375px;
+    width: 1000px;
+  }
+
+  .nav>li {
+    float: left;
+    display: inline-block;
+  }
+
+  .user_link {
+    pointer-events: none;
+  }
+
+  #eatA {
+    top: 544px;
+    right: 376px;
+  }
+
+  #eatB {
+    top: 530px;
+    right: 355px;
+  }
+
+  #eatC {
+    top: 520px;
+    right: 335px;
+  }
+
+  #eatD {
+    top: 525px;
+    right: 320px;
+  }
+
+  .You_bio {
+    text-align: center;
+  }
+
+  .Editing_Eve {
+    text-align: center;
+  }
+
+  .calendar_row{
+    width: 100%;
+    margin-top: 50px;
+  }
+
+  .breaktime {
+    margin: 500px 0 50px;
   }
 }
 
