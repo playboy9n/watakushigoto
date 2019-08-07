@@ -20,7 +20,7 @@
       </tr>
     </thead>
     <tbody>
-      <% @events.each do |event| %>
+      <% @event.each do |event| %>
         <tr data-href=<%= edit_event_path(event) %>>
           <td><%= event.title %></td>
           <td><%= event.description %></td>
@@ -31,6 +31,6 @@
       <% end %>
     </tbody>
   </table>
-  <%= paginate @events %>
+  <%= paginate @event %>
   </div>
 </div>

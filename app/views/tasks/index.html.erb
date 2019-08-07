@@ -2,38 +2,57 @@
   <div class='row'>
     <%= render 'layouts/search', q: @q %>
   </div>
-  <div class="row">
-    <div class="col-lg-4">
-      <table class="table table-hover task_back">
+  <div class='row'>
+    <div class='col-lg-4'>
+      <table class='table table-hover task_back'>
         <thead>
           <th>達成task</th>
         </thead>
         <tbody>
           <% @tasks.each do |task| %>
-            <tr class='task_back'>
-              <% if task.done == true %>
-              <td><%= sort_link(@q, :created_at, task.task_body)%></td>
-            </tr>
+            <% if task.done == true %>
+              <tr>
+                <td><%= sort_link(@q, :created_at, task.task_body)%></td>
+              </tr>
             <% end %>
           <% end %>
         </tbody>
       </table>
     </div>
-    <div class="col-lg-4">
-      <table class="table table-hover">
+    <div class='col-lg-4'>
+      <table class='table table-hover'>
         <thead>
           <th>未達成task</th>
         </thead>
         <tbody>
           <% @tasks.each do |task| %>
-          <tr class='task_back'>
-            <% if task.done == false %>
-              <td><%= sort_link(@q, :created_at, task.task_body)%></td>
-          </tr>
+            <% if task.done != true %>
+              <% if task.task_body != nil && task.task_body != '' %>
+                <tr>
+                    <td><%= sort_link(@q, :created_at, task.task_body)%></td>
+                </tr>
+              <% end %>
             <% end %>
           <% end %>
         </tbody>
       </table>
     </div>
   </div>
+  <div class='row'>
+    <div class='col-lg-4'>
+      <table class='table table-hover'>
+        <thead>
+          <th>これだけやればいいぞ</th>
+        </thead>
+        <tbody>
+          <% @tasks.each do |task| %>
+            <% if task.top_btn == true %>
+              <tr>
+                <td><%= sort_link(@q, :created_at, task.top_task) %></td>
+              </tr>
+            <% end %>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
 </div>

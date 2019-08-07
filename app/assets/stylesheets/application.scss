@@ -198,3 +198,213 @@ input{
   height:120%;
   background-color:rgba(0,0,0,0.8);
 }
+
+.loading_anime {
+}
+
+
+
+@media screen and (max-width: 425px) {
+
+   #watakushigoto {
+    text-align: center;
+    margin-left: 340px;
+  }
+
+  .head-body {
+    width: 830px;
+    height: 100%;
+  }
+
+  .TaskPosition {
+    margin-left: 240px;
+    margin-top: 30px;
+  }
+
+  .room {
+    margin: 10px 0 10px 85px;
+    width: 75%;
+  }
+
+  .my-img{
+   display: none;
+  }
+
+  #friend {
+    right: 160px;
+    top: 18px;
+  }
+  .YouName {
+    position: absolute;
+    top: 580px;
+    right: 300px;
+  }
+
+  .YourLvP {
+    position: absolute;
+    top: 475px;
+    right: 50px;
+    p{
+      color: #fff;
+    }
+  }
+
+  .modal-content {
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+    margin: 30px auto;
+  }
+
+  // #mypage_li{
+  //   top: 380px;
+  //   right:400px;
+  // }
+
+  // #logout_li{
+  //   top: 420px;
+  //   right: 650px;
+  // }
+
+  // #about_li{
+  //   top: 440px;
+  //   right: 300px;
+  // }
+
+  // #eatA {
+  //   top: 552px;
+  //   right: 495px;
+  // }
+
+  // #eatB {
+  //   top: 540px;
+  //   right: 469px;
+  // }
+
+  // #eatC {
+  //   top: 519px;
+  //   right: 445px;
+  // }
+
+  // #eatD {
+  //   top: 528px;
+  //   right: 427px;
+  // }
+
+  .You_bio {
+    position: absolute;
+    top: 1020px;
+    left: 460px;
+    background: none;
+    padding: 12px;
+    h3{
+      display: none;
+    }
+  }
+
+  .calendar_row{
+    width: 100%;
+    margin-top: 20px;
+  }
+
+
+  .breaktime {
+    margin: 460px 0 30px;
+  }
+
+}
+
+
+
+@media screen and (min-width:768px) and (max-width: 1024px) {
+  #watakushigoto {
+    margin-left: 410px;
+    line-height: 50px;
+  }
+
+  .TaskPosition {
+    margin-left: 330px;
+  }
+
+  .room {
+    margin: 36px 0 30px 190px;
+    height: 400px;
+    width: 60%;
+  }
+
+  .my-img{
+    display: none;
+  }
+
+  .YouName {
+    margin-right: 50px;
+    padding: 0;
+    text-align: right;
+  }
+
+  .YourLvP {
+    text-align: left;
+    margin-left: 800px;
+  }
+
+  #mypage_li{
+    top: 380px;
+    right:400px;
+  }
+
+  #logout_li{
+    top: 420px;
+    right: 650px;
+  }
+
+  #about_li{
+    top: 440px;
+    right: 300px;
+  }
+
+  #eatA {
+    top: 552px;
+    right: 495px;
+  }
+
+  #eatB {
+    top: 540px;
+    right: 469px;
+  }
+
+  #eatC {
+    top: 519px;
+    right: 445px;
+  }
+
+  #eatD {
+    top: 528px;
+    right: 427px;
+  }
+
+  .You_bio {
+    position: absolute;
+    top:330px;
+    left: 5px;
+    background: none;
+    padding: 12px;
+    h3{
+      padding: 20px 0 10px 0;
+    }
+    p{
+      padding-left: 0;
+    }
+  }
+
+  .Editing_Eve {
+    text-align: center;
+  }
+
+  .calendar_row{
+    width: 100%;
+  }
+
+  .breaktime {
+    margin: 300px 0 50px;
+  }
+}
+
+

@@ -10,7 +10,8 @@
        <% end %>
       <% end %>
       <p class='diaryBody'>
-        <%= @diary.diary_body %>
+        <%#= @diary.diary_body %>
+        <%= simple_format(@diary.diary_body) %>
       </p>
     </div>
       <li class='dLink'>
@@ -20,3 +21,4 @@
   </div>
    <p class='diaryNomal'>Diary</p>
 </div>
+

@@ -18,7 +18,8 @@ def events
   # GET /events.json
   def index
     @q = Event.where(user_id: current_user.id).ransack(params[:q])
-    @events= @q.result.page(params[:page]).per(PER)
+    @event= @q.result.page(params[:page]).per(PER)
+    @events= current_user.events
     respond_to do |format|
       format.html
       format.xml { render :xml => @events }

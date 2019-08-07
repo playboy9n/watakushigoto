@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>わたくしごと！</title>
+    <meta name='viewport' content='width=device-width'>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= favicon_link_tag('favicon.ico') %>
@@ -18,15 +19,13 @@
       <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container-fluid">
           <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed"data-toggle="collapse"data-target="#navbarEexample8">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-            <div class="dark"></div>
-              <span id='watakushigoto'>わたくしごと！</span>
-          </div>
+
+            <div class='dark dark_loader'>
+              <div ckass='loading_anime'></div>
+            </div>
+
+          <span id='watakushigoto' class='col-md-offset-6'>わたくしごと！</span>
+        </div>
 
           <div class="collapse navbar-collapse" id="navbarEexample8">
             <ul class="nav navbar-nav navbar-right">
@@ -53,7 +52,6 @@
               <% end %>
             </ul>
           </div>
-        </div>
       </nav>
     </header>
     <%= yield %>

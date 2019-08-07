@@ -1,6 +1,6 @@
 <div data-turbolinks='false' class="container">
-  <div class="row">
-    <div class="contents col-lg-3">
+  <div class='row'>
+    <div class="contents col-lg-3 TaskPosition">
       <%= render 'layouts/flash' %>
       <% if @top.nil? %>
         <p class="to">これだけやればいいぞ！</p>
@@ -43,11 +43,13 @@
       </div>
     </div>
     <div class='col-lg-3 You_re'>
-      <p class='user_name'><%= @user.user_name %></p>
+      <div class='YouName'>
+        <p class='user_name'><%= @user.user_name %></p>
+      </div>
         <span class='current'><% @user.id %></span>
 
       <%= attachment_image_tag @user, :profile_image, :fill, 200, 200, fallback: "/images/no_image.png", size:'200x200', class: 'img-circle profile-thumb my-img' %>
-
+    <div class='YourLvP'>
       <% if @level != nil %>
         <p>Lv.
         <span id='your_level'><%= @level.lv %></span></p>
@@ -59,6 +61,7 @@
           <progress id='exp_up' value='0' max='200' id='lv_gauge'><span class="lv_up"></span></progress>
       <% end %>
         <p>point:<span id='point_up'><%= @point %></span></p>
+      </div>
     </div>
   </div>
 </div>

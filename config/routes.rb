@@ -21,7 +21,7 @@ Rails.application.routes.draw do
   get '2019/05/01/co' => 'about#secret', as: 'secret'
 
   resources :level, only: [:create, :update]
-  resources :tasks
+  resources :tasks, only: [:index, :create, :update, :destroy]
 
   post 'tasks/top' => 'tasks#top_task_create', as:'task_top'
   patch 'tasks/:id/top' => 'tasks#top_task_update', as:'to'

@@ -4,7 +4,7 @@
     <title>わたくしごと！</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <meta name='viewport' content='width=device-width'>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -14,6 +14,9 @@
   </head>
 
   <body id='about_body'>
+    <div class='dark_loader'>
+      <div ckass='loading_anime'></div>
+    </div>
     <header>
       <div class="col-lg-2" id="about-side">
         <ul>
